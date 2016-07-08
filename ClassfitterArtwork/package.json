@@ -1,0 +1,26 @@
+{
+  "name": "classfitterartwork",
+  "version": "1.0.0",
+  "description": "Artwork for classfitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "grunt": "0.4.x",
+    "grunt-shell": "1.3.x",
+    "grunt-text-replace": "0.4.x",
+    "matchdep": "1.0.x",
+    "grunt-bumpx": "0.2.x",
+    "grunt-bumpup": "0.6.x",
+    "grunt-svg2png": "x"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-svg2png": "^0.2.7",
+    "grunt-text-replace": "^0.4.0",
+    "matchdep": "^1.0.1"
+  }
+}

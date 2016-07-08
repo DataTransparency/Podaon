@@ -1,0 +1,18 @@
+{
+  "name": "classfitterios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "link": "rm -R node_modules; npm link classfitterartwork; npm link; "
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "0.4.*",
+    "grunt-phantom-rasterize": "^2.1.0",
+    "grunt-shell": "^1.3.0",
+    "matchdep": "^1.0.1"
+  }
+}
