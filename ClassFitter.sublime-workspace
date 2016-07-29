@@ -8,10 +8,18 @@
 	"buffers":
 	[
 		{
-			"file": "ClassfitteriOS/package.json",
+			"file": "ClassfitteriOS/Gruntfile.js",
 			"settings":
 			{
-				"buffer_size": 390,
+				"buffer_size": 4306,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/private/etc/hosts",
+			"settings":
+			{
+				"buffer_size": 412,
 				"line_ending": "Unix"
 			}
 		}
@@ -48,17 +56,17 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/jameswood/git/Classfitter",
-		"/Users/jameswood/git/Classfitter/ClassfitterArtwork",
-		"/Users/jameswood/git/Classfitter/ClassfitteriOS",
-		"/Users/jameswood/git/Classfitter/ClassfitteriOS/ClassfitteriOS/Assets.xcassets/AppIcon.appiconset",
-		"/Users/jameswood/git/Classfitter/ClassfitteriOS/ClassfitteriOS/Assets.xcassets/first.imageset"
+		"/Users/jameswood/git/Classfitter"
 	],
 	"file_history":
 	[
+		"/Users/jameswood/git/Classfitter/ClassfitteriOS/Gruntfile.js",
+		"/Users/jameswood/git/Classfitter/ClassfitteriOS/ClassfitteriOS/Info.plist",
+		"/Users/jameswood/git/Classfitter/ClassfitteriOS/node_modules/grunt-plist-version/tasks/index.js",
+		"/Users/jameswood/git/Classfitter/ClassfitteriOS/.gitignore",
+		"/Users/jameswood/git/Classfitter/.gitignore",
 		"/Users/jameswood/git/Classfitter/ClassfitteriOS/package.json",
 		"/Users/jameswood/git/Classfitter/ClassfitterArtwork/package.json",
-		"/Users/jameswood/git/Classfitter/ClassfitteriOS/Gruntfile.js",
 		"/Users/jameswood/git/tsuju/tsuju-package/gruntfile.js",
 		"/Users/jameswood/git/Classfitter/Artwork/package.json",
 		"/Users/jameswood/git/tsuju/tsuju-artwork/package.json",
@@ -105,31 +113,59 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "ClassfitteriOS/package.json",
-					"semi_transient": true,
+					"file": "ClassfitteriOS/Gruntfile.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 390,
+						"buffer_size": 4306,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								358,
-								358
+								381,
+								381
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/private/etc/hosts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 412,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								373,
+								373
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
