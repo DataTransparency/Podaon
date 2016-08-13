@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  ClassfitteriOS
 //
 //  Created by James Wood on 7/7/16.
@@ -8,11 +8,14 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class TodayViewController: UIViewController {
+
+    @IBOutlet weak var mainLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        mainLabel.text = "Hello Today View"
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +23,4 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
