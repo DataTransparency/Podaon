@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C62D982A1D5F8BF500CD8619 /* ForumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D98291D5F8BF500CD8619 /* ForumViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		C62D982C1D5F94CE00CD8619 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D982B1D5F94CE00CD8619 /* ProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C62D982A1D5F8BF500CD8619 /* ForumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D98291D5F8BF500CD8619 /* ForumViewController.swift */; };
+		C62D982C1D5F94CE00CD8619 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D982B1D5F94CE00CD8619 /* ProfileViewController.swift */; };
 		C63921291D2ED1DB0025CFEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63921281D2ED1DB0025CFEB /* AppDelegate.swift */; };
 		C639212B1D2ED1DB0025CFEB /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639212A1D2ED1DB0025CFEB /* TodayViewController.swift */; };
 		C639212D1D2ED1DB0025CFEB /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639212C1D2ED1DB0025CFEB /* MeViewController.swift */; };
@@ -437,13 +437,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: James WOOD (362L7ZMYVA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James WOOD (362L7ZMYVA)";
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "717ad845-b824-463c-97c7-626ecdc4b782";
+				PROVISIONING_PROFILE = "8dd84b0f-b386-487e-b263-9f57f9887dc5";
 			};
 			name = Debug;
 		};
@@ -451,13 +451,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: James WOOD (TQYB6VJLUN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James WOOD (TQYB6VJLUN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: James WOOD (362L7ZMYVA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James WOOD (362L7ZMYVA)";
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "717ad845-b824-463c-97c7-626ecdc4b782";
+				PROVISIONING_PROFILE = "8dd84b0f-b386-487e-b263-9f57f9887dc5";
 			};
 			name = Release;
 		};
