@@ -3,38 +3,44 @@ var pkg2 = require('./package.json');
 
 var shell ={
   stage:{
-    command: "rm -R stage; mkdir stage;",
+    command: "rm -R stage; mkdir stage; mkdir stage/icons; mkdir stage/splash;",
 options:{
       stdout: true,
       stderr: true,
       failOnError: false
     }
   },
-  iosCreateIconsDirectory:{
-    command: "rm -R Resources/Icons/; mkdir Resources/Icons/; rm -R Resources/Splash/; mkdir Resources/Splash/",
-    options:{
-      stdout: true,
-      stderr: true,
-      failOnError: true
-    }
+  icons2asset:{
+    command:"cp stage/icons/*.png ClassfitteriOS/Assets.xcassets/AppIcon.appiconset/"
   }
 };
-var artworkStage = '../node_modules/classfitterartwork/';
-var destination = 'ClassfitteriOS/Resources/';
+
+var artworkFolder = __dirname + '/../ClassfitterArtwork/';
+var destinationFolder = __dirname + '/stage/';
 
 var tasks = [];
 var images = [
-[artworkStage + 'splashShort.svg', 320, 480, destination + '/splash/Default~iphone.png'],
-[artworkStage + 'splashShort.svg', 640, 960, destination + '/splash/Default@2x~iphone.png'],
-[artworkStage + 'splash.svg', 640, 1136, destination + '/splash/Default-568h@2x~iphone.png'],
-[artworkStage + 'splashiPad.svg', 768, 1004, destination + '/splash/Default-Portrait~ipad.png'],
-[artworkStage + 'splashiPad.svg', 1536, 2008, destination + '/splash/Default-Portrait@2x~ipad.png'],
-[artworkStage + 'splashiPadIOS7.svg', 768, 1024, destination + '/splash/Default-Portrait-IOS7~ipad.png'],
-[artworkStage + 'splashiPadIOS7.svg', 1536, 2048, destination + '/splash/Default-Portrait-IOS7@2x~ipad.png'],
-[artworkStage + 'splashiPadLandscape.svg', 1024, 748, destination + '/splash/Default-Landscape~ipad.png'],
-[artworkStage + 'splashiPadLandscape.svg',2048, 1496, destination + '/splash/Default-Landscape@2x~ipad.png'],
-[artworkStage + 'splashiPadLandscapeiOS7.svg', 1024, 768, destination + '/splash/Default-Landscape-iOS7~ipad.png'],
-[artworkStage + 'splashiPadLandscapeiOS7.svg',2048, 1536, destination + '/splash/Default-Landscape-iOS7@2x~ipad.png'],
+['icon.svg', 29, 29, 'icons/Icon29.png'],
+['icon.svg', 40, 40, 'icons/Icon40.png'],
+['icon.svg', 58, 58, 'icons/Icon58.png'],
+['icon.svg', 76, 76, 'icons/Icon76.png'],
+['icon.svg', 80, 80, 'icons/Icon80.png'],
+['icon.svg', 87, 87, 'icons/Icon87.png'],
+['icon.svg', 120, 120, 'icons/Icon120.png'],
+['icon.svg', 152, 152, 'icons/Icon152.png'],
+['icon.svg', 167, 167, 'icons/Icon167.png'],
+['icon.svg', 180, 180, 'icons/Icon180.png'],
+['splashShort.svg', 320, 480, 'splash/Default~iphone.png'],
+['splashShort.svg', 640, 960, 'splash/Default@2x~iphone.png'],
+['splash.svg', 640, 1136, 'splash/Default-568h@2x~iphone.png'],
+['splashiPad.svg', 768, 1004, 'splash/Default-Portrait~ipad.png'],
+['splashiPad.svg', 1536, 2008, 'splash/Default-Portrait@2x~ipad.png'],
+['splashiPadIOS7.svg', 768, 1024, 'splash/Default-Portrait-IOS7~ipad.png'],
+['splashiPadIOS7.svg', 1536, 2048, 'splash/Default-Portrait-IOS7@2x~ipad.png'],
+['splashiPadLandscape.svg', 1024, 748, 'splash/Default-Landscape~ipad.png'],
+['splashiPadLandscape.svg',2048, 1496, 'splash/Default-Landscape@2x~ipad.png'],
+['splashiPadLandscapeiOS7.svg', 1024, 768, 'splash/Default-Landscape-iOS7~ipad.png'],
+['splashiPadLandscapeiOS7.svg',2048, 1536, 'splash/Default-Landscape-iOS7@2x~ipad.png']
 ];
 
 var i = 0;
@@ -45,7 +51,7 @@ images.map(function(sizes){
   var dest = sizes[3].toString();
   var name = sizeX + 'x' + sizeY;
   var src = sizes[0].toString();
-  var command = '/Applications/Inkscape.app/Contents/Resources/bin/inkscape --export-png ' + dest + ' -w ' + sizeX + ' -h '+ sizeY + ' ' + src;
+  var command = '/Applications/Inkscape.app/Contents/Resources/bin/inkscape --export-png ' + destinationFolder + dest + ' -w ' + sizeX + ' -h '+ sizeY + ' ' + artworkFolder + src;
   shell['s' + i.toString()] = {
     command: command,
     options:{
@@ -82,7 +88,7 @@ module.exports = function(grunt) {
       }
     },
     rasterize : {
-    ios : {
+      ios : {
       options: {
         sizes : [
           { width : 29, name : 'Icon29.png' },
@@ -100,7 +106,7 @@ module.exports = function(grunt) {
       files: [
         {
           expand: true,
-          cwd: 'node_modules/classfitterartwork/',
+          cwd: '../classfitterartwork/',
           src: ['icon.svg'],
           dest : '../../ClassfitteriOS/Assets.xcassets/AppIcon.appiconset'
         }
@@ -110,27 +116,11 @@ module.exports = function(grunt) {
   });
 
 
-//{ width : 50, name : 'Icon50.png' },
-//{ width : 72, name : 'Icon72.png' },
-//          { width : 100, name : 'Icon100.png' },
-//          { width : 114, name : 'Icon114.png' },
-//          { width : 144, name : 'icon144.png' },
-//          { width : 512, name : 'Icon512.png' },
-//         { width : 1024, name : 'Icon1024.png' }
-
-
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 
   grunt.registerTask('icons', tasks);
-  grunt.registerTask('build', ['shell:stage', 'shell:iosCreateIconsDirectory', 'icons','shell:ios']);
-
-  grunt.registerTask('development', ['build', 'shell:iosRelease']);
-  grunt.registerTask('production', ['build', 'shell:iosRelease']);
-  grunt.registerTask('test', []);
-  grunt.registerTask('publish', ['bumpup:patch', 'shell:publish']);
-
-
-
+  grunt.registerTask('default', ['shell:stage', 'icons', 'shell:icons2asset']);
+  
 };
