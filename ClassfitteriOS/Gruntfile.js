@@ -93,6 +93,7 @@ module.exports = function(grunt) {
           { width : 87, name : 'Icon87.png' },
           { width : 120, name : 'Icon120.png' },
           { width : 152, name : 'Icon152.png' },
+          { width : 167, name : 'Icon167.png' },
           { width : 180, name : 'Icon180.png' }
         ]
       },
