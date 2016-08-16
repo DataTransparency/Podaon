@@ -17,6 +17,7 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 stage/
+ClassfitteriOS/Assets.xcassets/AppIcon.appiconset/*.png
 
 ## Other
 *.moved-aside
