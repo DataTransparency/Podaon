@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ClassfitteriOS
+@testable import Classfitter
 
 class ClassfitteriOSTests: XCTestCase {
 

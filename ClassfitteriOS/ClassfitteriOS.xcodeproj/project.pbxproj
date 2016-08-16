@@ -465,11 +465,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"BUNDLE_LOADER[arch=*]" = "$(TEST_HOST)";
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClassfitteriOS.app/ClassfitteriOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classfitter.app/Classfitter";
 			};
 			name = Debug;
 		};
@@ -481,7 +482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClassfitteriOS.app/ClassfitteriOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classfitter.app/Classfitter";
 			};
 			name = Release;
 		};
