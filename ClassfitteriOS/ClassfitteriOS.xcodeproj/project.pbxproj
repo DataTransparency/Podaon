@@ -443,7 +443,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "8dd84b0f-b386-487e-b263-9f57f9887dc5";
+				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
 			};
 			name = Debug;
 		};
@@ -457,7 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "8dd84b0f-b386-487e-b263-9f57f9887dc5";
+				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
 			};
 			name = Release;
 		};
