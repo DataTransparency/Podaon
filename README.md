@@ -1,5 +1,2 @@
-# Classfitter - [![Build Status][jenkins-status]]
+# Classfitter - [![Build Status](https://dev.datatransparency.com/jenkins/buildStatus/icon?job=Classfitter)](https://dev.datatransparency.com/jenkins/job/Classfitter/)
 Classfitter Project
-
-
-[jenkins-status]:https://dev.datatransparency.com/jenkins/buildStatus/icon?job=Classfitter
