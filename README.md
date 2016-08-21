@@ -2,8 +2,8 @@
 
 Deployment 
 
-[![GitHub tag](https://img.shields.io/github/tag/classfitter/classfitter.svg?maxAge=2592000)]()
-[![GitHub release](https://img.shields.io/github/release/classfitter/classfitter.svg?maxAge=2592000)]()
+[![GitHub tag](http://jamesjwood-shields.heroku.com/github/tag/classfitter/classfitter.svg?maxAge=2592000)]()
+[![GitHub release](http://jamesjwood-shields.heroku.com/github/release/classfitter/classfitter.svg?maxAge=2592000)]()
 
 Project
 
@@ -12,9 +12,15 @@ Project
 
 Build
 
-[![Jenkins](https://img.shields.io/jenkins/s/https/shields:85414d2036dbf515979da3c07c791c81@dev.datatransparency.com/jenkins/Classfitter.svg)]()
-[![Jenkins](https://img.shields.io/jenkins/t/https/shields:85414d2036dbf515979da3c07c791c81@dev.datatransparency.com/jenkins/Classfitter.svg)]()
-[![Jenkins](https://img.shields.io/jenkins/c/https/shields:85414d2036dbf515979da3c07c791c81@dev.datatransparency.com/jenkins/Classfitter.svg)]()
+[![Jenkins](http://jamesjwood-shields.heroku.com/jenkins/s/https/dev.datatransparency.com/jenkins/Classfitter.svg)]()
+[![Jenkins](http://jamesjwood-shields.heroku.com/jenkins/t/https/dev.datatransparency.com/jenkins/Classfitter.svg)]()
+[![Jenkins](http://jamesjwood-shields.heroku.com/jenkins/c/https/dev.datatransparency.com/jenkins/Classfitter.svg)]()
+
+To be replaced with...
+
+[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/build.svg?maxAge=2592000)]()
+[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/test.svg?maxAge=2592000)]()
+[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/coverage.svg?maxAge=2592000)]()
 
 Classfitter Project
 
