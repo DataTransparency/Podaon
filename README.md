@@ -12,12 +12,6 @@ Project
 
 Build
 
-[![Jenkins](http://jamesjwood-shields.heroku.com/jenkins/s/https/dev.datatransparency.com/jenkins/Classfitter.svg)]()
-[![Jenkins](http://jamesjwood-shields.heroku.com/jenkins/t/https/dev.datatransparency.com/jenkins/Classfitter.svg)]()
-[![Jenkins](http://jamesjwood-shields.heroku.com/jenkins/c/https/dev.datatransparency.com/jenkins/Classfitter.svg)]()
-
-To be replaced with...
-
 [![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/build.svg?maxAge=2592000)]()
 [![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/test.svg?maxAge=2592000)]()
 [![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/coverage.svg?maxAge=2592000)]()
