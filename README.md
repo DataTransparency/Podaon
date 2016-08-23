@@ -12,10 +12,10 @@ Project
 
 Build
 
-[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/build.description.svg?maxAge=2592000&label=build)]()
+[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/build.description.svg?label=build)]()
 [![GitHub status](http://jamesjwood-shields.herokuapp.com/github/status/classfitter/classfitter/unit-tests.description.svg?label=unit%20tests)]()
 [![GitHub status](http://jamesjwood-shields.herokuapp.com/github/status/classfitter/classfitter/ui-tests.description.svg?label=ui%20tests)]()
-[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/coverage.description.svg?maxAge=2592000&label=coverage)]()
+[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/coverage.description.svg?label=coverage)]()
 
 Classfitter Project
 
