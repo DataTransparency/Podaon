@@ -1,5 +1,7 @@
 # Classfitter
 
+Badges here always refer to the master branch
+
 Deployment 
 
 [![GitHub tag](http://jamesjwood-shields.heroku.com/github/tag/classfitter/classfitter.svg?maxAge=2592000)]()
