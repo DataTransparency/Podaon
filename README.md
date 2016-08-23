@@ -7,8 +7,8 @@ Deployment
 
 Project
 
-[![](https://img.shields.io/github/issues-raw/classfitter/classfitter.svg?maxAge=2592000)]()
-[![](https://img.shields.io/github/issues-pr-raw/classfitter/classfitter.svg?maxAge=2592000)]()
+[![GitHub pull requests](http://jamesjwood-shields.heroku.com/github/issues/classfitter/classfitter.svg?maxAge=2592000)]()
+[![GitHub pull requests](http://jamesjwood-shields.heroku.com/github/issues-pr/classfitter/classfitter.svg?maxAge=2592000)]()
 
 Build
 
