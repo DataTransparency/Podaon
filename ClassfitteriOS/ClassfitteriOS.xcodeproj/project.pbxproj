@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C62D982A1D5F8BF500CD8619 /* ForumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D98291D5F8BF500CD8619 /* ForumViewController.swift */; };
-		C62D982C1D5F94CE00CD8619 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D982B1D5F94CE00CD8619 /* ProfileViewController.swift */; };
 		C63921291D2ED1DB0025CFEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63921281D2ED1DB0025CFEB /* AppDelegate.swift */; };
-		C639212B1D2ED1DB0025CFEB /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639212A1D2ED1DB0025CFEB /* TodayViewController.swift */; };
-		C639212D1D2ED1DB0025CFEB /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639212C1D2ED1DB0025CFEB /* MeViewController.swift */; };
 		C63921301D2ED1DB0025CFEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C639212E1D2ED1DB0025CFEB /* Main.storyboard */; };
 		C63921321D2ED1DB0025CFEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63921311D2ED1DB0025CFEB /* Assets.xcassets */; };
 		C63921351D2ED1DB0025CFEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C63921331D2ED1DB0025CFEB /* LaunchScreen.storyboard */; };
 		C63921401D2ED1DB0025CFEB /* ClassfitteriOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639213F1D2ED1DB0025CFEB /* ClassfitteriOSTests.swift */; };
 		C639214B1D2ED1DC0025CFEB /* ClassfitteriOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639214A1D2ED1DC0025CFEB /* ClassfitteriOSUITests.swift */; };
+		C66CC9851D6DFB6A00B9243D /* WorkingUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66CC9841D6DFB6A00B9243D /* WorkingUIViewController.swift */; };
+		C66CC9871D6E024A00B9243D /* LockerRoomUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66CC9861D6E024A00B9243D /* LockerRoomUIViewController.swift */; };
+		C66CC9891D6E13E300B9243D /* ResultsUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66CC9881D6E13E300B9243D /* ResultsUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,12 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C62D98291D5F8BF500CD8619 /* ForumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumViewController.swift; sourceTree = "<group>"; };
-		C62D982B1D5F94CE00CD8619 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C63921251D2ED1DB0025CFEB /* Classfitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classfitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63921281D2ED1DB0025CFEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C639212A1D2ED1DB0025CFEB /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		C639212C1D2ED1DB0025CFEB /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		C639212F1D2ED1DB0025CFEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C63921311D2ED1DB0025CFEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C63921341D2ED1DB0025CFEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +48,9 @@
 		C63921461D2ED1DC0025CFEB /* ClassfitteriOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassfitteriOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C639214A1D2ED1DC0025CFEB /* ClassfitteriOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassfitteriOSUITests.swift; sourceTree = "<group>"; };
 		C639214C1D2ED1DC0025CFEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C66CC9841D6DFB6A00B9243D /* WorkingUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingUIViewController.swift; sourceTree = "<group>"; };
+		C66CC9861D6E024A00B9243D /* LockerRoomUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockerRoomUIViewController.swift; sourceTree = "<group>"; };
+		C66CC9881D6E13E300B9243D /* ResultsUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,11 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				C62D98281D5F88B800CD8619 /* Supporting Files */,
-				C639212A1D2ED1DB0025CFEB /* TodayViewController.swift */,
-				C639212C1D2ED1DB0025CFEB /* MeViewController.swift */,
 				C639212E1D2ED1DB0025CFEB /* Main.storyboard */,
-				C62D98291D5F8BF500CD8619 /* ForumViewController.swift */,
-				C62D982B1D5F94CE00CD8619 /* ProfileViewController.swift */,
+				C66CC9841D6DFB6A00B9243D /* WorkingUIViewController.swift */,
+				C66CC9861D6E024A00B9243D /* LockerRoomUIViewController.swift */,
+				C66CC9881D6E13E300B9243D /* ResultsUIViewController.swift */,
 			);
 			path = ClassfitteriOS;
 			sourceTree = "<group>";
@@ -291,11 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C639212D1D2ED1DB0025CFEB /* MeViewController.swift in Sources */,
+				C66CC9851D6DFB6A00B9243D /* WorkingUIViewController.swift in Sources */,
+				C66CC9871D6E024A00B9243D /* LockerRoomUIViewController.swift in Sources */,
 				C63921291D2ED1DB0025CFEB /* AppDelegate.swift in Sources */,
-				C62D982C1D5F94CE00CD8619 /* ProfileViewController.swift in Sources */,
-				C62D982A1D5F8BF500CD8619 /* ForumViewController.swift in Sources */,
-				C639212B1D2ED1DB0025CFEB /* TodayViewController.swift in Sources */,
+				C66CC9891D6E13E300B9243D /* ResultsUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
