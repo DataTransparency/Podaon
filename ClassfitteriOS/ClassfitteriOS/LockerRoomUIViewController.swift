@@ -22,21 +22,19 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
     @IBOutlet weak var txtNewMessage: UITextField!
 
     @IBAction func beginWorkout(sender: UIButton) {
-
-        let workingViewController: WorkingUIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("WorkingViewController") as! WorkingUIViewController
-        workingViewController.delegate = self
-        self.presentViewController(workingViewController as UIViewController, animated: true, completion: nil)
+        let uic: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("WorkingViewController"))!
+        let workingViewController: WorkingUIViewController? = uic as? WorkingUIViewController
+        workingViewController?.delegate = self
+        self.presentViewController(uic, animated: true, completion: nil)
     }
 
     func endWorkout(controller: WorkingUIViewController) {
 
         controller.dismissViewControllerAnimated(true, completion: {
-
-            let resultsUIViewController: ResultsUIViewController
-            resultsUIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsUIViewController") as! ResultsUIViewController
-            resultsUIViewController.delegate = self
-             self.presentViewController(resultsUIViewController as UIViewController, animated: true, completion: nil)
-
+            let uic: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("ResultsUIViewController"))!
+            let resultsUIViewController: ResultsUIViewController? = uic as? ResultsUIViewController
+            resultsUIViewController?.delegate = self
+            self.presentViewController(uic, animated: true, completion: nil)
         })
 
     }
