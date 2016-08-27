@@ -12,7 +12,6 @@ class ClassfitteriOSUITests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -31,6 +30,13 @@ class ClassfitteriOSUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        app.buttons["Enter"].tap()
+        app.buttons["Send"].tap()
+        let doneButton = app.buttons["Done"]
+        doneButton.tap()
+        doneButton.tap()
+        app.navigationBars["Locker room"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
     }
 
 }
