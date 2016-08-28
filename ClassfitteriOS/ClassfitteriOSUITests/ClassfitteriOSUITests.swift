@@ -27,14 +27,14 @@ class ClassfitteriOSUITests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testBasicNavigation() {
         let app = XCUIApplication()
         app.buttons["Enter"].tap()
         app.buttons["Send"].tap()
-        app.buttons["Done"].tap()
+        let doneButton = app.buttons["Done"]
+        doneButton.tap()
+        doneButton.tap()
         app.navigationBars["Locker room"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
     }
-    
+
 }

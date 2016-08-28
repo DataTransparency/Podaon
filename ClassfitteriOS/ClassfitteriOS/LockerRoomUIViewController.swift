@@ -14,7 +14,7 @@ import UIKit
 class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDelegate, ResultsUIViewControllerDelegate {
 
     override func viewDidAppear(animated: Bool) {
-        txtNewMessage?.becomeFirstResponder()
+        // txtNewMessage?.becomeFirstResponder()
     }
 
 
@@ -29,16 +29,13 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
     }
 
     func endWorkout(controller: WorkingUIViewController) {
-
         controller.dismissViewControllerAnimated(true, completion: {
             let uic: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("ResultsUIViewController"))!
             let resultsUIViewController: ResultsUIViewController? = uic as? ResultsUIViewController
             resultsUIViewController?.delegate = self
             self.presentViewController(uic, animated: true, completion: nil)
         })
-
     }
-
 
     func endResults(controller: ResultsUIViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
