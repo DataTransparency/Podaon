@@ -1,70 +1,74 @@
-#VERSION
-echo "Getting version from payload:"
-VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
-echo "${VERSION_NUMBER}" > version.txt
-cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'versioning: '${VERSION_NUMBER} ${BUILD_URL}
+BUILD_DIR="${WORKSPACE}/ClassfitteriOS/build"
+ARCHIVE_DIR="${BUILD_DIR}/archive"
+EXPORT_DIR="${BUILD_DIR}/export"
+EXPORT_CHECK_DIR="${BUILD_DIR}/export_check"
+UPLOAD_DIR="${BUILD_DIR}/upload"
+UPLOAD_CHECK_DIR="${BUILD_DIR}/upload_check"
+VERSION_FILE="${BUILD_DIR}/version.txt"
+STATUS_FILE=${BUILD_DIR}/status.txt
+
+
+rm -rf ${BUILD_DIR}
+mkdir ${BUILD_DIR}
+cat <<EOM > ${STATUS_FILE}
+failure
+EOM
+
+cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'build' 'pending' 'running' ${BUILD_URL}
+cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' 'pending' 'running' ${BUILD_URL}
+cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
+cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
+
 cd ClassfitteriOS
-agvtool new-marketing-version ${VERSION_NUMBER}
 agvtool new-version -all ${BUILD_NUMBER}
 cd ..
 
 #ARCHIVE
-cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'archiving' ${BUILD_URL}
+mkdir ${ARCHIVE_DIR}
 cd ClassfitteriOS
-rm -rf build
-/usr/bin/xcodebuild -target ClassfitteriOS -configuration Release -scheme ClassfitteriOS  -archivePath build/artifacts/ClassfitteriOS archive
+/usr/bin/xcodebuild -target ClassfitteriOS -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
 
 #EXPORT
-cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'exporting' ${BUILD_URL}
-xcrun xcodebuild -exportArchive -exportOptionsPlist exportOptions.plist -archivePath build/artifacts/ClassfitteriOS.xcarchive -exportPath build/artifacts
-cd build
-unzip -q ClassfitteriOS.ipa
-cd build
-cd Payload
-xcrun codesign -dv Classfitter.app
-cd ..
-
-#UPLOAD
-cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'bundling' ${BUILD_URL}
-set -ex
-
-ARTIFACTS="${WORKSPACE}/ClassfitteriOS/build/artifacts"
-IPA_FILE="${ARTIFACTS}/*.ipa"
-IPA_FILENAME=$(basename $IPA_FILE)
-MD5=$(md5 -q $IPA_FILE)
-BYTESIZE=$(stat -f "%z" $IPA_FILE)
-TEMPDIR=itmsp
-
-test -d ${TEMPDIR} && rm -rf ${TEMPDIR}
-mkdir ${TEMPDIR}
-mkdir ${TEMPDIR}/mybundle.itmsp
-cat <<EOM > ${TEMPDIR}/mybundle.itmsp/metadata.xml
+mkdir ${EXPORT_DIR}
+cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
 <?xml version="1.0" encoding="UTF-8"?>
-<package xmlns="http://apple.com/itunes/importer" version="software5.1">
-	<provider>$PROVIDER</provider>
-	<team_id>$TEAMID</team_id>
-	<software>
-		<vendor_id>$VENDORID</vendor_id>
-		<software_assets>
-			<asset type="bundle">
-				<data_file>
-					<size>$BYTESIZE</size>
-					<file_name>$IPA_FILENAME</file_name>
-					<checksum type="md5">$MD5</checksum>
-				</data_file>
-			</asset>
-		</software_assets>
-	</software>
-</package>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>teamID</key>
+        <string>TQYB6VJLUN</string>
+        <key>method</key>
+        <string>ad-hoc</string>
+        <key>uploadSymbols</key>
+        <true/>
+		<key>manifest</key>
+		<dict>
+			<key>appURL</key>
+			<string>https://dev.datatransparency.com/jenkins/job/Classfitter/${BUILD_NUMBER}/artifact/ClassfitteriOS/build/export/ClassfitteriOS.ipa</string>
+			<key>displayImageURL</key>
+			<string>https://dev.datatransparency.com/jenkins/job/Classfitter/${BUILD_NUMBER}/artifact/ClassfitteriOS/build/export/icon57.png</string>
+			<key>fullSizeImageURL</key>
+			<string>https://dev.datatransparency.com/jenkins/job/Classfitter/${BUILD_NUMBER}/artifact/ClassfitteriOS/build/export/icon512.png</string>
+		</dict>
+</dict>
+</plist>
 EOM
-cp ${IPA_FILE} ${TEMPDIR}/mybundle.itmsp
-ITMSP_FILE_PATH=${TEMPDIR}/mybundle.itmsp
-cp -rf $ITMSP_FILE_PATH ${ARTIFACTS}/mybundle.itmsp
-/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m lookupMetadata -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -vendor_id ${VENDORID} -destination ${TEMPDIR}
-/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m verify -f ${TEMPDIR} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -v detailed
 
-echo "Setting status to pending with payload:"
-cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'uploading' ${BUILD_URL}
-#/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${TEMPDIR} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} --upload
-echo "Setting status to success with payload:"
-cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'success' 'deployed' ${BUILD_URL}
+xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/ClassfitteriOS.xcarchive -exportPath ${EXPORT_DIR}
+
+cat <<EOM > ${EXPORT_DIR}/index.html
+<a href="itms-services://?action=download-manifest&amp;url=https://dev.datatransparency.com/jenkins/job/Classfitter/${BUILD_NUMBER}/artifact/ClassfitteriOS/build/export/manifest.plist">click this link to install</a>
+EOM
+
+
+#CHECK EXPORT
+IPA_FILE=${EXPORT_DIR}/ClassfitteriOS.ipa
+unzip -q  ${IPA_FILE} -d ${EXPORT_CHECK_DIR}
+xcrun codesign -dv ${EXPORT_CHECK_DIR}/Payload/Classfitter.app
+
+cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'build' 'success' 'passing' ${BUILD_URL}
+
+rm -rf ${STATUS_FILE}
+cat <<EOM > ${BUILD_DIR}/status.txt
+success
+EOM

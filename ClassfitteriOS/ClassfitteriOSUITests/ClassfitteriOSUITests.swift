@@ -33,10 +33,7 @@ class ClassfitteriOSUITests: XCTestCase {
         let app = XCUIApplication()
         app.buttons["Enter"].tap()
         app.buttons["Send"].tap()
-        let doneButton = app.buttons["Done"]
-        doneButton.tap()
-        doneButton.tap()
+        app.buttons["Done"].tap()
         app.navigationBars["Locker room"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
     }
-
 }

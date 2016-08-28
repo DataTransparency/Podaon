@@ -9,18 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "grunt": "0.4.x",
-    "grunt-shell": "1.3.x",
-    "grunt-text-replace": "0.4.x",
-    "matchdep": "1.0.x",
-    "grunt-bumpx": "0.2.x",
-    "grunt-bumpup": "0.6.x",
-    "grunt-svg2png": "x"
+    "grunt": "0.4.x"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-svg2png": "^0.2.7",
-    "grunt-text-replace": "^0.4.0",
+    "grunt-phantom-rasterize": "^2.1.0",
     "matchdep": "^1.0.1"
   }
 }
