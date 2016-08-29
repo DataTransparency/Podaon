@@ -17,7 +17,6 @@ protocol WorkingUIViewControllerDelegate: AnyObject {
 class WorkingUIViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
-        FIRCrashMessage("Cause Crash button clicked")
     }
 
     var originalOrientation: Int?
