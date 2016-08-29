@@ -29,9 +29,7 @@ cd ..
 
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
-cd ClassfitteriOS
-/usr/bin/xcodebuild -target ClassfitteriOS -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
-
+/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
 #EXPORT
 mkdir ${EXPORT_DIR}
 cat <<EOM > ${EXPORT_DIR}/exportOptions.plist

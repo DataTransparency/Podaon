@@ -42,8 +42,6 @@ cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
         <string>ad-hoc</string>
         <key>uploadSymbols</key>
         <true/>
-		<key>compileBitcode</key>
-        <false/>
 		<key>manifest</key>
 		<dict>
 			<key>appURL</key>
