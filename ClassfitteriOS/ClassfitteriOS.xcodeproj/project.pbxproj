@@ -638,15 +638,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "21367793-6aea-488d-bccf-70ecaad1fefb";
-				PROVISIONING_PROFILE_SPECIFIER = "XC Ad Hoc: com.classfitter.classfitterios";
+				PROVISIONING_PROFILE = "be2d5807-9500-4541-a610-9bec53db635c";
+				PROVISIONING_PROFILE_SPECIFIER = "Classfitter Development Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 2.3;
 			};
@@ -665,8 +665,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
-				PROVISIONING_PROFILE_SPECIFIER = ClassfitterDistribution;
+				PROVISIONING_PROFILE = "2887cdf2-4dfd-435b-bd27-0f968ae64f6f";
+				PROVISIONING_PROFILE_SPECIFIER = "Classfitter Ad-Hoc Provisioning Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 2.3;
 			};

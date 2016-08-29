@@ -14,7 +14,7 @@ mkdir ${BUILD_DIR}
 cat <<EOM > ${STATUS_FILE}
 failure
 EOM
-if [ $ENVIRONMENT = 'build' ]; then
+if [[ $ENVIRONMENT == 'build' ]]; then
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'build' 'pending' 'running' ${BUILD_URL}
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' 'pending' 'running' ${BUILD_URL}
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
@@ -42,6 +42,8 @@ cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
         <string>ad-hoc</string>
         <key>uploadSymbols</key>
         <true/>
+		<key>compileBitcode</key>
+        <false/>
 		<key>manifest</key>
 		<dict>
 			<key>appURL</key>
@@ -55,6 +57,7 @@ cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
 </plist>
 EOM
 
+echo "Exporting with command: xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/ClassfitteriOS.xcarchive -exportPath ${EXPORT_DIR} -exportProvisioningProfile ""21367793-6aea-488d-bccf-70ecaad1fefb"""
 xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/ClassfitteriOS.xcarchive -exportPath ${EXPORT_DIR}
 
 cat <<EOM > ${EXPORT_DIR}/index.html
