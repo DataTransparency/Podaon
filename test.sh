@@ -5,10 +5,11 @@ EXPORT_CHECK_DIR="${BUILD_DIR}/export_check"
 UPLOAD_DIR="${BUILD_DIR}/upload"
 UPLOAD_CHECK_DIR="${BUILD_DIR}/upload_check"
 VERSION_FILE="${BUILD_DIR}/version.txt"
+COVERAGE_DIR="${BUILD_DIR}/coverage"
 STATUS_FILE=${BUILD_DIR}/status.txt
 
 
-/usr/bin/xcodebuild -scheme ClassfitteriOS -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug build test -destination "platform=iOS Simulator,name=iPhone 6,OS=9.3" -enableCodeCoverage YES -IDECustomDerivedDataLocation=${BUILD_DIR}/build_ccov
+/usr/bin/xcodebuild -scheme ClassfitteriOS -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug build test -destination "platform=iOS Simulator,name=iPhone 6,OS=9.3" -enableCodeCoverage YES -IDECustomDerivedDataLocation=${COVERAGE_DIR}/
 
 
 if [[ $ENVIRONMENT == 'build' ]]; then
@@ -26,4 +27,4 @@ if [[ $ENVIRONMENT == 'build' ]]; then
     fi
 fi
 # generate gcovr+cobertura report
-/usr/local/bin/gcovr --object-directory="${BUILD_DIR}/build_ccov/ClassfitteriOS-empfmnxgxdnzlbbyrdpbmibjjmyn/Logs/Test/" --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${BUILD_DIR}/coverage.xml"
+/usr/local/bin/gcovr --object-directory="${COVERAGE_DIR}/ClassfitteriOS-empfmnxgxdnzlbbyrdpbmibjjmyn/Logs/Test/" --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${BUILD_DIR}/coverage.xml"

@@ -665,8 +665,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "2887cdf2-4dfd-435b-bd27-0f968ae64f6f";
-				PROVISIONING_PROFILE_SPECIFIER = "Classfitter Ad-Hoc Provisioning Profile";
+				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
+				PROVISIONING_PROFILE_SPECIFIER = ClassfitterDistribution;
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 2.3;
 			};

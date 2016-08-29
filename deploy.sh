@@ -21,7 +21,9 @@ VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
 
 #VERSION
-cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
+if [[ $ENVIRONMENT == 'build' ]]; then
+	cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
+fi
 cd ClassfitteriOS
 agvtool new-marketing-version ${VERSION_NUMBER}
 agvtool new-version -all ${BUILD_NUMBER}
@@ -30,6 +32,7 @@ cd ..
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
 /usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
+
 #EXPORT
 mkdir ${EXPORT_DIR}
 cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
@@ -89,13 +92,16 @@ mkdir ${UPLOAD_CHECK_DIR}
 /Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m lookupMetadata -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -vendor_id ${VENDORID} -destination ${UPLOAD_CHECK_DIR}
 /Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m verify -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -v detailed
 
-#UPLOAD
-echo "Setting status to pending with payload:"
-/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} 
-#--upload
 
-#CREATE GITHUB RELEASE AND TAG
-curl -d '{"tag_name":"v${VERSION_NUMBER}+${BUILD_NUMBER}","name":"v${VERSION_NUMBER}+${BUILD_NUMBER}"}' -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/classfitter/classfitter/releases
+if [[ $ENVIRONMENT == 'build' ]]; then
+	#UPLOAD
+	echo "Setting status to pending with payload:"
+	/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} 
+	#--upload
+
+	#CREATE GITHUB RELEASE AND TAG
+	curl -d '{"tag_name":"v${VERSION_NUMBER}+${BUILD_NUMBER}","name":"v${VERSION_NUMBER}+${BUILD_NUMBER}"}' -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/classfitter/classfitter/releases
+if
 
 rm -rf ${STATUS_FILE}
 cat <<EOM > ${BUILD_DIR}/status.txt
