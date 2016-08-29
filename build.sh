@@ -16,9 +16,6 @@ failure
 EOM
 if [[ $ENVIRONMENT == 'build' ]]; then
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'build' 'pending' 'running' ${BUILD_URL}
-cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' 'pending' 'running' ${BUILD_URL}
-cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
-cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
 fi
 
 cd ClassfitteriOS
@@ -68,9 +65,6 @@ IPA_FILE=${EXPORT_DIR}/ClassfitteriOS.ipa
 unzip -q  ${IPA_FILE} -d ${EXPORT_CHECK_DIR}
 xcrun codesign -dv ${EXPORT_CHECK_DIR}/Payload/Classfitter.app
 
-if [ $ENVIRONMENT = 'build' ]; then
-cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'build' 'success' 'passing' ${BUILD_URL}
-fi
 rm -rf ${STATUS_FILE}
 cat <<EOM > ${BUILD_DIR}/status.txt
 success
