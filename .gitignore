@@ -39,6 +39,8 @@ jspm_packages
 ClassfitteriOS/stage
 itmsp
 version.txt
+ClassfitteriOS/build
+ClassfitteriOS/test
 ClassfitteriOS/Pods
 ClassfitteriOS/FirebaseCrashServiceAccount.json
 ClassfitteriOS/GoogleService-Info.plist
@@ -49,3 +51,4 @@ ClassfitteriOS/FirebaseServiceAccount.json
 .vscode/.browse.VC.db-wal
 
 .vscode/.browse.VC.db
+
