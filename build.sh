@@ -7,17 +7,19 @@ UPLOAD_CHECK_DIR="${BUILD_DIR}/upload_check"
 VERSION_FILE="${BUILD_DIR}/version.txt"
 STATUS_FILE=${BUILD_DIR}/status.txt
 
+defaults write com.apple.dt.Xcode UseSanitizedBuildSystemEnvironment -bool NO
 
 rm -rf ${BUILD_DIR}
 mkdir ${BUILD_DIR}
 cat <<EOM > ${STATUS_FILE}
 failure
 EOM
-
+if [ $ENVIRONMENT = 'build' ]; then
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'build' 'pending' 'running' ${BUILD_URL}
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' 'pending' 'running' ${BUILD_URL}
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
+fi
 
 cd ClassfitteriOS
 agvtool new-version -all ${BUILD_NUMBER}
@@ -25,8 +27,7 @@ cd ..
 
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
-cd ClassfitteriOS
-/usr/bin/xcodebuild -target ClassfitteriOS -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
+/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
 
 #EXPORT
 mkdir ${EXPORT_DIR}
@@ -66,8 +67,9 @@ IPA_FILE=${EXPORT_DIR}/ClassfitteriOS.ipa
 unzip -q  ${IPA_FILE} -d ${EXPORT_CHECK_DIR}
 xcrun codesign -dv ${EXPORT_CHECK_DIR}/Payload/Classfitter.app
 
+if [ $ENVIRONMENT = 'build' ]; then
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'build' 'success' 'passing' ${BUILD_URL}
-
+fi
 rm -rf ${STATUS_FILE}
 cat <<EOM > ${BUILD_DIR}/status.txt
 success

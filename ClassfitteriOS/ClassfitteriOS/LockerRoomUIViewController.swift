@@ -8,13 +8,18 @@
 
 import Foundation
 import UIKit
-
+import Firebase
 
 
 class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDelegate, ResultsUIViewControllerDelegate {
 
     override func viewDidAppear(animated: Bool) {
         // txtNewMessage?.becomeFirstResponder()
+        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+            kFIRParameterContentType: "cont",
+            kFIRParameterItemID: "1"
+            ])
+
     }
 
 

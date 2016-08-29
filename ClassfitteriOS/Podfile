@@ -6,16 +6,23 @@ target 'ClassfitteriOS' do
   use_frameworks!
 
   # Pods for ClassfitteriOS
-    pod 'Google/Analytics'
-
+    pod 'Firebase'
+    pod 'Firebase/Core'
+    pod 'Firebase/Crash'
   target 'ClassfitteriOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Firebase'
+    pod 'Firebase/Core'
+    pod 'Firebase/Crash'
   end
 
   target 'ClassfitteriOSUITests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Firebase'
+    pod 'Firebase/Core'
+    pod 'Firebase/Crash'
   end
 
 end

@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A304a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3g-X5-mEH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A304a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T3g-X5-mEH">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Welcome-->
         <scene sceneID="51r-UB-hjm">
             <objects>
-                <viewController storyboardIdentifier="WelcomeUIViewController" title="Welcome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="G0j-6x-TZF" customClass="WelcomeUIViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeUIViewController" title="Welcome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="G0j-6x-TZF" customClass="WelcomeUIViewController" customModule="Classfitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rTH-SZ-dfN"/>
                         <viewControllerLayoutGuide type="bottom" id="MYc-3h-VcV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X1y-ua-feC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="WelcomeMessage" text="Wecome to classfitter. The next workout starts in 3 minutes. Click enter below to join the locker room." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eh-Af-dP2" userLabel="WelcomeLabel">
-                                <rect key="frame" x="30" y="280" width="540" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="WelcomeMessage" text="Wecome to classfitter. The next workout starts in 3 minutes. Click enter below to join the locker room." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eh-Af-dP2" userLabel="WelcomeLabel">
+                                <frame key="frameInset" minX="30" minY="280" width="540" height="40"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N50-uR-uJm">
-                                <rect key="frame" x="281" y="378" width="37" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N50-uR-uJm">
+                                <frame key="frameInset" minX="281" minY="378" width="37" height="30"/>
                                 <state key="normal" title="Enter"/>
                                 <connections>
                                     <segue destination="Scl-vc-vsc" kind="show" id="4gK-vF-KfF"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="7eh-Af-dP2" secondAttribute="trailing" constant="10" id="Nyq-AB-kr1"/>
                             <constraint firstItem="7eh-Af-dP2" firstAttribute="leading" secondItem="X1y-ua-feC" secondAttribute="leadingMargin" constant="10" id="WJ1-u8-5jZ"/>
@@ -55,26 +56,26 @@
                         <viewControllerLayoutGuide type="bottom" id="xB0-0L-cYR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KgK-lD-67F">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dnu-3n-OJg" userLabel="EnterMessageVIew">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <frame key="frameInset" minY="550" width="600" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jy3-Da-UP3">
-                                        <rect key="frame" x="8" y="10" width="529" height="30"/>
+                                        <frame key="frameInset" minX="8" minY="10" width="529" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IX-rq-Kuw">
-                                        <rect key="frame" x="545" y="10" width="36" height="30"/>
+                                        <frame key="frameInset" minX="545" minY="10" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
                                         <connections>
                                             <action selector="beginWorkout:" destination="Scl-vc-vsc" eventType="touchUpInside" id="Gw1-XT-hs8"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Jy3-Da-UP3" firstAttribute="bottom" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="-10" id="1c0-FZ-Gup"/>
                                     <constraint firstItem="Jy3-Da-UP3" firstAttribute="trailing" secondItem="9IX-rq-Kuw" secondAttribute="leading" constant="-5" id="3Ns-1H-uay"/>
@@ -85,7 +86,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Dnu-3n-OJg" firstAttribute="bottom" secondItem="KgK-lD-67F" secondAttribute="bottom" id="8il-iu-ejf"/>
                             <constraint firstItem="Dnu-3n-OJg" firstAttribute="leading" secondItem="KgK-lD-67F" secondAttribute="leadingMargin" constant="-20" id="hHG-7A-caB"/>
@@ -109,26 +110,27 @@
                         <viewControllerLayoutGuide type="bottom" id="TNn-pt-BtN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2gf-dZ-yya">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Working out Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bME-n8-pqZ">
-                                <rect key="frame" x="189" y="195" width="132" height="21"/>
+                                <frame key="frameInset" minX="189" minY="195" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecq-oo-Noe">
-                                <rect key="frame" x="251" y="340" width="37" height="30"/>
+                                <frame key="frameInset" minX="251" minY="340" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="workoutComplete:" destination="HTx-nx-cZG" eventType="touchUpInside" id="SzY-aq-4Ig"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgm-zj-dup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,24 +145,26 @@
                         <viewControllerLayoutGuide type="bottom" id="4sk-TA-NN5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kE8-AJ-KuA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show workout results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leC-UR-oCQ">
-                                <rect key="frame" x="173" y="160" width="164" height="21"/>
+                                <frame key="frameInset" minX="173" minY="160" width="164" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohk-YM-XfC">
-                                <rect key="frame" x="216" y="222" width="37" height="30"/>
+                                <frame key="frameInset" minX="216" minY="222" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="closeResults:" destination="JkB-S5-X3B" eventType="touchUpInside" id="VLE-Ys-5X0"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBv-JA-vwU" userLabel="First Responder" sceneMemberID="firstResponder"/>

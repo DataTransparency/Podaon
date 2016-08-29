@@ -40,3 +40,8 @@ ClassfitteriOS/stage
 itmsp
 version.txt
 ClassfitteriOS/Pods
+ClassfitteriOS/FirebaseCrashServiceAccount.json
+
+ClassfitteriOS/GoogleService-Info.plist
+
+ClassfitteriOS/FirebaseServiceAccount.json

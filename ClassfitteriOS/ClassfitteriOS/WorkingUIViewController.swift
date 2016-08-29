@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 protocol WorkingUIViewControllerDelegate: AnyObject {
     func endWorkout(controller: WorkingUIViewController)
@@ -16,6 +17,7 @@ protocol WorkingUIViewControllerDelegate: AnyObject {
 class WorkingUIViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
+        FIRCrashMessage("Cause Crash button clicked")
     }
 
     var originalOrientation: Int?
