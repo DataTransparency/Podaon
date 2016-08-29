@@ -268,7 +268,7 @@
 					C63921241D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = TQYB6VJLUN;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C639213A1D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -638,15 +638,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "21367793-6aea-488d-bccf-70ecaad1fefb";
+				PROVISIONING_PROFILE_SPECIFIER = "XC Ad Hoc: com.classfitter.classfitterios";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 2.3;
 			};
@@ -658,15 +658,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
+				PROVISIONING_PROFILE_SPECIFIER = ClassfitterDistribution;
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 2.3;
 			};
