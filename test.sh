@@ -27,12 +27,3 @@ if [[ $ENVIRONMENT == 'build' ]]; then
 fi
 # generate gcovr+cobertura report
 /usr/local/bin/gcovr --object-directory="${BUILD_DIR}/build_ccov/ClassfitteriOS-empfmnxgxdnzlbbyrdpbmibjjmyn/Logs/Test/" --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${BUILD_DIR}/coverage.xml"
-
-if [[ $ENVIRONMENT == 'build' ]]; then
-    if [ ! -f ${BUILD_DIR}/coverage.xml ]
-    then
-    cftool setGitHubStatus 'classfitter' 'classfitter' ${GIT_COMMIT} 'coverage' 'error' 'no coverage found' ${BUILD_URL}
-    else
-    cftool setGitHubStatus 'classfitter' 'classfitter' ${GIT_COMMIT} 'coverage' 'success' '0%' ${BUILD_URL}
-    fi
-fi
