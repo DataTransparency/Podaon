@@ -401,7 +401,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ": \"${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"FirebaseServiceAccount.json\"";
-			showEnvVarsInLog = 0;
 		};
 		944B2B73488F91FEA54AF866 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -641,6 +640,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				DEVELOPMENT_TEAM = TQYB6VJLUN;
+				GOOGLE_AP_ID = "GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61";
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
@@ -661,6 +661,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				DEVELOPMENT_TEAM = TQYB6VJLUN;
+				GOOGLE_AP_ID = "GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61";
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
