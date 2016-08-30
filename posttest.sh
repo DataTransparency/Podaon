@@ -31,6 +31,6 @@ if [[ $TEST_STATUS == 'success' ]]; then
     fi
 else
     cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} unit-tests 'error' 'error' ${BUILD_URL}
-    cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} tests 'error' 'error' ${BUILD_URL}
+    cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} ui-tests 'error' 'error' ${BUILD_URL}
     cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} coverage 'error' 'error' ${BUILD_URL}
 fi  
