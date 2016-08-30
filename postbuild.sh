@@ -15,4 +15,6 @@ if [[ $ENVIRONMENT == 'CI' ]]; then
     else
         cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} build 'failure' 'failed' ${BUILD_URL}
     fi
+else
+    echo "The build status is: ${BUILD_STATUS}"
 fi

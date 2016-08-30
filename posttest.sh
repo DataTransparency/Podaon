@@ -7,7 +7,6 @@
 TEST_DIR="${WORKSPACE}/ClassfitteriOS/test"
 COVERAGE_DIR="${TEST_DIR}/coverage"
 TEST_STATUS_FILE="${TEST_DIR}/status.txt"
-
 TEST_STATUS=`cat ${TEST_STATUS_FILE}`
 
 if [[ $ENVIRONMENT == 'CI' ]]; then
@@ -35,4 +34,6 @@ if [[ $ENVIRONMENT == 'CI' ]]; then
         cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} tests 'error' 'error' ${BUILD_URL}
         cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} coverage 'error' 'error' ${BUILD_URL}
     fi  
+else
+    echo "The test status is: ${TEST_STATUS}"
 fi
