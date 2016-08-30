@@ -1,17 +1,17 @@
 PAYLOAD_FILE=${WORKSPACE}/${BUILD_NUMBER}payload.json
-BUILD_DIR="${WORKSPACE}/ClassfitteriOS/build"
-ARCHIVE_DIR="${BUILD_DIR}/archive"
-EXPORT_DIR="${BUILD_DIR}/export"
-EXPORT_CHECK_DIR="${BUILD_DIR}/export_check"
-UPLOAD_DIR="${BUILD_DIR}/upload"
-UPLOAD_CHECK_DIR="${BUILD_DIR}/upload_check"
-VERSION_FILE="${BUILD_DIR}/version.txt"
-FULL_VERSION_FILE="${BUILD_DIR}/fullversion.txt"
-STATUS_FILE=${BUILD_DIR}/status.txt
+DEPLOY_DIRECTORY="${WORKSPACE}/ClassfitteriOS/deploy"
+ARCHIVE_DIR="${DEPLOY_DIRECTORY}/archive"
+EXPORT_DIR="${DEPLOY_DIRECTORY}/export"
+EXPORT_CHECK_DIR="${DEPLOY_DIRECTORY}/export_check"
+UPLOAD_DIR="${DEPLOY_DIRECTORY}/upload"
+UPLOAD_CHECK_DIR="${DEPLOY_DIRECTORY}/upload_check"
+VERSION_FILE="${DEPLOY_DIRECTORY}/version.txt"
+FULL_VERSION_FILE="${DEPLOY_DIRECTORY}/fullversion.txt"
+DEPLOY_STATUS_FILE="${DEPLOY_DIRECTORY}/status.txt"
 
-rm -rf ${BUILD_DIR}
-mkdir ${BUILD_DIR}
-cat <<EOM > ${STATUS_FILE}
+rm -rf ${DEPLOY_DIRECTORY}
+mkdir ${DEPLOY_DIRECTORY}
+cat <<EOM > ${DEPLOY_STATUS_FILE}
 failure
 EOM
 
@@ -103,8 +103,8 @@ if [[ $ENVIRONMENT == 'build' ]]; then
 	curl -d '{"tag_name":"v${VERSION_NUMBER}+${BUILD_NUMBER}","name":"v${VERSION_NUMBER}+${BUILD_NUMBER}"}' -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/classfitter/classfitter/releases
 if
 
-rm -rf ${STATUS_FILE}
-cat <<EOM > ${BUILD_DIR}/status.txt
+rm -rf ${DEPLOY_STATUS_FILE}
+cat <<EOM > ${DEPLOY_DIRECTORY}/status.txt
 success
 EOM
 

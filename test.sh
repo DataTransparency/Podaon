@@ -1,6 +1,6 @@
 TEST_DIR="${WORKSPACE}/ClassfitteriOS/test"
 COVERAGE_DIR="${TEST_DIR}/coverage"
-TEST_STATUS_FILE=${TEST_DIR}/status.txt
+TEST_STATUS_FILE="${TEST_DIR}/status.txt"
 
 rm -rf ${TEST_DIR}
 mkdir ${TEST_DIR}
@@ -36,6 +36,6 @@ cp -r ${TEST_DIR}/**/Logs/Test/ ${COVERAGE_DIR}
 /usr/local/bin/gcovr --object-directory=${COVERAGE_DIR} --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${TEST_DIR}/coverage.xml"
 
 rm -rf ${TEST_STATUS_FILE}
-cat <<EOM > ${BUILD_DIR}/status.txt
+cat <<EOM > ${TEST_STATUS_FILE}
 success
 EOM

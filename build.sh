@@ -5,13 +5,13 @@ EXPORT_CHECK_DIR="${BUILD_DIR}/export_check"
 UPLOAD_DIR="${BUILD_DIR}/upload"
 UPLOAD_CHECK_DIR="${BUILD_DIR}/upload_check"
 VERSION_FILE="${BUILD_DIR}/version.txt"
-STATUS_FILE=${BUILD_DIR}/status.txt
+BUILD_STATUS_FILE="${BUILD_DIR}/status.txt"
 
 defaults write com.apple.dt.Xcode UseSanitizedBuildSystemEnvironment -bool NO
 
 rm -rf ${BUILD_DIR}
 mkdir ${BUILD_DIR}
-cat <<EOM > ${STATUS_FILE}
+cat <<EOM > ${BUILD_STATUS_FILE}
 failure
 EOM
 if [[ $ENVIRONMENT == 'build' ]]; then
@@ -65,7 +65,7 @@ IPA_FILE=${EXPORT_DIR}/ClassfitteriOS.ipa
 unzip -q  ${IPA_FILE} -d ${EXPORT_CHECK_DIR}
 xcrun codesign -dv ${EXPORT_CHECK_DIR}/Payload/Classfitter.app
 
-rm -rf ${STATUS_FILE}
+rm -rf ${BUILD_STATUS_FILE}
 cat <<EOM > ${BUILD_DIR}/status.txt
 success
 EOM
