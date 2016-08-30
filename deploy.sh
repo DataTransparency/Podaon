@@ -28,9 +28,8 @@ VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
 
 #VERSION
-if [[ $ENVIRONMENT == 'CI' ]]; then
-	cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
-fi
+cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
+
 cd ClassfitteriOS
 agvtool new-marketing-version ${VERSION_NUMBER}
 agvtool new-version -all ${BUILD_NUMBER}
@@ -100,13 +99,12 @@ mkdir ${UPLOAD_CHECK_DIR}
 /Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m verify -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -v detailed
 
 
-if [[ $ENVIRONMENT == 'CI' ]]; then
+if [[ ${NODE_ENV} == 'production' ]]; then
 	#UPLOAD
 	/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} --upload
-
 	#CREATE GITHUB RELEASE AND TAG
 	curl -d '{"tag_name":"v${VERSION_NUMBER}+${BUILD_NUMBER}","name":"v${VERSION_NUMBER}+${BUILD_NUMBER}"}' -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/classfitter/classfitter/releases
-if
+fi
 
 rm -rf ${DEPLOY_STATUS_FILE}
 cat <<EOM > ${DEPLOY_DIRECTORY}/status.txt

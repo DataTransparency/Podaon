@@ -6,15 +6,12 @@
 
 BUILD_DIR="${WORKSPACE}/ClassfitteriOS/build"
 BUILD_STATUS_FILE="${BUILD_DIR}/status.txt"
-
 BUILD_STATUS=`cat ${BUILD_STATUS_FILE}`
 
-if [[ $ENVIRONMENT == 'CI' ]]; then
-    if [[$BUILD_STATUS == 'success']]; then
-        cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} build 'success' 'passing' ${BUILD_URL}
-    else
-        cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} build 'failure' 'failed' ${BUILD_URL}
-    fi
+echo "The build status is: ${BUILD_STATUS}"
+
+if [[ $BUILD_STATUS == "success" ]]; then
+    cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} build 'success' 'passing' ${BUILD_URL}
 else
-    echo "The build status is: ${BUILD_STATUS}"
+    cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} build 'failure' 'failed' ${BUILD_URL}
 fi

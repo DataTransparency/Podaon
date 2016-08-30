@@ -22,9 +22,7 @@ mkdir ${BUILD_DIR}
 cat <<EOM > ${BUILD_STATUS_FILE}
 failure
 EOM
-if [[ $ENVIRONMENT == 'CI' ]]; then
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'build' 'pending' 'running' ${BUILD_URL}
-fi
 
 cd ClassfitteriOS
 agvtool new-version -all ${BUILD_NUMBER}

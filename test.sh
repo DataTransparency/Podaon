@@ -7,24 +7,25 @@
 TEST_DIR="${WORKSPACE}/ClassfitteriOS/test"
 COVERAGE_DIR="${TEST_DIR}/coverage"
 TEST_STATUS_FILE="${TEST_DIR}/status.txt"
+export TEST_REPORTS_FOLDER=${TEST_DIR}/reports
 
 rm -rf ${TEST_DIR}
 mkdir ${TEST_DIR}
+mkdir ${COVERAGE_DIR}
+
 cat <<EOM > ${TEST_STATUS_FILE}
 failure
 EOM
 
-if [[ $ENVIRONMENT == 'CI' ]]; then
-    cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' 'pending' 'running' ${BUILD_URL}
-    cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
-    cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
-fi
+cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' 'pending' 'running' ${BUILD_URL}
+cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
+cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
 
-/usr/bin/xcodebuild -scheme ClassfitteriOS -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug build test -destination "platform=iOS Simulator,name=iPhone 6,OS=9.3" -enableCodeCoverage YES -IDECustomDerivedDataLocation=${TEST_DIR}
+export TEST_REPORTS_FOLDER=${TEST_DIR}/reports
+/usr/bin/xcodebuild test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination "platform=iOS Simulator,name=iPhone 6,OS=9.3" -enableCodeCoverage YES| ocunit2junit
 
-cp -r ${TEST_DIR}/**/Logs/Test/ ${COVERAGE_DIR}
 # generate gcovr+cobertura report
-/usr/local/bin/gcovr --object-directory=${COVERAGE_DIR} --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"
+/usr/local/bin/gcovr --object-directory=${TEST_DIR}/Logs/Test/ --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"
 
 rm -rf ${TEST_STATUS_FILE}
 cat <<EOM > ${TEST_STATUS_FILE}
