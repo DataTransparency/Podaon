@@ -26,6 +26,7 @@ EOM
 echo ${payload} > ${PAYLOAD_FILE}
 VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
+echo "v${VERSION_NUMBER}+${BUILD_NUMBER}" > ${FULL_VERSION_FILE}
 
 #VERSION
 cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
@@ -55,6 +56,7 @@ cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
 </dict>
 </plist>
 EOM
+
 xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/ClassfitteriOS.xcarchive -exportPath ${EXPORT_DIR}
 
 #CHECK EXPORT
@@ -104,6 +106,8 @@ if [[ ${NODE_ENV} == 'production' ]]; then
 	/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} --upload
 	#CREATE GITHUB RELEASE AND TAG
 	curl -d '{"tag_name":"v${VERSION_NUMBER}+${BUILD_NUMBER}","name":"v${VERSION_NUMBER}+${BUILD_NUMBER}"}' -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/classfitter/classfitter/releases
+else
+	echo "would have deployed and released"
 fi
 
 rm -rf ${DEPLOY_STATUS_FILE}
@@ -111,4 +115,3 @@ cat <<EOM > ${DEPLOY_DIRECTORY}/status.txt
 success
 EOM
 
-echo "v${VERSION_NUMBER}+${BUILD_NUMBER}" > ${FULL_VERSION_FILE}

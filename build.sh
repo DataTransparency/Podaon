@@ -15,7 +15,6 @@ UPLOAD_CHECK_DIR="${BUILD_DIR}/upload_check"
 VERSION_FILE="${BUILD_DIR}/version.txt"
 BUILD_STATUS_FILE="${BUILD_DIR}/status.txt"
 
-defaults write com.apple.dt.Xcode UseSanitizedBuildSystemEnvironment -bool NO
 
 rm -rf ${BUILD_DIR}
 mkdir ${BUILD_DIR}
@@ -42,18 +41,9 @@ cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
         <key>teamID</key>
         <string>TQYB6VJLUN</string>
         <key>method</key>
-        <string>ad-hoc</string>
+        <string>app-store</string>
         <key>uploadSymbols</key>
         <true/>
-		<key>manifest</key>
-		<dict>
-			<key>appURL</key>
-			<string>https://dev.datatransparency.com/jenkins/job/Classfitter/${BUILD_NUMBER}/artifact/ClassfitteriOS/build/export/ClassfitteriOS.ipa</string>
-			<key>displayImageURL</key>
-			<string>https://dev.datatransparency.com/jenkins/job/Classfitter/${BUILD_NUMBER}/artifact/ClassfitteriOS/build/export/icon57.png</string>
-			<key>fullSizeImageURL</key>
-			<string>https://dev.datatransparency.com/jenkins/job/Classfitter/${BUILD_NUMBER}/artifact/ClassfitteriOS/build/export/icon512.png</string>
-		</dict>
 </dict>
 </plist>
 EOM

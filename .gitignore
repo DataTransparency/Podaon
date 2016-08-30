@@ -40,6 +40,7 @@ ClassfitteriOS/stage
 itmsp
 version.txt
 ClassfitteriOS/build
+ClassfitteriOS/deploy
 ClassfitteriOS/test
 ClassfitteriOS/Pods
 ClassfitteriOS/FirebaseCrashServiceAccount.json
