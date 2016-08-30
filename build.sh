@@ -1,3 +1,11 @@
+: "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
+: "${GIT_COMMIT:?There must be a GIT_COMMIT environment variable set}"
+: "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
+: "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
+: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
+: "${BUILD_NUMBER:?There must be a BUILD_NUMBER environment variable set}"
+: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
+
 BUILD_DIR="${WORKSPACE}/ClassfitteriOS/build"
 ARCHIVE_DIR="${BUILD_DIR}/archive"
 EXPORT_DIR="${BUILD_DIR}/export"
@@ -14,7 +22,7 @@ mkdir ${BUILD_DIR}
 cat <<EOM > ${BUILD_STATUS_FILE}
 failure
 EOM
-if [[ $ENVIRONMENT == 'build' ]]; then
+if [[ $ENVIRONMENT == 'CI' ]]; then
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'build' 'pending' 'running' ${BUILD_URL}
 fi
 

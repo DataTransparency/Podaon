@@ -1,3 +1,10 @@
+: "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
+: "${GIT_COMMIT:?There must be a GIT_COMMIT environment variable set}"
+: "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
+: "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
+: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
+
+
 PAYLOAD_FILE=${WORKSPACE}/${BUILD_NUMBER}payload.json
 DEPLOY_DIRECTORY="${WORKSPACE}/ClassfitteriOS/deploy"
 ARCHIVE_DIR="${DEPLOY_DIRECTORY}/archive"
@@ -21,7 +28,7 @@ VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
 
 #VERSION
-if [[ $ENVIRONMENT == 'build' ]]; then
+if [[ $ENVIRONMENT == 'CI' ]]; then
 	cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
 fi
 cd ClassfitteriOS
@@ -93,11 +100,9 @@ mkdir ${UPLOAD_CHECK_DIR}
 /Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m verify -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -v detailed
 
 
-if [[ $ENVIRONMENT == 'build' ]]; then
+if [[ $ENVIRONMENT == 'CI' ]]; then
 	#UPLOAD
-	echo "Setting status to pending with payload:"
-	/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} 
-	#--upload
+	/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} --upload
 
 	#CREATE GITHUB RELEASE AND TAG
 	curl -d '{"tag_name":"v${VERSION_NUMBER}+${BUILD_NUMBER}","name":"v${VERSION_NUMBER}+${BUILD_NUMBER}"}' -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/classfitter/classfitter/releases
