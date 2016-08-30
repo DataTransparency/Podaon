@@ -5,8 +5,8 @@
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 
 
-PAYLOAD_FILE=${WORKSPACE}/${BUILD_NUMBER}payload.json
 DEPLOY_DIRECTORY="${WORKSPACE}/ClassfitteriOS/deploy"
+PAYLOAD_FILE="${DEPLOY_DIRECTORY}/payload.json"
 ARCHIVE_DIR="${DEPLOY_DIRECTORY}/archive"
 EXPORT_DIR="${DEPLOY_DIRECTORY}/export"
 EXPORT_CHECK_DIR="${DEPLOY_DIRECTORY}/export_check"
@@ -111,7 +111,7 @@ else
 fi
 
 rm -rf ${DEPLOY_STATUS_FILE}
-cat <<EOM > ${DEPLOY_DIRECTORY}/status.txt
+cat <<EOM > ${DEPLOY_STATUS_FILE}
 success
 EOM
 
