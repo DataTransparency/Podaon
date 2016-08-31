@@ -2,7 +2,7 @@
 #export GEM_HOME=$HOME/.gem
 #export PATH=$GEM_HOME/bin:$PATH
 . $(brew --prefix nvm)/nvm.sh
-
+brew install gcovr
 nvm install
 npm install
 
