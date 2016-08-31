@@ -24,10 +24,13 @@ cat <<EOM > ${DEPLOY_STATUS_FILE}
 failure
 EOM
 
-if [[ ${NODE_ENV} == 'production' ]]; then
-else
+if [[ ${NODE_ENV} != 'production' ]]; then
+	echo "Using dev payload"
 	payload=`cat ${WORKSPACE}/deploymentPayload.json`
 fi
+
+
+: "${payload:?There must be a payload environment variable set}"
 
 #GETTING VERSION INFORMATION FROM payload
 echo ${payload} > ${PAYLOAD_FILE}
