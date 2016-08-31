@@ -4,6 +4,8 @@
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 
+alias cftool='node_modules/classfitter-tools/lib/index.js'
+
 TEST_DIR="${WORKSPACE}/ClassfitteriOS/test"
 TEST_REPORTS_FOLDER="${TEST_DIR}/reports"
 COVERAGE_DIR="${TEST_DIR}/coverage"

@@ -1,0 +1,22 @@
+{
+  "name": "classfitter",
+  "version": "1.0.0",
+  "description": "Badges here always refer to the master branch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Classfitter/Classfitter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Classfitter/Classfitter/issues"
+  },
+  "homepage": "https://github.com/Classfitter/Classfitter#readme",
+  "dependencies": {
+    "classfitter-tools": "^1.3.0"
+  }
+}

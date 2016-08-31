@@ -6,6 +6,8 @@
 : "${BUILD_NUMBER:?There must be a BUILD_NUMBER environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 
+alias cftool='node_modules/classfitter-tools/lib/index.js'
+
 BUILD_DIR="${WORKSPACE}/ClassfitteriOS/build"
 ARCHIVE_DIR="${BUILD_DIR}/archive"
 EXPORT_DIR="${BUILD_DIR}/export"

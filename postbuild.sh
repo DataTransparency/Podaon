@@ -4,6 +4,8 @@
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 
+alias cftool='node_modules/classfitter-tools/lib/index.js'
+
 BUILD_DIR="${WORKSPACE}/ClassfitteriOS/build"
 BUILD_STATUS_FILE="${BUILD_DIR}/status.txt"
 BUILD_STATUS=`cat ${BUILD_STATUS_FILE}`

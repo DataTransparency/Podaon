@@ -5,6 +5,7 @@
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 
+alias cftool='node_modules/classfitter-tools/lib/index.js'
 
 GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
 TEST_DIR="${WORKSPACE}/ClassfitteriOS/test"
