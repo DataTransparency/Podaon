@@ -25,9 +25,36 @@ cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' '
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
 
-export TEST_REPORTS_FOLDER=${TEST_DIR}/reports
-/usr/bin/xcodebuild build test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination "platform=iOS Simulator,name=iPhone 6,OS=9.3" GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 
+function join { local IFS="$1"; shift; echo "$*"; }
+
+ i=0
+ for line in $(system_profiler SPUSBDataType | sed -n -e '/iPad/,/Serial/p' -e '/iPhone/,/Serial/p' | grep "Serial Number:" | awk -F ": " '{print $2}'); do
+    UDID=${line}
+    udid_array[i]=${line}
+    i=$(($i+1))
+ done
+
+sims=('DE3B179D-A937-4EA6-8B72-4DD212C9EA91')
+
+if [[ ${#udid_array[@]} = 0 ]]; then
+    echo "Running tests on simulator"
+    for j in "${sims[@]}"
+        do
+        DESTINATIONS="$DESTINATIONS -destination 'platform=iOS Simulator,id=$j'"
+        # or do whatever with individual element of the array
+    done
+else
+    echo "Running tests on physical devices"
+    for j in "${udid_array[@]}"
+        do
+        DESTINATIONS="$DESTINATIONS -destination 'platform=iOS,id=$j'"
+        # or do whatever with individual element of the array
+    done
+fi
+export TEST_REPORTS_FOLDER=${TEST_DIR}/reports
+testcommand="/usr/bin/xcodebuild build test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug ${DESTINATIONS} GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit"
+eval $testcommand
 # generate gcovr+cobertura report -destination "platform=iOS Simulator,name=iPhone 6 plus,OS=9.3" -destination "platform=iOS Simulator,name=iPhone 6,OS=10.0" -destination "platform=iOS Simulator,name=iPhone 6 plus,OS=10.0" -destination "platform=iOS Simulator,name=iPad Pro,OS=9.3"
 /usr/local/bin/gcovr --object-directory=${TEST_DIR}/Logs/Test/ --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"
 
