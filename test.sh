@@ -35,13 +35,13 @@ function join { local IFS="$1"; shift; echo "$*"; }
     i=$(($i+1))
  done
 
-sims=('DE3B179D-A937-4EA6-8B72-4DD212C9EA91')
+sims=('name=iPhone 6,OS=9.3')
 
 if [[ ${#udid_array[@]} = 0 ]]; then
     echo "Running tests on simulator"
     for j in "${sims[@]}"
         do
-        DESTINATIONS="$DESTINATIONS -destination 'platform=iOS Simulator,id=$j'"
+        DESTINATIONS="$DESTINATIONS -destination 'platform=iOS Simulator,$j'"
         # or do whatever with individual element of the array
     done
 else
