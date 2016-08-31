@@ -37,21 +37,21 @@ function join { local IFS="$1"; shift; echo "$*"; }
 
 sims=('name=iPhone 6,OS=9.3')
 
-if [[ ${#udid_array[@]} = 0 ]]; then
+#f [[ ${#udid_array[@]} = 0 ]]; then
     echo "Running tests on simulator"
     for j in "${sims[@]}"
         do
         DESTINATIONS="$DESTINATIONS -destination 'platform=iOS Simulator,$j'"
         # or do whatever with individual element of the array
     done
-else
-    echo "Running tests on physical devices"
-    for j in "${udid_array[@]}"
-        do
-        DESTINATIONS="$DESTINATIONS -destination 'platform=iOS,id=$j'"
-        # or do whatever with individual element of the array
-    done
-fi
+#else
+#    echo "Running tests on physical devices"
+#    for j in "${udid_array[@]}"
+#        do
+#        DESTINATIONS="$DESTINATIONS -destination 'platform=iOS,id=$j'"
+#        # or do whatever with individual element of the array
+#    done
+#fi
 export TEST_REPORTS_FOLDER=${TEST_DIR}/reports
 testcommand="/usr/bin/xcodebuild build test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug ${DESTINATIONS} GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit"
 eval $testcommand
