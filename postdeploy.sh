@@ -1,6 +1,6 @@
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 : "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
-
+. $(brew --prefix nvm)/nvm.sh
 alias cftool='node_modules/classfitter-tools/lib/index.js'
 
 DEPLOY_DIRECTORY="${WORKSPACE}/ClassfitteriOS/deploy"
