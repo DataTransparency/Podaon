@@ -24,6 +24,11 @@ cat <<EOM > ${DEPLOY_STATUS_FILE}
 failure
 EOM
 
+if [[ ${NODE_ENV} == 'production' ]]; then
+else
+	payload=`cat ${WORKSPACE}/deploymentPayload.json`
+fi
+
 #GETTING VERSION INFORMATION FROM payload
 echo ${payload} > ${PAYLOAD_FILE}
 VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
@@ -40,7 +45,7 @@ cd ..
 
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
-/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS GOOGLE_APP_ID=${GOOGLE_APP_ID} -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
+/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive GOOGLE_APP_ID=${GOOGLE_APP_ID}
 
 #EXPORT
 mkdir ${EXPORT_DIR}
