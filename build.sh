@@ -1,11 +1,10 @@
-WORKSPACE=${WORKSPACE:-"~/git/Classfitter"}
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 : "${GIT_COMMIT:?There must be a GIT_COMMIT environment variable set}"
 : "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 : "${BUILD_NUMBER:?There must be a BUILD_NUMBER environment variable set}"
-: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
+: "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 
 BUILD_DIR="${WORKSPACE}/ClassfitteriOS/build"
 ARCHIVE_DIR="${BUILD_DIR}/archive"
@@ -15,7 +14,6 @@ UPLOAD_DIR="${BUILD_DIR}/upload"
 UPLOAD_CHECK_DIR="${BUILD_DIR}/upload_check"
 VERSION_FILE="${BUILD_DIR}/version.txt"
 BUILD_STATUS_FILE="${BUILD_DIR}/status.txt"
-
 
 rm -rf ${BUILD_DIR}
 mkdir ${BUILD_DIR}
@@ -30,7 +28,7 @@ cd ..
 
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
-/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
+/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive GOOGLE_APP_ID=${GOOGLE_APP_ID}
 
 #EXPORT
 mkdir ${EXPORT_DIR}
