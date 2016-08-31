@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 protocol WorkingUIViewControllerDelegate: AnyObject {
     func endWorkout(controller: WorkingUIViewController)

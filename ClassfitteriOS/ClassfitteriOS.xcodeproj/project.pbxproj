@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41CC25D314C1262D131BF945 /* Pods_ClassfitteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B38913A10513A2AC836BF1B /* Pods_ClassfitteriOS.framework */; };
+		55B1083A38B0F01F54DCB844 /* Pods_ClassfitteriOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D1CAB2C91F9A3018A909F0 /* Pods_ClassfitteriOSTests.framework */; };
+		932EFD541D74768D00A8666D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 932EFD531D74768D00A8666D /* GoogleService-Info.plist */; };
+		932EFD561D7476B400A8666D /* FirebaseServiceAccount.json in Resources */ = {isa = PBXBuildFile; fileRef = 932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */; };
+		9352F1E71D738CEE00F87716 /* WelcomeUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9352F1E61D738CEE00F87716 /* WelcomeUIViewController.swift */; };
 		C63921291D2ED1DB0025CFEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63921281D2ED1DB0025CFEB /* AppDelegate.swift */; };
 		C63921301D2ED1DB0025CFEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C639212E1D2ED1DB0025CFEB /* Main.storyboard */; };
 		C63921321D2ED1DB0025CFEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63921311D2ED1DB0025CFEB /* Assets.xcassets */; };
@@ -16,6 +21,7 @@
 		C66CC9851D6DFB6A00B9243D /* WorkingUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66CC9841D6DFB6A00B9243D /* WorkingUIViewController.swift */; };
 		C66CC9871D6E024A00B9243D /* LockerRoomUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66CC9861D6E024A00B9243D /* LockerRoomUIViewController.swift */; };
 		C66CC9891D6E13E300B9243D /* ResultsUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66CC9881D6E13E300B9243D /* ResultsUIViewController.swift */; };
+		F58D5D55BEDDCA5D1CE3BFEA /* Pods_ClassfitteriOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B65E3034E220286D573C8E /* Pods_ClassfitteriOSUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07F67EB2FC7D1B75EE3D2CEB /* Pods-ClassfitteriOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOS/Pods-ClassfitteriOS.release.xcconfig"; sourceTree = "<group>"; };
+		33E3C41A7D20D437E5ECD7C1 /* Pods-ClassfitteriOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOSTests/Pods-ClassfitteriOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		4F8D6C43C364A2F89EE9E4B1 /* Pods-ClassfitteriOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOSUITests/Pods-ClassfitteriOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		69AE1A80AA805A89C1A7CA72 /* Pods-ClassfitteriOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOSUITests/Pods-ClassfitteriOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6B38913A10513A2AC836BF1B /* Pods_ClassfitteriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassfitteriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		932EFD531D74768D00A8666D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FirebaseServiceAccount.json; sourceTree = SOURCE_ROOT; };
+		9352F1E61D738CEE00F87716 /* WelcomeUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeUIViewController.swift; sourceTree = "<group>"; };
+		9352F1EB1D74610300F87716 /* ClassfitteriOS_Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfitteriOS_Bridging_Header.h; sourceTree = SOURCE_ROOT; };
+		96D1CAB2C91F9A3018A909F0 /* Pods_ClassfitteriOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassfitteriOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A81F5B4BA6ED7277D5E49559 /* Pods-ClassfitteriOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOS/Pods-ClassfitteriOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C63921251D2ED1DB0025CFEB /* Classfitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classfitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63921281D2ED1DB0025CFEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C639212F1D2ED1DB0025CFEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +68,8 @@
 		C66CC9841D6DFB6A00B9243D /* WorkingUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingUIViewController.swift; sourceTree = "<group>"; };
 		C66CC9861D6E024A00B9243D /* LockerRoomUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockerRoomUIViewController.swift; sourceTree = "<group>"; };
 		C66CC9881D6E13E300B9243D /* ResultsUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsUIViewController.swift; sourceTree = "<group>"; };
+		D7B8CB6DE7299F5780C88266 /* Pods-ClassfitteriOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOSTests/Pods-ClassfitteriOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E2B65E3034E220286D573C8E /* Pods_ClassfitteriOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassfitteriOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41CC25D314C1262D131BF945 /* Pods_ClassfitteriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B1083A38B0F01F54DCB844 /* Pods_ClassfitteriOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +93,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F58D5D55BEDDCA5D1CE3BFEA /* Pods_ClassfitteriOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CA6F4E027F176BBC1C1B52C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A81F5B4BA6ED7277D5E49559 /* Pods-ClassfitteriOS.debug.xcconfig */,
+				07F67EB2FC7D1B75EE3D2CEB /* Pods-ClassfitteriOS.release.xcconfig */,
+				D7B8CB6DE7299F5780C88266 /* Pods-ClassfitteriOSTests.debug.xcconfig */,
+				33E3C41A7D20D437E5ECD7C1 /* Pods-ClassfitteriOSTests.release.xcconfig */,
+				4F8D6C43C364A2F89EE9E4B1 /* Pods-ClassfitteriOSUITests.debug.xcconfig */,
+				69AE1A80AA805A89C1A7CA72 /* Pods-ClassfitteriOSUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4CF93307929D9B7E36F532C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B38913A10513A2AC836BF1B /* Pods_ClassfitteriOS.framework */,
+				96D1CAB2C91F9A3018A909F0 /* Pods_ClassfitteriOSTests.framework */,
+				E2B65E3034E220286D573C8E /* Pods_ClassfitteriOSUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C62D98281D5F88B800CD8619 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +141,8 @@
 				C639213E1D2ED1DB0025CFEB /* ClassfitteriOSTests */,
 				C63921491D2ED1DC0025CFEB /* ClassfitteriOSUITests */,
 				C63921261D2ED1DB0025CFEB /* Products */,
+				0CA6F4E027F176BBC1C1B52C /* Pods */,
+				4CF93307929D9B7E36F532C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,11 +159,15 @@
 		C63921271D2ED1DB0025CFEB /* ClassfitteriOS */ = {
 			isa = PBXGroup;
 			children = (
+				932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */,
+				932EFD531D74768D00A8666D /* GoogleService-Info.plist */,
+				9352F1EB1D74610300F87716 /* ClassfitteriOS_Bridging_Header.h */,
 				C62D98281D5F88B800CD8619 /* Supporting Files */,
 				C639212E1D2ED1DB0025CFEB /* Main.storyboard */,
 				C66CC9841D6DFB6A00B9243D /* WorkingUIViewController.swift */,
 				C66CC9861D6E024A00B9243D /* LockerRoomUIViewController.swift */,
 				C66CC9881D6E13E300B9243D /* ResultsUIViewController.swift */,
+				9352F1E61D738CEE00F87716 /* WelcomeUIViewController.swift */,
 			);
 			path = ClassfitteriOS;
 			sourceTree = "<group>";
@@ -146,10 +197,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C639214F1D2ED1DC0025CFEB /* Build configuration list for PBXNativeTarget "ClassfitteriOS" */;
 			buildPhases = (
+				944B2B73488F91FEA54AF866 /* [CP] Check Pods Manifest.lock */,
 				C63921211D2ED1DB0025CFEB /* Sources */,
 				C63921221D2ED1DB0025CFEB /* Frameworks */,
 				C63921231D2ED1DB0025CFEB /* Resources */,
-				08B3BA4B2420C4B84B1CEBF0 /* Tailor */,
+				F2889459355408C2B3B1B081 /* [CP] Embed Pods Frameworks */,
+				EB6891C123BFD93A2B0AD4CE /* [CP] Copy Pods Resources */,
+				9352F1EC1D74616D00F87716 /* ShellScript */,
+				8C0864A0499BE8793599679D /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -164,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C63921521D2ED1DC0025CFEB /* Build configuration list for PBXNativeTarget "ClassfitteriOSTests" */;
 			buildPhases = (
+				E751EBEBE6B032378A243774 /* [CP] Check Pods Manifest.lock */,
 				C63921371D2ED1DB0025CFEB /* Sources */,
 				C63921381D2ED1DB0025CFEB /* Frameworks */,
 				C63921391D2ED1DB0025CFEB /* Resources */,
+				325DD29FC9E8BF6BBD5997C4 /* [CP] Embed Pods Frameworks */,
+				9CE25D0ADBAEBB50A086BC95 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,9 +240,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C63921551D2ED1DC0025CFEB /* Build configuration list for PBXNativeTarget "ClassfitteriOSUITests" */;
 			buildPhases = (
+				677D35429B4C2C11B102ECF7 /* [CP] Check Pods Manifest.lock */,
 				C63921421D2ED1DC0025CFEB /* Sources */,
 				C63921431D2ED1DC0025CFEB /* Frameworks */,
 				C63921441D2ED1DC0025CFEB /* Resources */,
+				4313CAFDC23B1601D1EFF66B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,12 +262,13 @@
 		C639211D1D2ED1DB0025CFEB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "James Wood";
 				TargetAttributes = {
 					C63921241D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = TQYB6VJLUN;
+						ProvisioningStyle = Manual;
 					};
 					C639213A1D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -245,6 +306,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C63921351D2ED1DB0025CFEB /* LaunchScreen.storyboard in Resources */,
+				932EFD561D7476B400A8666D /* FirebaseServiceAccount.json in Resources */,
+				932EFD541D74768D00A8666D /* GoogleService-Info.plist in Resources */,
 				C63921321D2ED1DB0025CFEB /* Assets.xcassets in Resources */,
 				C63921301D2ED1DB0025CFEB /* Main.storyboard in Resources */,
 			);
@@ -267,7 +330,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08B3BA4B2420C4B84B1CEBF0 /* Tailor */ = {
+		325DD29FC9E8BF6BBD5997C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassfitteriOSTests/Pods-ClassfitteriOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4313CAFDC23B1601D1EFF66B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassfitteriOSUITests/Pods-ClassfitteriOSUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		677D35429B4C2C11B102ECF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8C0864A0499BE8793599679D /* Tailor */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -279,7 +387,95 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor --max-severity=error\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		9352F1EC1D74616D00F87716 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ": \"${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"FirebaseServiceAccount.json\"";
+		};
+		944B2B73488F91FEA54AF866 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9CE25D0ADBAEBB50A086BC95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassfitteriOSTests/Pods-ClassfitteriOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E751EBEBE6B032378A243774 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EB6891C123BFD93A2B0AD4CE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassfitteriOS/Pods-ClassfitteriOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2889459355408C2B3B1B081 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassfitteriOS/Pods-ClassfitteriOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -288,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9352F1E71D738CEE00F87716 /* WelcomeUIViewController.swift in Sources */,
 				C66CC9851D6DFB6A00B9243D /* WorkingUIViewController.swift in Sources */,
 				C66CC9871D6E024A00B9243D /* LockerRoomUIViewController.swift in Sources */,
 				C63921291D2ED1DB0025CFEB /* AppDelegate.swift in Sources */,
@@ -359,8 +556,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -404,8 +603,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -424,6 +625,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -431,36 +633,59 @@
 		};
 		C63921501D2ED1DC0025CFEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A81F5B4BA6ED7277D5E49559 /* Pods-ClassfitteriOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GOOGLE_APP_ID=$(GOOGLE_APP_ID)",
+				);
+				GOOGLE_APP_ID = "GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61";
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
+				PROVISIONING_PROFILE = "be2d5807-9500-4541-a610-9bec53db635c";
+				PROVISIONING_PROFILE_SPECIFIER = "Classfitter Development Profile";
+				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		C63921511D2ED1DC0025CFEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07F67EB2FC7D1B75EE3D2CEB /* Pods-ClassfitteriOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GOOGLE_APP_ID=$(GOOGLE_APP_ID)",
+				);
+				GOOGLE_APP_ID = "GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61";
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
 				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
+				PROVISIONING_PROFILE_SPECIFIER = ClassfitterDistribution;
+				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
 		C63921531D2ED1DC0025CFEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7B8CB6DE7299F5780C88266 /* Pods-ClassfitteriOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"BUNDLE_LOADER[arch=*]" = "$(TEST_HOST)";
@@ -469,6 +694,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classfitter.app/Classfitter";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -476,6 +702,7 @@
 		};
 		C63921541D2ED1DC0025CFEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33E3C41A7D20D437E5ECD7C1 /* Pods-ClassfitteriOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CURRENT_PROJECT_VERSION = 0;
@@ -483,6 +710,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classfitter.app/Classfitter";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -490,11 +718,13 @@
 		};
 		C63921561D2ED1DC0025CFEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F8D6C43C364A2F89EE9E4B1 /* Pods-ClassfitteriOSUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ClassfitteriOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;
 			};
@@ -502,11 +732,13 @@
 		};
 		C63921571D2ED1DC0025CFEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69AE1A80AA805A89C1A7CA72 /* Pods-ClassfitteriOSUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ClassfitteriOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;
 			};

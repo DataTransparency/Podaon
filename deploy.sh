@@ -1,17 +1,26 @@
-PAYLOAD_FILE=${WORKSPACE}/${BUILD_NUMBER}payload.json
-BUILD_DIR="${WORKSPACE}/ClassfitteriOS/build"
-ARCHIVE_DIR="${BUILD_DIR}/archive"
-EXPORT_DIR="${BUILD_DIR}/export"
-EXPORT_CHECK_DIR="${BUILD_DIR}/export_check"
-UPLOAD_DIR="${BUILD_DIR}/upload"
-UPLOAD_CHECK_DIR="${BUILD_DIR}/upload_check"
-VERSION_FILE="${BUILD_DIR}/version.txt"
-FULL_VERSION_FILE="${BUILD_DIR}/fullversion.txt"
-STATUS_FILE=${BUILD_DIR}/status.txt
+: "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
+: "${GIT_COMMIT:?There must be a GIT_COMMIT environment variable set}"
+: "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
+: "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
+: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
+: "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 
-rm -rf ${BUILD_DIR}
-mkdir ${BUILD_DIR}
-cat <<EOM > ${STATUS_FILE}
+alias cftool='node_modules/classfitter-tools/lib/index.js'
+
+DEPLOY_DIRECTORY="${WORKSPACE}/ClassfitteriOS/deploy"
+PAYLOAD_FILE="${DEPLOY_DIRECTORY}/payload.json"
+ARCHIVE_DIR="${DEPLOY_DIRECTORY}/archive"
+EXPORT_DIR="${DEPLOY_DIRECTORY}/export"
+EXPORT_CHECK_DIR="${DEPLOY_DIRECTORY}/export_check"
+UPLOAD_DIR="${DEPLOY_DIRECTORY}/upload"
+UPLOAD_CHECK_DIR="${DEPLOY_DIRECTORY}/upload_check"
+VERSION_FILE="${DEPLOY_DIRECTORY}/version.txt"
+FULL_VERSION_FILE="${DEPLOY_DIRECTORY}/fullversion.txt"
+DEPLOY_STATUS_FILE="${DEPLOY_DIRECTORY}/status.txt"
+
+rm -rf ${DEPLOY_DIRECTORY}
+mkdir ${DEPLOY_DIRECTORY}
+cat <<EOM > ${DEPLOY_STATUS_FILE}
 failure
 EOM
 
@@ -19,9 +28,11 @@ EOM
 echo ${payload} > ${PAYLOAD_FILE}
 VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
+echo "v${VERSION_NUMBER}+${BUILD_NUMBER}" > ${FULL_VERSION_FILE}
 
 #VERSION
 cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
+
 cd ClassfitteriOS
 agvtool new-marketing-version ${VERSION_NUMBER}
 agvtool new-version -all ${BUILD_NUMBER}
@@ -29,8 +40,7 @@ cd ..
 
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
-cd ClassfitteriOS
-/usr/bin/xcodebuild -target ClassfitteriOS -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
+/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS GOOGLE_APP_ID=${GOOGLE_APP_ID} -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
 
 #EXPORT
 mkdir ${EXPORT_DIR}
@@ -48,6 +58,7 @@ cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
 </dict>
 </plist>
 EOM
+
 xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/ClassfitteriOS.xcarchive -exportPath ${EXPORT_DIR}
 
 #CHECK EXPORT
@@ -91,17 +102,18 @@ mkdir ${UPLOAD_CHECK_DIR}
 /Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m lookupMetadata -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -vendor_id ${VENDORID} -destination ${UPLOAD_CHECK_DIR}
 /Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m verify -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -v detailed
 
-#UPLOAD
-echo "Setting status to pending with payload:"
-/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} 
-#--upload
 
-#CREATE GITHUB RELEASE AND TAG
-curl -d '{"tag_name":"v${VERSION_NUMBER}+${BUILD_NUMBER}","name":"v${VERSION_NUMBER}+${BUILD_NUMBER}"}' -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/classfitter/classfitter/releases
+if [[ ${NODE_ENV} == 'production' ]]; then
+	#UPLOAD
+	/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} --upload
+	#CREATE GITHUB RELEASE AND TAG
+	curl -d '{"tag_name":"v${VERSION_NUMBER}+${BUILD_NUMBER}","name":"v${VERSION_NUMBER}+${BUILD_NUMBER}"}' -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/classfitter/classfitter/releases
+else
+	echo "would have deployed and released"
+fi
 
-rm -rf ${STATUS_FILE}
-cat <<EOM > ${BUILD_DIR}/status.txt
+rm -rf ${DEPLOY_STATUS_FILE}
+cat <<EOM > ${DEPLOY_STATUS_FILE}
 success
 EOM
 
-echo "v${VERSION_NUMBER}+${BUILD_NUMBER}" > ${FULL_VERSION_FILE}
