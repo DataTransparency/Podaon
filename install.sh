@@ -1,3 +1,4 @@
+WORKSPACE=${WORKSPACE:-"~/git/Classfitter"}
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 
 pod install --project-directory=ClassfitteriOS/
