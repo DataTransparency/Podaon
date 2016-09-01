@@ -9,12 +9,14 @@ target 'ClassfitteriOS' do
     pod 'Firebase'
     pod 'Firebase/Core'
     pod 'Firebase/Crash'
+    pod 'Firebase/Auth'
   target 'ClassfitteriOSTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'Firebase'
     pod 'Firebase/Core'
     pod 'Firebase/Crash'
+    pod 'Firebase/Auth'
   end
 
   target 'ClassfitteriOSUITests' do
@@ -23,6 +25,7 @@ target 'ClassfitteriOS' do
     pod 'Firebase'
     pod 'Firebase/Core'
     pod 'Firebase/Crash'
+    pod 'Firebase/Auth'
   end
 
 end

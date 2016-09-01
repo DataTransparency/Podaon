@@ -34,7 +34,7 @@ class ClassfitteriOSUITests: XCTestCase {
         let doneButton = app.buttons["Done"]
         doneButton.tap()
         doneButton.tap()
-        app.navigationBars["Locker room"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        app.navigationBars["Locker room"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0).tap()
     }
 
 }

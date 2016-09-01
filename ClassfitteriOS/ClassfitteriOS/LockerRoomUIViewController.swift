@@ -13,37 +13,36 @@ import Firebase
 
 class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDelegate, ResultsUIViewControllerDelegate {
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // txtNewMessage?.becomeFirstResponder()
-        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-            kFIRParameterContentType: "cont",
-            kFIRParameterItemID: "1"
+        FIRAnalytics.logEvent(withName: kFIREventSelectContent, parameters: [
+            kFIRParameterContentType: "cont" as NSObject,
+            kFIRParameterItemID: "1" as NSObject
             ])
-
     }
 
 
 
     @IBOutlet weak var txtNewMessage: UITextField!
 
-    @IBAction func beginWorkout(sender: UIButton) {
-        let uic: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("WorkingViewController"))!
+    @IBAction func beginWorkout(_ sender: UIButton) {
+        let uic: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "WorkingViewController"))!
         let workingViewController: WorkingUIViewController? = uic as? WorkingUIViewController
         workingViewController?.delegate = self
-        self.presentViewController(uic, animated: true, completion: nil)
+        self.present(uic, animated: true, completion: nil)
     }
 
-    func endWorkout(controller: WorkingUIViewController) {
-        controller.dismissViewControllerAnimated(true, completion: {
-            let uic: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("ResultsUIViewController"))!
+    func endWorkout(_ controller: WorkingUIViewController) {
+        controller.dismiss(animated: true, completion: {
+            let uic: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "ResultsUIViewController"))!
             let resultsUIViewController: ResultsUIViewController? = uic as? ResultsUIViewController
             resultsUIViewController?.delegate = self
-            self.presentViewController(uic, animated: true, completion: nil)
+            self.present(uic, animated: true, completion: nil)
         })
     }
 
-    func endResults(controller: ResultsUIViewController) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func endResults(_ controller: ResultsUIViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 
 }

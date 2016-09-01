@@ -12,6 +12,7 @@
 		932EFD541D74768D00A8666D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 932EFD531D74768D00A8666D /* GoogleService-Info.plist */; };
 		932EFD561D7476B400A8666D /* FirebaseServiceAccount.json in Resources */ = {isa = PBXBuildFile; fileRef = 932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */; };
 		9352F1E71D738CEE00F87716 /* WelcomeUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9352F1E61D738CEE00F87716 /* WelcomeUIViewController.swift */; };
+		93C0A6BC1D78BED100A07133 /* NewUserUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C0A6BB1D78BED100A07133 /* NewUserUIViewController.swift */; };
 		C63921291D2ED1DB0025CFEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63921281D2ED1DB0025CFEB /* AppDelegate.swift */; };
 		C63921301D2ED1DB0025CFEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C639212E1D2ED1DB0025CFEB /* Main.storyboard */; };
 		C63921321D2ED1DB0025CFEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63921311D2ED1DB0025CFEB /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FirebaseServiceAccount.json; sourceTree = SOURCE_ROOT; };
 		9352F1E61D738CEE00F87716 /* WelcomeUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeUIViewController.swift; sourceTree = "<group>"; };
 		9352F1EB1D74610300F87716 /* ClassfitteriOS_Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfitteriOS_Bridging_Header.h; sourceTree = SOURCE_ROOT; };
+		93C0A6BB1D78BED100A07133 /* NewUserUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserUIViewController.swift; sourceTree = "<group>"; };
 		96D1CAB2C91F9A3018A909F0 /* Pods_ClassfitteriOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassfitteriOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A81F5B4BA6ED7277D5E49559 /* Pods-ClassfitteriOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOS/Pods-ClassfitteriOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C63921251D2ED1DB0025CFEB /* Classfitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classfitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 		C63921271D2ED1DB0025CFEB /* ClassfitteriOS */ = {
 			isa = PBXGroup;
 			children = (
+				93C0A6BB1D78BED100A07133 /* NewUserUIViewController.swift */,
 				932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */,
 				932EFD531D74768D00A8666D /* GoogleService-Info.plist */,
 				9352F1EB1D74610300F87716 /* ClassfitteriOS_Bridging_Header.h */,
@@ -268,14 +271,17 @@
 					C63921241D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = TQYB6VJLUN;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
 					};
 					C639213A1D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
 					C63921451D2ED1DC0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
 				};
@@ -488,6 +494,7 @@
 				C66CC9851D6DFB6A00B9243D /* WorkingUIViewController.swift in Sources */,
 				C66CC9871D6E024A00B9243D /* LockerRoomUIViewController.swift in Sources */,
 				C63921291D2ED1DB0025CFEB /* AppDelegate.swift in Sources */,
+				93C0A6BC1D78BED100A07133 /* NewUserUIViewController.swift in Sources */,
 				C66CC9891D6E13E300B9243D /* ResultsUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,7 +660,7 @@
 				PROVISIONING_PROFILE = "be2d5807-9500-4541-a610-9bec53db635c";
 				PROVISIONING_PROFILE_SPECIFIER = "Classfitter Development Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -679,7 +686,7 @@
 				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
 				PROVISIONING_PROFILE_SPECIFIER = ClassfitterDistribution;
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -694,7 +701,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classfitter.app/Classfitter";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -710,7 +717,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classfitter.app/Classfitter";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -724,7 +731,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;
 			};
@@ -738,7 +745,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;
 			};
