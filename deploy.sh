@@ -4,8 +4,11 @@
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
-
+. $(brew --prefix nvm)/nvm.sh
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
 alias cftool='node_modules/classfitter-tools/lib/index.js'
+
 
 DEPLOY_DIRECTORY="${WORKSPACE}/ClassfitteriOS/deploy"
 PAYLOAD_FILE="${DEPLOY_DIRECTORY}/payload.json"
@@ -24,6 +27,14 @@ cat <<EOM > ${DEPLOY_STATUS_FILE}
 failure
 EOM
 
+if [[ ${NODE_ENV} != 'production' ]]; then
+	echo "Using dev payload"
+	payload=`cat ${WORKSPACE}/deploymentPayload.json`
+fi
+
+
+: "${payload:?There must be a payload environment variable set}"
+
 #GETTING VERSION INFORMATION FROM payload
 echo ${payload} > ${PAYLOAD_FILE}
 VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
@@ -40,7 +51,7 @@ cd ..
 
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
-/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS GOOGLE_APP_ID=${GOOGLE_APP_ID} -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive
+/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive GOOGLE_APP_ID=${GOOGLE_APP_ID}
 
 #EXPORT
 mkdir ${EXPORT_DIR}
