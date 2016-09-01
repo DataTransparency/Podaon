@@ -5,7 +5,9 @@
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 : "${BUILD_NUMBER:?There must be a BUILD_NUMBER environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
-
+. $(brew --prefix nvm)/nvm.sh
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
 alias cftool='node_modules/classfitter-tools/lib/index.js'
 
 BUILD_DIR="${WORKSPACE}/ClassfitteriOS/build"

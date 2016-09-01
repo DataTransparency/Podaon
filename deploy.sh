@@ -4,8 +4,11 @@
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
-
+. $(brew --prefix nvm)/nvm.sh
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
 alias cftool='node_modules/classfitter-tools/lib/index.js'
+
 
 DEPLOY_DIRECTORY="${WORKSPACE}/ClassfitteriOS/deploy"
 PAYLOAD_FILE="${DEPLOY_DIRECTORY}/payload.json"

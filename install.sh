@@ -1,13 +1,12 @@
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
-#export GEM_HOME=$HOME/.gem
-#export PATH=$GEM_HOME/bin:$PATH
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
 . $(brew --prefix nvm)/nvm.sh
 brew install gcovr
 nvm install
 npm install
 
 alias cftool='node_modules/classfitter-tools/lib/index.js'
-
 gem install bundler
 bundle install
 bundle exec pod install --project-directory=ClassfitteriOS/
