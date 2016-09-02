@@ -22,8 +22,6 @@ echo "getting dev"
     FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Development.json
     FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Development.plist
 fi
-
-
 FIREBASE_SERVICE_FILE=${WORKSPACE}/ClassfitteriOS/FirebaseServiceAccount.json
 FIREBASE_ANALYTICS_FILE=${WORKSPACE}/ClassfitteriOS/GoogleService-Info.plist
 echo $FIREBASE_SYMBOL_SERVICE_JSON

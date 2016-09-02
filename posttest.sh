@@ -4,6 +4,8 @@
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 . $(brew --prefix nvm)/nvm.sh
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
 alias cftool='node_modules/classfitter-tools/lib/index.js'
 
 TEST_DIR="${WORKSPACE}/ClassfitteriOS/test"
