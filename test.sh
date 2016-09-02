@@ -28,41 +28,12 @@ cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' '
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
 
-<<<<<<< HEAD
+
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 
-function join { local IFS="$1"; shift; echo "$*"; }
-
- i=0
- for line in $(system_profiler SPUSBDataType | sed -n -e '/iPad/,/Serial/p' -e '/iPhone/,/Serial/p' | grep "Serial Number:" | awk -F ": " '{print $2}'); do
-    UDID=${line}
-    udid_array[i]=${line}
-    i=$(($i+1))
- done
-
-sims=('name=iPhone 6,OS=9.3')
-
-#f [[ ${#udid_array[@]} = 0 ]]; then
-    echo "Running tests on simulator"
-    for j in "${sims[@]}"
-        do
-        DESTINATIONS="$DESTINATIONS -destination 'platform=iOS Simulator,$j'"
-        # or do whatever with individual element of the array
-    done
-#else
-#    echo "Running tests on physical devices"
-#    for j in "${udid_array[@]}"
-#        do
-#        DESTINATIONS="$DESTINATIONS -destination 'platform=iOS,id=$j'"
-#        # or do whatever with individual element of the array
-#    done
-#fi
-export TEST_REPORTS_FOLDER=${TEST_DIR}/reports
-testcommand="/usr/bin/xcodebuild build test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug ${DESTINATIONS} GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES"
-=======
 testcommand="/usr/bin/xcodebuild test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES"
 echo $testcommand
->>>>>>> master
+
 eval $testcommand | ocunit2junit
 mv test-reports $TEST_REPORTS_FOLDER
 $(brew --prefix gcovr)/bin/gcovr --object-directory=${TEST_DIR}/Logs/Test/ --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"
