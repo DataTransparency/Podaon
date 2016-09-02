@@ -9,8 +9,13 @@
 import Foundation
 import UIKit
 import Firebase
+import RxCocoa
+import RxSwift
+
+
 
 protocol NewUserUIViewControllerDelegate: AnyObject {
+    var state: ApplicationState { get }
     func closeNewUser(_ controller: NewUserUIViewController)
 }
 
@@ -38,8 +43,10 @@ class NewUserUIViewController: UIViewController {
                     print(signInError.localizedDescription)
                     return
                 }
+                
                 if let changeRequest = user?.profileChangeRequest() {
                     changeRequest.displayName = self!.txtFirstName.text! + " " + self!.txtSurname.text!
+                    self?.delegate?.state.userName.value = (self!.txtFirstName.text! + " " + self!.txtSurname.text!)
                     changeRequest.commitChanges { [weak self] error2 in
 
                         if self == nil {

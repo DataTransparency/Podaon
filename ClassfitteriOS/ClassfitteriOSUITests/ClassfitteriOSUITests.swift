@@ -32,10 +32,15 @@ class ClassfitteriOSUITests: XCTestCase {
         let app = XCUIApplication()
         app.buttons["Sign out"].tap()
         app.buttons["Enter"].tap()
-        app.textFields["First Name"].tap()
-        app.textFields["First Name"].typeText("James")
-        app.textFields["Surname"].tap()
-        app.textFields["Surname"].typeText("Wood")
+        
+        let txtfirstnameTextField = app.textFields["txtFirstName"]
+        txtfirstnameTextField.tap()
+        txtfirstnameTextField.typeText("James")
+        
+        let txtsurnameTextField = app.textFields["txtSurname"]
+        txtsurnameTextField.tap()
+        txtsurnameTextField.typeText("Wood")
+
         app.buttons["Next"].tap()
         app.buttons["Send"].tap()
         let doneButton = app.buttons["Done"]
@@ -43,5 +48,4 @@ class ClassfitteriOSUITests: XCTestCase {
         doneButton.tap()
         app.navigationBars["Locker room"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0).tap()
     }
-
 }

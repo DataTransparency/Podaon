@@ -49,6 +49,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fl0-Wi-zy0"/>
+                    <connections>
+                        <outlet property="lblWelcomeMessage" destination="7eh-Af-dP2" id="ApO-W9-0Vg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jb0-y4-U4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
