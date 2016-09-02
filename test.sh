@@ -11,10 +11,10 @@ export PATH=$GEM_HOME/bin:$PATH
 alias cftool='node_modules/classfitter-tools/lib/index.js'
 
 GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
-TEST_DIR="${WORKSPACE}/ClassfitteriOS/test"
+TEST_DIR="${WORKSPACE}/ClassfitteriOS/test/"
 COVERAGE_DIR="${TEST_DIR}/coverage"
 TEST_STATUS_FILE="${TEST_DIR}/status.txt"
-export TEST_REPORTS_FOLDER=${TEST_DIR}/reports
+TEST_REPORTS_FOLDER="${TEST_DIR}/reports/"
 
 rm -rf ${TEST_DIR}
 mkdir ${TEST_DIR}
@@ -28,6 +28,7 @@ cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' '
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
 
+<<<<<<< HEAD
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 
 function join { local IFS="$1"; shift; echo "$*"; }
@@ -58,8 +59,12 @@ sims=('name=iPhone 6,OS=9.3')
 #fi
 export TEST_REPORTS_FOLDER=${TEST_DIR}/reports
 testcommand="/usr/bin/xcodebuild build test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug ${DESTINATIONS} GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES"
+=======
+testcommand="/usr/bin/xcodebuild test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES"
+echo $testcommand
+>>>>>>> master
 eval $testcommand | ocunit2junit
-# generate gcovr+cobertura report -destination "platform=iOS Simulator,name=iPhone 6 plus,OS=9.3" -destination "platform=iOS Simulator,name=iPhone 6,OS=10.0" -destination "platform=iOS Simulator,name=iPhone 6 plus,OS=10.0" -destination "platform=iOS Simulator,name=iPad Pro,OS=9.3"
+mv test-reports $TEST_REPORTS_FOLDER
 $(brew --prefix gcovr)/bin/gcovr --object-directory=${TEST_DIR}/Logs/Test/ --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"
 
 rm -rf ${TEST_STATUS_FILE}

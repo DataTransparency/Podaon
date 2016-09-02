@@ -42,6 +42,7 @@ version.txt
 ClassfitteriOS/build
 ClassfitteriOS/deploy
 ClassfitteriOS/test
+ClassfitteriOS/platformtest
 ClassfitteriOS/Pods
 ClassfitteriOS/FirebaseCrashServiceAccount.json
 ClassfitteriOS/GoogleService-Info.plist

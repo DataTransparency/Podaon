@@ -113,18 +113,19 @@ mkdir ${UPLOAD_CHECK_DIR}
 /Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m lookupMetadata -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -vendor_id ${VENDORID} -destination ${UPLOAD_CHECK_DIR}
 /Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m verify -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -v detailed
 
+data="{""tag_name"":""v${VERSION_NUMBER}+${BUILD_NUMBER}"",""name"":""v${VERSION_NUMBER}+${BUILD_NUMBER}""}"
 
 if [[ ${NODE_ENV} == 'production' ]]; then
 	#UPLOAD
 	/Applications/Xcode-beta.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} --upload
 	#CREATE GITHUB RELEASE AND TAG
-	curl -d '{"tag_name":"v${VERSION_NUMBER}+${BUILD_NUMBER}","name":"v${VERSION_NUMBER}+${BUILD_NUMBER}"}' -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/classfitter/classfitter/releases
+
+	curl -d $data -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/$GITHUB_OWNER/$GITHUB_REPO/releases
 else
-	echo "would have deployed and released"
+	echo "would have deployed and released: "$data
 fi
 
 rm -rf ${DEPLOY_STATUS_FILE}
 cat <<EOM > ${DEPLOY_STATUS_FILE}
 success
 EOM
-
