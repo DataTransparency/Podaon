@@ -10,5 +10,6 @@ export GITHUB_REPO=classfitter
 export GITHUB_OWNER=classfitter
 export GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
 export NODE_ENV=development
-
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
 
