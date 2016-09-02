@@ -45,4 +45,14 @@ class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate
         }
     }
 
+    @IBAction func clickSignOut(_ sender: AnyObject) {
+        if FIRAuth.auth()?.currentUser != nil {
+            do {
+                try FIRAuth.auth()?.signOut()
+            }
+            catch {
+                print("Failed to sign out the user")
+            }
+        }
+    }
 }

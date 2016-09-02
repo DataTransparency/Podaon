@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11191" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T3g-X5-mEH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T3g-X5-mEH">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11156"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="WelcomeMessage" text="Wecome to classfitter. The next workout starts in 3 minutes. Click enter below to join the locker room." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eh-Af-dP2" userLabel="WelcomeLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblWelcomeMessage" text="Wecome to classfitter. The next workout starts in 3 minutes. Click enter below to join the locker room." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eh-Af-dP2" userLabel="lblWelcomeMessage">
+                                <accessibility key="accessibilityConfiguration" identifier="lblWelcomeMessage"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -29,6 +30,12 @@
                                     <action selector="clickedEnter:" destination="G0j-6x-TZF" eventType="touchUpInside" id="V9Q-QF-ryw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-dF-r0D" userLabel="btnSignOut">
+                                <state key="normal" title="Sign out"/>
+                                <connections>
+                                    <action selector="clickSignOut:" destination="G0j-6x-TZF" eventType="touchUpInside" id="khA-no-HSC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -36,6 +43,8 @@
                             <constraint firstItem="7eh-Af-dP2" firstAttribute="leading" secondItem="X1y-ua-feC" secondAttribute="leadingMargin" constant="10" id="WJ1-u8-5jZ"/>
                             <constraint firstItem="N50-uR-uJm" firstAttribute="top" secondItem="7eh-Af-dP2" secondAttribute="bottom" constant="58" id="ewI-ZC-Jcv"/>
                             <constraint firstItem="N50-uR-uJm" firstAttribute="centerX" secondItem="X1y-ua-feC" secondAttribute="centerX" id="g6D-g2-E7X"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5yk-dF-r0D" secondAttribute="leading" id="ih6-zi-S5V"/>
+                            <constraint firstItem="MYc-3h-VcV" firstAttribute="top" secondItem="5yk-dF-r0D" secondAttribute="bottom" constant="8" id="sW2-No-MUq"/>
                             <constraint firstItem="7eh-Af-dP2" firstAttribute="centerY" secondItem="X1y-ua-feC" secondAttribute="centerY" id="x0d-tw-rZY"/>
                         </constraints>
                     </view>
@@ -74,6 +83,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="txtFirstName" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M6z-2T-9hk">
                                 <frame key="frameInset" minX="47" minY="205" width="273" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="txtFirstName" label="First Name"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -81,6 +91,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="txtSurname" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n0Y-0b-Gnb">
                                 <frame key="frameInset" minX="47" minY="313" width="273" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="txtSurname" label="Surname"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>

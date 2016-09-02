@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Firebase
 
 class ClassfitteriOSUITests: XCTestCase {
 
@@ -29,9 +30,12 @@ class ClassfitteriOSUITests: XCTestCase {
 
     func testBasicNavigation() {
         let app = XCUIApplication()
+        app.buttons["Sign out"].tap()
         app.buttons["Enter"].tap()
-        app.textFields["txtFirstName"].typeText("James")
-        app.textFields["txtSurname"].typeText("Wood")
+        app.textFields["First Name"].tap()
+        app.textFields["First Name"].typeText("James")
+        app.textFields["Surname"].tap()
+        app.textFields["Surname"].typeText("Wood")
         app.buttons["Next"].tap()
         app.buttons["Send"].tap()
         let doneButton = app.buttons["Done"]
