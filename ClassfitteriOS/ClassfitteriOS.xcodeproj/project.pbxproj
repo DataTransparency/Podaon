@@ -70,6 +70,7 @@
 		C66CC9841D6DFB6A00B9243D /* WorkingUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingUIViewController.swift; sourceTree = "<group>"; };
 		C66CC9861D6E024A00B9243D /* LockerRoomUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockerRoomUIViewController.swift; sourceTree = "<group>"; };
 		C66CC9881D6E13E300B9243D /* ResultsUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsUIViewController.swift; sourceTree = "<group>"; };
+		C66FD1371D7918C20032D584 /* Classfitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Classfitter.entitlements; sourceTree = "<group>"; };
 		D7B8CB6DE7299F5780C88266 /* Pods-ClassfitteriOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOSTests/Pods-ClassfitteriOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E2B65E3034E220286D573C8E /* Pods_ClassfitteriOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassfitteriOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -161,6 +162,7 @@
 		C63921271D2ED1DB0025CFEB /* ClassfitteriOS */ = {
 			isa = PBXGroup;
 			children = (
+				C66FD1371D7918C20032D584 /* Classfitter.entitlements */,
 				93C0A6BB1D78BED100A07133 /* NewUserUIViewController.swift */,
 				932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */,
 				932EFD531D74768D00A8666D /* GoogleService-Info.plist */,
@@ -273,6 +275,11 @@
 						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					C639213A1D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -643,6 +650,7 @@
 			baseConfigurationReference = A81F5B4BA6ED7277D5E49559 /* Pods-ClassfitteriOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClassfitteriOS/Classfitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
@@ -669,6 +677,7 @@
 			baseConfigurationReference = 07F67EB2FC7D1B75EE3D2CEB /* Pods-ClassfitteriOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClassfitteriOS/Classfitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";

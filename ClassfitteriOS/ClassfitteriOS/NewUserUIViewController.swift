@@ -15,49 +15,49 @@ protocol NewUserUIViewControllerDelegate: AnyObject {
 }
 
 class NewUserUIViewController: UIViewController {
-    
+
     override func viewDidAppear(_ animated: Bool) {
     }
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
     }
-    
-    internal weak var delegate: NewUserUIViewControllerDelegate?
-    
-    @IBOutlet weak var txtFirstName: UITextField!
 
+    internal weak var delegate: NewUserUIViewControllerDelegate?
+    @IBOutlet weak var txtFirstName: UITextField!
     @IBOutlet weak var txtSurname: UITextField!
-    
     @IBOutlet weak var lblValidation: UILabel!
+
     @IBAction func clickedNext(_ sender: AnyObject) {
-        if ((txtFirstName.text) != "") && ((txtSurname.text) != "")
-        {
-            FIRAuth.auth()?.signInAnonymously() { (user, error) in
-                if let errSignIn = error {
-                    self.lblValidation.text = "Unable to create account"
+        if ((txtFirstName.text) != "") && ((txtSurname.text) != "") {
+            FIRAuth.auth()?.signInAnonymously() { [weak self] (user, error) in
+                if self == nil {
                     return
                 }
-                if let changeRequest = user?.profileChangeRequest(){
-                    changeRequest.displayName = self.txtFirstName.text! + " " + self.txtSurname.text!
-                    changeRequest.commitChanges { error in
-                        if let errCommit = error {
-                            // An error happened.
-                            self.lblValidation.text = "Unable to create account"
-                        } else {
-                            // Profile updated.
-                            self.delegate?.closeNewUser(self)
+                if let signInError = error {
+                    self!.lblValidation.text = "Unable to create account"
+                    print(signInError.localizedDescription)
+                    return
+                }
+                if let changeRequest = user?.profileChangeRequest() {
+                    changeRequest.displayName = self!.txtFirstName.text! + " " + self!.txtSurname.text!
+                    changeRequest.commitChanges { [weak self] error2 in
+
+                        if self == nil {
+                            return
                         }
-                        
-                        
+                        if error2 != nil {
+                            self!.lblValidation.text = "Unable to update account"
+                            print(error.debugDescription)
+
+                            return
+                        }
+                        self!.delegate!.closeNewUser(self!)
                     }
                 }
             }
-            
         }
-        else{
+        else {
             lblValidation.text = "Please complete all the fields"
         }
-        
     }
 }

@@ -30,6 +30,9 @@ class ClassfitteriOSUITests: XCTestCase {
     func testBasicNavigation() {
         let app = XCUIApplication()
         app.buttons["Enter"].tap()
+        app.textFields["txtFirstName"].typeText("James")
+        app.textFields["txtSurname"].typeText("Wood")
+        app.buttons["Next"].tap()
         app.buttons["Send"].tap()
         let doneButton = app.buttons["Done"]
         doneButton.tap()
