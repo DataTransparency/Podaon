@@ -28,8 +28,8 @@ cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' '
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
 
-
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
+
 if [[ $NODE_ENV == "production" ]]; then
  DESTINATION="-destination 'platform=iOS Simulator,id='29dd69215cf2e5f740621092e205011e961dab49"
 else
