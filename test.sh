@@ -30,8 +30,13 @@ cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' '
 
 
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
+if [[ $NODE_ENV == "production" ]]; then
+ DESTINATION="-destination 'platform=iOS Simulator,id='29dd69215cf2e5f740621092e205011e961dab49"
+else
+ DESTINATION="-destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'"
+fi
 
-testcommand="/usr/bin/xcodebuild test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES"
+testcommand="/usr/bin/xcodebuild test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug ${DESTINATION} GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES"
 echo $testcommand
 
 eval $testcommand | ocunit2junit
