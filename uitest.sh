@@ -11,7 +11,7 @@ export PATH=$GEM_HOME/bin:$PATH
 alias cftool='node_modules/classfitter-tools/lib/index.js'
 
 GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
-TEST_DIR="${WORKSPACE}/ClassfitteriOS/test/"
+TEST_DIR="${WORKSPACE}/ClassfitteriOS/uitest/"
 COVERAGE_DIR="${TEST_DIR}/coverage"
 TEST_STATUS_FILE="${TEST_DIR}/status.txt"
 TEST_REPORTS_FOLDER="${TEST_DIR}/reports/"
@@ -25,23 +25,20 @@ failure
 EOM
 
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'ui-tests' 'pending' 'running' ${BUILD_URL}
-cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'unit-tests' 'pending' 'running' ${BUILD_URL}
-cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' 'pending' 'running' ${BUILD_URL}
 
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 
 if [[ $NODE_ENV == "production" ]]; then
- DESTINATION="-destination 'platform=iOS,name=James\'s iPhone'"
+ DESTINATION="-destination ""platform=iOS,name=James's iPhone"""
 else
  DESTINATION="-destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'"
 fi
 
-testcommand="/usr/bin/xcodebuild test -scheme ClassfitteriOS -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug ${DESTINATION} GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES"
+testcommand="/usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug ${DESTINATION} GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES"
 echo $testcommand
 
 eval $testcommand | ocunit2junit
 mv test-reports $TEST_REPORTS_FOLDER
-$(brew --prefix gcovr)/bin/gcovr --object-directory=${TEST_DIR}/Logs/Test/ --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"
 
 rm -rf ${TEST_STATUS_FILE}
 cat <<EOM > ${TEST_STATUS_FILE}
