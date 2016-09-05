@@ -31,7 +31,7 @@ cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'coverage' '
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 
 if [[ $NODE_ENV == "production" ]]; then
- DESTINATION="-destination 'platform=iOS,name=James''s iPhone'"
+ DESTINATION="-destination 'platform=iOS,name=James\'s iPhone'"
 else
  DESTINATION="-destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'"
 fi
