@@ -8,6 +8,7 @@
 
 import XCTest
 import Firebase
+import PromiseKit
 
 class ClassfitteriOSUITests: XCTestCase {
 

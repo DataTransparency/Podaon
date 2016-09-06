@@ -1,33 +1,35 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
 target 'ClassfitteriOS' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   source 'https://github.com/CocoaPods/Specs.git'
-  platform :ios, '8.0'
   use_frameworks!
-
-  # Pods for ClassfitteriOS
-    pod 'Firebase/Core'
-    pod 'Firebase/Crash'
-    pod 'Firebase/Auth'
-    pod 'RxSwift',    '~> 3.0.0.alpha.1'
-    pod 'RxCocoa',    '~> 3.0.0.alpha.1'
+  
+  pod 'Firebase/Core', :inhibit_warnings => true
+  pod 'Firebase/Crash', :inhibit_warnings => true
+  pod 'Firebase/Auth', :inhibit_warnings => true
+  pod 'RxSwift',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
+  pod 'RxCocoa',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
+  pod 'PromiseKit', :git => 'https://github.com/mxcl/PromiseKit.git', :branch => 'swift-3.0', :inhibit_warnings => true
 
   target 'ClassfitteriOSTests' do
     inherit! :search_paths
-    # Pods for testing
-    pod 'Firebase/Core'
-    pod 'Firebase/Crash'
-    pod 'Firebase/Auth'
+    pod 'Firebase/Core', :inhibit_warnings => true
+    pod 'Firebase/Crash', :inhibit_warnings => true
+    pod 'Firebase/Auth', :inhibit_warnings => true
+    pod 'RxSwift',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
+    pod 'RxCocoa',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
+    pod 'PromiseKit', :git => 'https://github.com/mxcl/PromiseKit.git', :branch => 'swift-3.0', :inhibit_warnings => true
   end
 
   target 'ClassfitteriOSUITests' do
     inherit! :search_paths
-    # Pods for testing
-    pod 'Firebase/Core'
-    pod 'Firebase/Crash'
-    pod 'Firebase/Auth'
+    pod 'Firebase/Core', :inhibit_warnings => true
+    pod 'Firebase/Crash', :inhibit_warnings => true
+    pod 'Firebase/Auth', :inhibit_warnings => true
+    pod 'RxSwift',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
+    pod 'RxCocoa',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
+    pod 'PromiseKit', :git => 'https://github.com/mxcl/PromiseKit.git', :branch => 'swift-3.0', :inhibit_warnings => true
   end
 
 post_install do |installer|

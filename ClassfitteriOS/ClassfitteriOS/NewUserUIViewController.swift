@@ -11,15 +11,14 @@ import UIKit
 import Firebase
 import RxCocoa
 import RxSwift
+import PromiseKit
 
 
 
 protocol NewUserUIViewControllerDelegate: AnyObject {
     var state: ApplicationState { get }
     func closeNewUser(_ controller: NewUserUIViewController)
-    
-    
-    func signInAnon(firstName: String, surname: String) -> Variable<String>
+    func signInAnon(firstName: String, surname: String) -> Promise<Void>
 }
 
 class NewUserUIViewController: UIViewController {
@@ -38,14 +37,12 @@ class NewUserUIViewController: UIViewController {
     @IBAction func clickedNext(_ sender: AnyObject) {
         if let firstName=txtFirstName.text, let surname = txtSurname.text {
             lblValidation.text = "Please complete all the fields"
-            
-            let signInStatus = delegate?.signInAnon(firstName: firstName, surname: surname)
-            
-            signInStatus?.asObservable().retry(5).
-            
-            self!.delegate!.closeNewUser(self!)
-            
-            
+            delegate?.signInAnon(firstName: firstName, surname: surname).catch{ error in
+                print(error.localizedDescription)
+                self.lblValidation.text = "Unable to setup user"
+            }.then { [weak self] in
+                self?.delegate?.closeNewUser(self!)
+            }
         }
     }
 }

@@ -249,6 +249,7 @@
 				C63921421D2ED1DC0025CFEB /* Sources */,
 				C63921431D2ED1DC0025CFEB /* Frameworks */,
 				C63921441D2ED1DC0025CFEB /* Resources */,
+				93964F9A1D7F3721007838FC /* [CP] Embed Pods Frameworks */,
 				4313CAFDC23B1601D1EFF66B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -414,6 +415,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ": \"${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"FirebaseServiceAccount.json\"";
+		};
+		93964F9A1D7F3721007838FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassfitteriOSUITests/Pods-ClassfitteriOSUITests-frameworks.sh\"";
+			showEnvVarsInLog = 0;
 		};
 		944B2B73488F91FEA54AF866 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

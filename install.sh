@@ -10,7 +10,6 @@ alias cftool='node_modules/classfitter-tools/lib/index.js'
 gem install bundler
 bundle install
 pod install --project-directory=ClassfitteriOS/
-
 echo $NODE_ENV
 if [[ $NODE_ENV == "production" ]]; then
 echo "Getting Live"

@@ -11,44 +11,28 @@ import UIKit
 import FirebaseAuth
 import RxSwift
 import RxCocoa
-
+import PromiseKit
 
 class ApplicationState{
     var userName = Variable<String?>(nil)
     
-    func signInAnon(firstName: String, surname: String, callback: (error: Error)){
-        FIRAuth.auth()?.signInAnonymously() { [weak self] (user, error) in
-            if self == nil {
-                return
+    func signInAnon(firstName: String, surname: String) -> Promise<Void> {
+    
+        return firstly {
+            return PromiseKit.wrap(FIRAuth.auth()!.signInAnonymously)
+        }.then { (user: FIRUser) in
+            let changeRequest = user.profileChangeRequest()
+            changeRequest.displayName = firstName + " " + surname
+            return PromiseKit.wrap { changeRequest.commitChanges( completion: $0) }
             }
-            if let signInError = error {
-                print(signInError.localizedDescription)
-                return
-            }
-            
-            if let changeRequest = user?.profileChangeRequest() {
-                changeRequest.displayName = firstName + " " + surname
-                changeRequest.commitChanges { [weak self] error2 in
-                    if self == nil {
-                        return
-                    }
-                    if error2 != nil {
-                        self!.lblValidation.text = "Unable to update account"
-                        print(error.debugDescription)
-                        
-                        return
-                    }
-                    userName.value = changeRequest.displayName
-                    callback();
-                }
-            }
+        .then { [weak self] in
+            self!.userName.value = firstName + " " + surname
         }
-
     }
     
     func signOut(){
-    if FIRAuth.auth()?.currentUser != nil {
-    do {
+        if FIRAuth.auth()?.currentUser != nil {
+        do {
     try FIRAuth.auth()?.signOut()
     userName.value = nil
     }
@@ -83,6 +67,10 @@ class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate
             }
             
         })
+    }
+    
+    func signInAnon(firstName: String, surname: String) -> Promise<Void> {
+        return state.signInAnon(firstName: firstName, surname: surname)
     }
 
     override func viewWillAppear(_ animated: Bool) {
