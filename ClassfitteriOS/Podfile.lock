@@ -9,6 +9,12 @@ PODS:
   - Firebase/Crash (3.5.2):
     - Firebase/Analytics
     - FirebaseCrash (= 1.0.7)
+  - Firebase/Database (3.5.2):
+    - Firebase/Analytics
+    - FirebaseDatabase (= 3.0.2)
+  - Firebase/Messaging (3.5.2):
+    - Firebase/Analytics
+    - FirebaseMessaging (= 1.1.1)
   - FirebaseAnalytics (3.3.1):
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
@@ -25,9 +31,20 @@ PODS:
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleUtilities (~> 1.2)
+  - FirebaseDatabase (3.0.2):
+    - FirebaseAnalytics (~> 3.2)
   - FirebaseInstanceID (1.0.8)
+  - FirebaseMessaging (1.1.1):
+    - FirebaseAnalytics (~> 3.3)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleIPhoneUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
   - GoogleInterchangeUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - GoogleIPhoneUtilities (1.2.1):
+    - GoogleSymbolUtilities (~> 1.0)
+    - GoogleUtilities (~> 1.0)
   - GoogleNetworkingUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
   - GoogleParsingUtilities (1.1.1):
@@ -50,32 +67,45 @@ PODS:
   - RxCocoa (3.0.0.alpha.1):
     - RxSwift (~> 3.0.0.alpha.1)
   - RxSwift (3.0.0.alpha.1)
+  - Swinject (2.0.0-beta.1)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Crash
+  - Firebase/Database
+  - Firebase/Messaging
   - PromiseKit (from `https://github.com/mxcl/PromiseKit.git`, branch `swift-3.0`)
   - RxCocoa (~> 3.0.0.alpha.1)
   - RxSwift (~> 3.0.0.alpha.1)
+  - Swinject (from `https://github.com/Swinject/Swinject.git`, branch `master`)
 
 EXTERNAL SOURCES:
   PromiseKit:
     :branch: swift-3.0
     :git: https://github.com/mxcl/PromiseKit.git
+  Swinject:
+    :branch: master
+    :git: https://github.com/Swinject/Swinject.git
 
 CHECKOUT OPTIONS:
   PromiseKit:
     :commit: 26050b45030026c00827f2495760b5c5fdee2943
     :git: https://github.com/mxcl/PromiseKit.git
+  Swinject:
+    :commit: 8da34ea21fcdf3a67d4312188f9174d06b49ca55
+    :git: https://github.com/Swinject/Swinject.git
 
 SPEC CHECKSUMS:
   Firebase: 94e63112efcad75226c0356a8f3032397b8547c9
   FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
   FirebaseAuth: 26fd291c3b552fc9658420b867520d5ae080421c
   FirebaseCrash: 2efeb3715b76ac843b841529ce413efb67e5fd4d
+  FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  FirebaseMessaging: 6bc7cd2ecb875c1a9c0f8b94956398aa3145bbb8
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
+  GoogleIPhoneUtilities: 63f25e93a3ddcb66884d182aab3a660d98f1479b
   GoogleNetworkingUtilities: 3e83269048cfb498dc7ec83ab36813360965c74f
   GoogleParsingUtilities: 30b3896f9ee167dc78747f013d3de157ced1cadf
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
@@ -83,7 +113,8 @@ SPEC CHECKSUMS:
   PromiseKit: d5c86314e38f44798a7e32b2e112ac45a409480d
   RxCocoa: 37b3b167eaa14446a315493ef6a188b277942b15
   RxSwift: 0bccfee1e979c1b72a5d1dffdf96119303b5d111
+  Swinject: a34eeb238ea2ebf1973386c663191542f56281bb
 
-PODFILE CHECKSUM: 65882f2a8d63e44244850547359a73225f174e75
+PODFILE CHECKSUM: 3794a76e1d423908dde6d0d7675d0a24b74dd964
 
 COCOAPODS: 1.0.1

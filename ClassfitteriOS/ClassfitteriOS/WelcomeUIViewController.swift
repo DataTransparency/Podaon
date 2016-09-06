@@ -12,12 +12,18 @@ import FirebaseAuth
 import RxSwift
 import RxCocoa
 import PromiseKit
+import FirebaseMessaging
+import Firebase
 
 class ApplicationState{
     var userName = Variable<String?>(nil)
     
-    func signInAnon(firstName: String, surname: String) -> Promise<Void> {
     
+    
+    
+ 
+
+    func signInAnon(firstName: String, surname: String) -> Promise<Void> {
         return firstly {
             return PromiseKit.wrap(FIRAuth.auth()!.signInAnonymously)
         }.then { (user: FIRUser) in
@@ -33,14 +39,13 @@ class ApplicationState{
     func signOut(){
         if FIRAuth.auth()?.currentUser != nil {
         do {
-    try FIRAuth.auth()?.signOut()
-    userName.value = nil
-    }
-    catch {
-    print("Failed to sign out the user")
-    }
-    }
-    }
+            try FIRAuth.auth()?.signOut()
+            userName.value = nil
+        }
+        catch {
+            print("Failed to sign out the user")
+            }
+    }}
 }
 
 class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate {
@@ -55,8 +60,15 @@ class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate
     var subscriptionUserName: Disposable?
     
     override func viewDidAppear(_ animated: Bool) {
-        state.userName.value = FIRAuth.auth()?.currentUser?.displayName
         
+    }
+    
+    func signInAnon(firstName: String, surname: String) -> Promise<Void> {
+        return state.signInAnon(firstName: firstName, surname: surname)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        state.userName.value = FIRAuth.auth()?.currentUser?.displayName
         self.subscriptionUserName = state.userName.asObservable().subscribe(onNext: { myName in
             if let strName = myName {
                 self.lblWelcomeMessage.text = "\(strName) welcome to classfitter. The next workout starts in 3 minutes. Click enter below to join the locker room."
@@ -67,13 +79,6 @@ class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate
             }
             
         })
-    }
-    
-    func signInAnon(firstName: String, surname: String) -> Promise<Void> {
-        return state.signInAnon(firstName: firstName, surname: surname)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -88,6 +93,11 @@ class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate
     }
 
     func goToLockerRoom() {
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/lockerroom")
+        
+        
+        
+
         let uic: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "LockerRoomUIViewController"))!
         let vcLockerRoom: LockerRoomUIViewController? = uic as? LockerRoomUIViewController
         self.navigationController?.pushViewController(vcLockerRoom!, animated: true)

@@ -8,9 +8,13 @@ target 'ClassfitteriOS' do
   pod 'Firebase/Core', :inhibit_warnings => true
   pod 'Firebase/Crash', :inhibit_warnings => true
   pod 'Firebase/Auth', :inhibit_warnings => true
+  pod 'Firebase/Database', :inhibit_warnings => true
   pod 'RxSwift',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
   pod 'RxCocoa',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
   pod 'PromiseKit', :git => 'https://github.com/mxcl/PromiseKit.git', :branch => 'swift-3.0', :inhibit_warnings => true
+  pod 'Swinject', :git => 'https://github.com/Swinject/Swinject.git', :branch => 'master', :inhibit_warnings => true
+  pod 'Firebase/Messaging'
+  
 
   target 'ClassfitteriOSTests' do
     inherit! :search_paths
