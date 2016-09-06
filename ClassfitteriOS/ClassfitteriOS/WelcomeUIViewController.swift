@@ -15,6 +15,48 @@ import RxCocoa
 
 class ApplicationState{
     var userName = Variable<String?>(nil)
+    
+    func signInAnon(firstName: String, surname: String, callback: (error: Error)){
+        FIRAuth.auth()?.signInAnonymously() { [weak self] (user, error) in
+            if self == nil {
+                return
+            }
+            if let signInError = error {
+                print(signInError.localizedDescription)
+                return
+            }
+            
+            if let changeRequest = user?.profileChangeRequest() {
+                changeRequest.displayName = firstName + " " + surname
+                changeRequest.commitChanges { [weak self] error2 in
+                    if self == nil {
+                        return
+                    }
+                    if error2 != nil {
+                        self!.lblValidation.text = "Unable to update account"
+                        print(error.debugDescription)
+                        
+                        return
+                    }
+                    userName.value = changeRequest.displayName
+                    callback();
+                }
+            }
+        }
+
+    }
+    
+    func signOut(){
+    if FIRAuth.auth()?.currentUser != nil {
+    do {
+    try FIRAuth.auth()?.signOut()
+    userName.value = nil
+    }
+    catch {
+    print("Failed to sign out the user")
+    }
+    }
+    }
 }
 
 class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate {
@@ -77,15 +119,7 @@ class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate
     }
 
     @IBAction func clickSignOut(_ sender: AnyObject) {
-        if FIRAuth.auth()?.currentUser != nil {
-            do {
-                try FIRAuth.auth()?.signOut()
-                state.userName.value = nil
-            }
-            catch {
-                print("Failed to sign out the user")
-            }
-        }
+        state.signOut();
     }
     
     

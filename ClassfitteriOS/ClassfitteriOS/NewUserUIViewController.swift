@@ -17,6 +17,9 @@ import RxSwift
 protocol NewUserUIViewControllerDelegate: AnyObject {
     var state: ApplicationState { get }
     func closeNewUser(_ controller: NewUserUIViewController)
+    
+    
+    func signInAnon(firstName: String, surname: String) -> Variable<String>
 }
 
 class NewUserUIViewController: UIViewController {
@@ -33,38 +36,16 @@ class NewUserUIViewController: UIViewController {
     @IBOutlet weak var lblValidation: UILabel!
 
     @IBAction func clickedNext(_ sender: AnyObject) {
-        if ((txtFirstName.text) != "") && ((txtSurname.text) != "") {
-            FIRAuth.auth()?.signInAnonymously() { [weak self] (user, error) in
-                if self == nil {
-                    return
-                }
-                if let signInError = error {
-                    self!.lblValidation.text = "Unable to create account"
-                    print(signInError.localizedDescription)
-                    return
-                }
-                
-                if let changeRequest = user?.profileChangeRequest() {
-                    changeRequest.displayName = self!.txtFirstName.text! + " " + self!.txtSurname.text!
-                    self?.delegate?.state.userName.value = (self!.txtFirstName.text! + " " + self!.txtSurname.text!)
-                    changeRequest.commitChanges { [weak self] error2 in
-
-                        if self == nil {
-                            return
-                        }
-                        if error2 != nil {
-                            self!.lblValidation.text = "Unable to update account"
-                            print(error.debugDescription)
-
-                            return
-                        }
-                        self!.delegate!.closeNewUser(self!)
-                    }
-                }
-            }
-        }
-        else {
+        if let firstName=txtFirstName.text, let surname = txtSurname.text {
             lblValidation.text = "Please complete all the fields"
+            
+            let signInStatus = delegate?.signInAnon(firstName: firstName, surname: surname)
+            
+            signInStatus?.asObservable().retry(5).
+            
+            self!.delegate!.closeNewUser(self!)
+            
+            
         }
     }
 }
