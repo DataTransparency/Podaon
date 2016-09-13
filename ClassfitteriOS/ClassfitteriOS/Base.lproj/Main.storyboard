@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T3g-X5-mEH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -146,33 +147,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dnu-3n-OJg" userLabel="EnterMessageVIew">
-                                <frame key="frameInset" minY="550" width="600" height="50"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jy3-Da-UP3">
-                                        <frame key="frameInset" minX="8" minY="10" width="529" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IX-rq-Kuw">
-                                        <frame key="frameInset" minX="545" minY="10" width="36" height="30"/>
-                                        <state key="normal" title="Send"/>
-                                        <connections>
-                                            <action selector="beginWorkout:" destination="Scl-vc-vsc" eventType="touchUpInside" id="Gw1-XT-hs8"/>
-                                            <action selector="sendMessage:" destination="Scl-vc-vsc" eventType="touchUpInside" id="iPo-o7-cTA"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="bottom" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="-10" id="1c0-FZ-Gup"/>
-                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="trailing" secondItem="9IX-rq-Kuw" secondAttribute="leading" constant="-5" id="3Ns-1H-uay"/>
-                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="trailing" secondItem="Dnu-3n-OJg" secondAttribute="trailing" constant="-10" id="799-Ga-DvX"/>
-                                    <constraint firstAttribute="height" constant="30" id="7PL-fJ-8jT"/>
-                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="bottom" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="-10" id="EHD-2G-Ubh"/>
-                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="leading" secondItem="Dnu-3n-OJg" secondAttribute="leading" constant="10" id="nJo-yK-4C0"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DR6-UH-COa">
                                 <frame key="frameInset" minY="48" width="375" height="373"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -197,10 +171,36 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnu-3n-OJg" userLabel="EnterMessageVIew">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jy3-Da-UP3">
+                                        <frame key="frameInset" minX="8" minY="8" width="288" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IX-rq-Kuw">
+                                        <frame key="frameInset" minX="324" minY="7" width="36" height="30"/>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="beginWorkout:" destination="Scl-vc-vsc" eventType="touchUpInside" id="Gw1-XT-hs8"/>
+                                            <action selector="sendMessage:" destination="Scl-vc-vsc" eventType="touchUpInside" id="iPo-o7-cTA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="bottom" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="-10" id="1c0-FZ-Gup"/>
+                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="trailing" secondItem="9IX-rq-Kuw" secondAttribute="leading" constant="-5" id="3Ns-1H-uay"/>
+                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="trailing" secondItem="Dnu-3n-OJg" secondAttribute="trailing" constant="-10" id="799-Ga-DvX"/>
+                                    <constraint firstAttribute="height" constant="30" id="7PL-fJ-8jT"/>
+                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="bottom" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="-10" id="EHD-2G-Ubh"/>
+                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="leading" secondItem="Dnu-3n-OJg" secondAttribute="leading" constant="10" id="nJo-yK-4C0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Dnu-3n-OJg" firstAttribute="bottom" secondItem="KgK-lD-67F" secondAttribute="bottom" id="8il-iu-ejf"/>
+                            <constraint firstItem="Dnu-3n-OJg" firstAttribute="bottom" secondItem="KgK-lD-67F" secondAttribute="baseline" id="8il-iu-ejf"/>
                             <constraint firstItem="Dnu-3n-OJg" firstAttribute="leading" secondItem="KgK-lD-67F" secondAttribute="leadingMargin" constant="-20" id="hHG-7A-caB"/>
                             <constraint firstItem="Dnu-3n-OJg" firstAttribute="trailing" secondItem="KgK-lD-67F" secondAttribute="trailingMargin" constant="20" id="swA-cA-Wyq"/>
                         </constraints>

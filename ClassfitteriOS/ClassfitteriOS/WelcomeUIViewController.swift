@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import RxSwift
-import RxCocoa
 import PromiseKit
 import FirebaseMessaging
 import Firebase

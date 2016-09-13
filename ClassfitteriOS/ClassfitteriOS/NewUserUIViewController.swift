@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Firebase
-import RxCocoa
 import RxSwift
 import PromiseKit
 

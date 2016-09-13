@@ -1,40 +1,29 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+platform :ios, '8.0'
+
+
+pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'master', :inhibit_warnings => true
+pod "PromiseKit", "~> 4.0"
+pod 'Swinject', '2.0.0-beta.2', :inhibit_warnings => true
 
 target 'ClassfitteriOS' do
-  source 'https://github.com/CocoaPods/Specs.git'
-  use_frameworks!
-  
+
   pod 'Firebase/Core', :inhibit_warnings => true
   pod 'Firebase/Crash', :inhibit_warnings => true
   pod 'Firebase/Auth', :inhibit_warnings => true
   pod 'Firebase/Database', :inhibit_warnings => true
-  pod 'RxSwift',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
-  pod 'RxCocoa',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
-  pod 'PromiseKit', :git => 'https://github.com/mxcl/PromiseKit.git', :branch => 'swift-3.0', :inhibit_warnings => true
-  pod 'Swinject', :git => 'https://github.com/Swinject/Swinject.git', :branch => 'master', :inhibit_warnings => true
-  pod 'Firebase/Messaging'
+  pod 'Firebase/Messaging', :inhibit_warnings => true
   
 
   target 'ClassfitteriOSTests' do
     inherit! :search_paths
-    pod 'Firebase/Core', :inhibit_warnings => true
-    pod 'Firebase/Crash', :inhibit_warnings => true
-    pod 'Firebase/Auth', :inhibit_warnings => true
-    pod 'RxSwift',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
-    pod 'RxCocoa',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
-    pod 'PromiseKit', :git => 'https://github.com/mxcl/PromiseKit.git', :branch => 'swift-3.0', :inhibit_warnings => true
   end
 
   target 'ClassfitteriOSUITests' do
     inherit! :search_paths
-    pod 'Firebase/Core', :inhibit_warnings => true
-    pod 'Firebase/Crash', :inhibit_warnings => true
-    pod 'Firebase/Auth', :inhibit_warnings => true
-    pod 'RxSwift',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
-    pod 'RxCocoa',    '~> 3.0.0.alpha.1', :inhibit_warnings => true
-    pod 'PromiseKit', :git => 'https://github.com/mxcl/PromiseKit.git', :branch => 'swift-3.0', :inhibit_warnings => true
-  end
+     end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|

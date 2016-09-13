@@ -52,7 +52,7 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = messageList.dequeueReusableCell(withIdentifier: "cell", for: indexPath)  as UITableViewCell
-        cell.textLabel?.text = self.comments[indexPath.row].value! as! String
+        cell.textLabel?.text = self.comments[indexPath.row].value as! String?
         return cell
     }
 
