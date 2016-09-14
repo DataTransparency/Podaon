@@ -41,8 +41,12 @@ class ClassfitteriOSUITests: XCTestCase {
 
     func testBasicNavigation() {
         let app = XCUIApplication()
+        
+        sleep(5)
         app.buttons["Sign out"].tap()
         app.buttons["Enter"].tap()
+        
+        sleep(5)
         
         let txtfirstnameTextField = app.textFields["txtFirstName"]
         txtfirstnameTextField.tap()
@@ -60,6 +64,7 @@ class ClassfitteriOSUITests: XCTestCase {
         txtNewMessage.typeText("Hello World")
         app.buttons["Send"].tap()
         
+        sleep(5)
         app.navigationBars["Locker room"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0).tap()
     }
 }
