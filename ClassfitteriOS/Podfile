@@ -6,7 +6,7 @@ platform :ios, '8.0'
 
 pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'master', :inhibit_warnings => true
 pod "PromiseKit", "~> 4.0", :inhibit_warnings => true
-pod 'Swinject', '= 2.0.0-beta.2', :inhibit_warnings => true
+pod 'Swinject', :inhibit_warnings => true
 
 
 

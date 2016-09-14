@@ -1,4 +1,6 @@
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
+git clean -d -x -f
+
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 . $(brew --prefix nvm)/nvm.sh
