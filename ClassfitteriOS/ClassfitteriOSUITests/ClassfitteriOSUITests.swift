@@ -17,7 +17,6 @@ class ClassfitteriOSUITests: XCTestCase {
 
         continueAfterFailure = false
         let app = XCUIApplication()
-        //app.launchArguments = [testingEnvironment.resetLaunchArgument]
         app.launch()
         
         systemAlertMonitorToken = addUIInterruptionMonitor(withDescription: systemAlertHandlerDescription) { (alert) -> Bool in
@@ -40,8 +39,8 @@ class ClassfitteriOSUITests: XCTestCase {
     }
 
     func testBasicNavigation() {
+        sleep(5)
         let app = XCUIApplication()
-        
         sleep(5)
         app.buttons["Sign out"].tap()
         app.buttons["Enter"].tap()
