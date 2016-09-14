@@ -16,12 +16,6 @@ import Firebase
 
 class ApplicationState{
     var userName = Variable<String?>(nil)
-    
-    
-    
-    
- 
-
     func signInAnon(firstName: String, surname: String) -> Promise<Void> {
         return firstly {
             return PromiseKit.wrap(FIRAuth.auth()!.signInAnonymously)
@@ -93,13 +87,12 @@ class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate
 
     func goToLockerRoom() {
         FIRMessaging.messaging().subscribe(toTopic: "/topics/lockerroom")
-        
-        
-        
 
         let uic: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "LockerRoomUIViewController"))!
-        let vcLockerRoom: LockerRoomUIViewController? = uic as? LockerRoomUIViewController
-        self.navigationController?.pushViewController(vcLockerRoom!, animated: true)
+        if let vcLockerRoom =  uic as? LockerRoomUIViewController{
+             vcLockerRoom.state = self.state
+            self.navigationController?.pushViewController(vcLockerRoom, animated: true)
+        }
     }
 
     @IBAction func clickedEnter(_ sender: AnyObject) {

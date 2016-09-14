@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T3g-X5-mEH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T3g-X5-mEH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -147,9 +146,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DR6-UH-COa">
-                                <frame key="frameInset" minY="48" width="375" height="373"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DR6-UH-COa" userLabel="messagesUITableView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="d4D-cX-SaN" style="IBUITableViewCellStyleDefault" id="E7v-QN-Fp0">
@@ -171,41 +168,49 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnu-3n-OJg" userLabel="EnterMessageVIew">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnu-3n-OJg" userLabel="newMessageVIew">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jy3-Da-UP3">
-                                        <frame key="frameInset" minX="8" minY="8" width="288" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="newMessage" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jy3-Da-UP3" userLabel="txtNewMessage">
+                                        <accessibility key="accessibilityConfiguration" identifier="txtNewMessage" label="New message text"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="f58-xc-dZZ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IX-rq-Kuw">
-                                        <frame key="frameInset" minX="324" minY="7" width="36" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IX-rq-Kuw" userLabel="sendMesageButton">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="FMl-09-64F"/>
+                                        </constraints>
                                         <state key="normal" title="Send"/>
                                         <connections>
-                                            <action selector="beginWorkout:" destination="Scl-vc-vsc" eventType="touchUpInside" id="Gw1-XT-hs8"/>
                                             <action selector="sendMessage:" destination="Scl-vc-vsc" eventType="touchUpInside" id="iPo-o7-cTA"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="bottom" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="-10" id="1c0-FZ-Gup"/>
-                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="trailing" secondItem="9IX-rq-Kuw" secondAttribute="leading" constant="-5" id="3Ns-1H-uay"/>
-                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="trailing" secondItem="Dnu-3n-OJg" secondAttribute="trailing" constant="-10" id="799-Ga-DvX"/>
-                                    <constraint firstAttribute="height" constant="30" id="7PL-fJ-8jT"/>
-                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="bottom" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="-10" id="EHD-2G-Ubh"/>
-                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="leading" secondItem="Dnu-3n-OJg" secondAttribute="leading" constant="10" id="nJo-yK-4C0"/>
+                                    <constraint firstAttribute="height" constant="35" id="5yN-Jj-v2Y"/>
+                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="leading" secondItem="Jy3-Da-UP3" secondAttribute="trailing" constant="8" id="CQX-Jy-UUa"/>
+                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="top" secondItem="Dnu-3n-OJg" secondAttribute="top" constant="5" id="Cp2-mD-vfq"/>
+                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="leading" secondItem="Dnu-3n-OJg" secondAttribute="leading" id="L4D-UD-GBc"/>
+                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="top" secondItem="Dnu-3n-OJg" secondAttribute="top" constant="5" id="um1-pL-hYn"/>
+                                    <constraint firstAttribute="trailing" secondItem="9IX-rq-Kuw" secondAttribute="trailing" id="wqo-pJ-hxi"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Dnu-3n-OJg" firstAttribute="bottom" secondItem="KgK-lD-67F" secondAttribute="baseline" id="8il-iu-ejf"/>
-                            <constraint firstItem="Dnu-3n-OJg" firstAttribute="leading" secondItem="KgK-lD-67F" secondAttribute="leadingMargin" constant="-20" id="hHG-7A-caB"/>
-                            <constraint firstItem="Dnu-3n-OJg" firstAttribute="trailing" secondItem="KgK-lD-67F" secondAttribute="trailingMargin" constant="20" id="swA-cA-Wyq"/>
+                            <constraint firstAttribute="trailing" secondItem="DR6-UH-COa" secondAttribute="trailing" id="1UQ-dI-fHC"/>
+                            <constraint firstItem="Dnu-3n-OJg" firstAttribute="leading" secondItem="KgK-lD-67F" secondAttribute="leadingMargin" id="6pa-4Z-GkC"/>
+                            <constraint firstItem="DR6-UH-COa" firstAttribute="leading" secondItem="KgK-lD-67F" secondAttribute="leading" id="Hv2-nP-8cA"/>
+                            <constraint firstItem="DR6-UH-COa" firstAttribute="bottom" secondItem="Dnu-3n-OJg" secondAttribute="top" id="XKa-3j-1Nu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dnu-3n-OJg" secondAttribute="trailing" id="YgM-9G-o8o"/>
+                            <constraint firstItem="DR6-UH-COa" firstAttribute="top" secondItem="cTh-9c-eoi" secondAttribute="bottom" id="aMe-aV-blG"/>
+                            <constraint firstItem="xB0-0L-cYR" firstAttribute="top" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="10" id="l4I-Lf-fYu"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomHeight" destination="l4I-Lf-fYu" id="hdL-qW-Ayg"/>
                         <outlet property="messageList" destination="DR6-UH-COa" id="gcK-Gk-dFW"/>
                         <outlet property="newMessage" destination="Jy3-Da-UP3" id="rva-7f-9s4"/>
                     </connections>

@@ -5,8 +5,10 @@ platform :ios, '8.0'
 
 
 pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'master', :inhibit_warnings => true
-pod "PromiseKit", "~> 4.0"
+pod "PromiseKit", "~> 4.0", :inhibit_warnings => true
 pod 'Swinject', '2.0.0-beta.2', :inhibit_warnings => true
+
+
 
 target 'ClassfitteriOS' do
 
@@ -14,15 +16,25 @@ target 'ClassfitteriOS' do
   pod 'Firebase/Crash', :inhibit_warnings => true
   pod 'Firebase/Auth', :inhibit_warnings => true
   pod 'Firebase/Database', :inhibit_warnings => true
-  pod 'Firebase/Messaging', :inhibit_warnings => true
+  pod 'Firebase/Messaging', :inhibit_warnings => true 
   
 
   target 'ClassfitteriOSTests' do
     inherit! :search_paths
+    pod 'Firebase/Core', :inhibit_warnings => true
+  pod 'Firebase/Crash', :inhibit_warnings => true
+  pod 'Firebase/Auth', :inhibit_warnings => true
+  pod 'Firebase/Database', :inhibit_warnings => true
+  pod 'Firebase/Messaging', :inhibit_warnings => true 
   end
 
   target 'ClassfitteriOSUITests' do
     inherit! :search_paths
+    pod 'Firebase/Core', :inhibit_warnings => true
+  pod 'Firebase/Crash', :inhibit_warnings => true
+  pod 'Firebase/Auth', :inhibit_warnings => true
+  pod 'Firebase/Database', :inhibit_warnings => true
+  pod 'Firebase/Messaging', :inhibit_warnings => true 
      end
 
 post_install do |installer|

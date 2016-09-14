@@ -35,13 +35,15 @@ class NewUserUIViewController: UIViewController {
 
     @IBAction func clickedNext(_ sender: AnyObject) {
         if let firstName=txtFirstName.text, let surname = txtSurname.text {
-            lblValidation.text = "Please complete all the fields"
+            lblValidation.text = ""
             delegate?.signInAnon(firstName: firstName, surname: surname).catch{ error in
                 print(error.localizedDescription)
                 self.lblValidation.text = "Unable to setup user"
             }.then { [weak self] in
                 self?.delegate?.closeNewUser(self!)
             }
+        } else {
+            lblValidation.text = "Please complete all the fields"
         }
     }
 }

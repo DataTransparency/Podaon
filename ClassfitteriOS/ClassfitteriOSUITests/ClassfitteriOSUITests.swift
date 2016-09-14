@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Firebase
 import PromiseKit
 
 class ClassfitteriOSUITests: XCTestCase {
@@ -41,12 +40,15 @@ class ClassfitteriOSUITests: XCTestCase {
         let txtsurnameTextField = app.textFields["txtSurname"]
         txtsurnameTextField.tap()
         txtsurnameTextField.typeText("Wood")
-
         app.buttons["Next"].tap()
+       
+        sleep(5)
+        
+        let txtNewMessage = app.textFields["txtNewMessage"]
+        txtNewMessage.tap()
+        txtNewMessage.typeText("Hello World")
         app.buttons["Send"].tap()
-        let doneButton = app.buttons["Done"]
-        doneButton.tap()
-        doneButton.tap()
+        
         app.navigationBars["Locker room"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0).tap()
     }
 }
