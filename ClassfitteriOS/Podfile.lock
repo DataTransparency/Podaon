@@ -65,7 +65,7 @@ PODS:
   - PromiseKit/UIKit (4.0.1):
     - PromiseKit/CorePromise
   - RxSwift (3.0.0-beta.1)
-  - Swinject (2.0.0-beta.2)
+  - Swinject (1.1.4)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -75,7 +75,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - PromiseKit (~> 4.0)
   - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `master`)
-  - Swinject (= 2.0.0-beta.2)
+  - Swinject
 
 EXTERNAL SOURCES:
   RxSwift:
@@ -103,8 +103,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   PromiseKit: ae9e7f97ee758e23f7b9c5e80380a2e78d6338c5
   RxSwift: 0823e8d7969c23bfa9ddfb2afa4881e424a1a710
-  Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
+  Swinject: 8863ebff588a8574f1bc9af8a6abed11389865f7
 
-PODFILE CHECKSUM: e88c668295bf360c3c9481bd3a6136d7941b1590
+PODFILE CHECKSUM: dc9bfcadef19e3dbdb399a05140d0dad0f8402f6
 
 COCOAPODS: 1.0.1
