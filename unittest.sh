@@ -36,7 +36,7 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 #fi
 killall "Simulator" 2> /dev/null; xcrun simctl erase all
 
-/usr/bin/xcodebuild test -scheme UnitTests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
+/usr/bin/xcodebuild test -scheme UnitTests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 mv test-reports $TEST_REPORTS_FOLDER
 $(brew --prefix gcovr)/bin/gcovr --object-directory=${TEST_DIR}/Logs/Test/ --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"
 

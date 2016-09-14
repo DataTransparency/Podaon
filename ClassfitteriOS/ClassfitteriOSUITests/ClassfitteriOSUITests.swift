@@ -20,8 +20,10 @@ class ClassfitteriOSUITests: XCTestCase {
         app.launch()
         
         systemAlertMonitorToken = addUIInterruptionMonitor(withDescription: systemAlertHandlerDescription) { (alert) -> Bool in
+            sleep(5)
             if alert.buttons.matching(identifier: "OK").count > 0 {
                 alert.buttons["OK"].tap()
+                sleep(5)
                 return true
             } else {
                 return false
