@@ -15,4 +15,3 @@ export BUILD_NUMBER=0
 export GIT_COMMIT=efdbd257dd5aa178ebcdfc265db22997d781654e
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
-export GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
