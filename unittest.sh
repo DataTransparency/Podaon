@@ -54,6 +54,7 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 #killall "Simulator" 2> /dev/null; xcrun simctl erase all
 
 echo "LOCATION WAS ${LOCATION}"
+
 if [[ $LOCATION == "CI" ]]; then
 /usr/bin/xcodebuild test -scheme UnitTests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPadMiniRetina' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 else

@@ -6,7 +6,7 @@
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 : "${BUILD_NUMBER:?There must be a BUILD_NUMBER environment variable set}"
-: "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
+
 . $(brew --prefix nvm)/nvm.sh
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
@@ -43,7 +43,6 @@ rm -rf $FIREBASE_ANALYTICS_FILE
 cp $FIREBASE_ANALYTICS_PLIST $FIREBASE_ANALYTICS_FILE
 
 GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
-
 
 cd ClassfitteriOS
 agvtool new-version -all ${BUILD_NUMBER}

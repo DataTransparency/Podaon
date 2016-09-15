@@ -56,6 +56,7 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 #SIMULATOR_ID=$(xcrun instruments -s | grep -o "iPhone 6 (${IOS_VER}) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
 #echo $SIMULATOR_ID
 #open -b com.apple.iphonesimulator --args -CurrentDeviceUDID $SIMULATOR_ID
+echo "LOCATION WAS ${LOCATION}"
 
 if [[ $LOCATION == "CI" ]]; then
 /usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPadMiniRetina' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
