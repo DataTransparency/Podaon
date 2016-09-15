@@ -3,7 +3,6 @@
 . $(brew --prefix nvm)/nvm.sh
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
-
 alias cftool='node_modules/classfitter-tools/lib/index.js'
 
 DEPLOY_DIRECTORY="${WORKSPACE}/ClassfitteriOS/deploy"

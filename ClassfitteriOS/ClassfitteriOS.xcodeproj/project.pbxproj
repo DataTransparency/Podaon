@@ -12,6 +12,7 @@
 		932EFD541D74768D00A8666D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 932EFD531D74768D00A8666D /* GoogleService-Info.plist */; };
 		932EFD561D7476B400A8666D /* FirebaseServiceAccount.json in Resources */ = {isa = PBXBuildFile; fileRef = 932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */; };
 		9352F1E71D738CEE00F87716 /* WelcomeUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9352F1E61D738CEE00F87716 /* WelcomeUIViewController.swift */; };
+		93C0A6BC1D78BED100A07133 /* NewUserUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C0A6BB1D78BED100A07133 /* NewUserUIViewController.swift */; };
 		C63921291D2ED1DB0025CFEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63921281D2ED1DB0025CFEB /* AppDelegate.swift */; };
 		C63921301D2ED1DB0025CFEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C639212E1D2ED1DB0025CFEB /* Main.storyboard */; };
 		C63921321D2ED1DB0025CFEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63921311D2ED1DB0025CFEB /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FirebaseServiceAccount.json; sourceTree = SOURCE_ROOT; };
 		9352F1E61D738CEE00F87716 /* WelcomeUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeUIViewController.swift; sourceTree = "<group>"; };
 		9352F1EB1D74610300F87716 /* ClassfitteriOS_Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfitteriOS_Bridging_Header.h; sourceTree = SOURCE_ROOT; };
+		93C0A6BB1D78BED100A07133 /* NewUserUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserUIViewController.swift; sourceTree = "<group>"; };
 		96D1CAB2C91F9A3018A909F0 /* Pods_ClassfitteriOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassfitteriOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A81F5B4BA6ED7277D5E49559 /* Pods-ClassfitteriOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOS/Pods-ClassfitteriOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C63921251D2ED1DB0025CFEB /* Classfitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classfitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +70,7 @@
 		C66CC9841D6DFB6A00B9243D /* WorkingUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingUIViewController.swift; sourceTree = "<group>"; };
 		C66CC9861D6E024A00B9243D /* LockerRoomUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockerRoomUIViewController.swift; sourceTree = "<group>"; };
 		C66CC9881D6E13E300B9243D /* ResultsUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsUIViewController.swift; sourceTree = "<group>"; };
+		C66FD1371D7918C20032D584 /* Classfitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Classfitter.entitlements; sourceTree = "<group>"; };
 		D7B8CB6DE7299F5780C88266 /* Pods-ClassfitteriOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassfitteriOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassfitteriOSTests/Pods-ClassfitteriOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E2B65E3034E220286D573C8E /* Pods_ClassfitteriOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassfitteriOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -159,6 +162,8 @@
 		C63921271D2ED1DB0025CFEB /* ClassfitteriOS */ = {
 			isa = PBXGroup;
 			children = (
+				C66FD1371D7918C20032D584 /* Classfitter.entitlements */,
+				93C0A6BB1D78BED100A07133 /* NewUserUIViewController.swift */,
 				932EFD551D7476B400A8666D /* FirebaseServiceAccount.json */,
 				932EFD531D74768D00A8666D /* GoogleService-Info.plist */,
 				9352F1EB1D74610300F87716 /* ClassfitteriOS_Bridging_Header.h */,
@@ -203,7 +208,7 @@
 				C63921231D2ED1DB0025CFEB /* Resources */,
 				F2889459355408C2B3B1B081 /* [CP] Embed Pods Frameworks */,
 				EB6891C123BFD93A2B0AD4CE /* [CP] Copy Pods Resources */,
-				9352F1EC1D74616D00F87716 /* ShellScript */,
+				9352F1EC1D74616D00F87716 /* Upload FirebaseServiceAccount.json symbols */,
 				8C0864A0499BE8793599679D /* Tailor */,
 			);
 			buildRules = (
@@ -244,6 +249,7 @@
 				C63921421D2ED1DC0025CFEB /* Sources */,
 				C63921431D2ED1DC0025CFEB /* Frameworks */,
 				C63921441D2ED1DC0025CFEB /* Resources */,
+				93964F9A1D7F3721007838FC /* [CP] Embed Pods Frameworks */,
 				4313CAFDC23B1601D1EFF66B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -268,14 +274,25 @@
 					C63921241D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = TQYB6VJLUN;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					C639213A1D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
 					C63921451D2ED1DC0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
 				};
@@ -389,18 +406,34 @@
 			shellPath = /bin/sh;
 			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
 		};
-		9352F1EC1D74616D00F87716 /* ShellScript */ = {
+		9352F1EC1D74616D00F87716 /* Upload FirebaseServiceAccount.json symbols */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Upload FirebaseServiceAccount.json symbols";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ": \"${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"FirebaseServiceAccount.json\"";
+		};
+		93964F9A1D7F3721007838FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassfitteriOSUITests/Pods-ClassfitteriOSUITests-frameworks.sh\"";
+			showEnvVarsInLog = 0;
 		};
 		944B2B73488F91FEA54AF866 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -488,6 +521,7 @@
 				C66CC9851D6DFB6A00B9243D /* WorkingUIViewController.swift in Sources */,
 				C66CC9871D6E024A00B9243D /* LockerRoomUIViewController.swift in Sources */,
 				C63921291D2ED1DB0025CFEB /* AppDelegate.swift in Sources */,
+				93C0A6BC1D78BED100A07133 /* NewUserUIViewController.swift in Sources */,
 				C66CC9891D6E13E300B9243D /* ResultsUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,7 +669,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A81F5B4BA6ED7277D5E49559 /* Pods-ClassfitteriOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClassfitteriOS/Classfitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
@@ -653,7 +689,7 @@
 				PROVISIONING_PROFILE = "be2d5807-9500-4541-a610-9bec53db635c";
 				PROVISIONING_PROFILE_SPECIFIER = "Classfitter Development Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -661,7 +697,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 07F67EB2FC7D1B75EE3D2CEB /* Pods-ClassfitteriOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClassfitteriOS/Classfitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
@@ -679,7 +717,7 @@
 				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
 				PROVISIONING_PROFILE_SPECIFIER = ClassfitterDistribution;
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -694,7 +732,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classfitter.app/Classfitter";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -710,7 +748,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classfitter.app/Classfitter";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -720,11 +758,35 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F8D6C43C364A2F89EE9E4B1 /* Pods-ClassfitteriOSUITests.debug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PromiseKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/RxSwift\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Swinject\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/**",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCrash\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseMessaging\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleIPhoneUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
 				INFOPLIST_FILE = ClassfitteriOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;
 			};
@@ -734,11 +796,28 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69AE1A80AA805A89C1A7CA72 /* Pods-ClassfitteriOSUITests.release.xcconfig */;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCrash\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseMessaging\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleIPhoneUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
 				INFOPLIST_FILE = ClassfitteriOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;
 			};

@@ -11,26 +11,26 @@ import UIKit
 import Firebase
 
 protocol WorkingUIViewControllerDelegate: AnyObject {
-    func endWorkout(controller: WorkingUIViewController)
+    func endWorkout(_ controller: WorkingUIViewController)
 }
 
 class WorkingUIViewController: UIViewController {
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
     }
 
     var originalOrientation: Int?
 
-    override func viewWillAppear(animated: Bool) {
-        originalOrientation = UIDevice.currentDevice().orientation.rawValue
-        let newOrientation = UIInterfaceOrientation.LandscapeLeft.rawValue
-        UIDevice.currentDevice().setValue(newOrientation, forKey: "orientation")
+    override func viewWillAppear(_ animated: Bool) {
+        originalOrientation = UIDevice.current.orientation.rawValue
+        let newOrientation = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(newOrientation, forKey: "orientation")
     }
 
    internal weak var delegate: WorkingUIViewControllerDelegate?
 
-    @IBAction func workoutComplete(sender: UIButton) {
-        UIDevice.currentDevice().setValue(originalOrientation!, forKey: "orientation")
+    @IBAction func workoutComplete(_ sender: UIButton) {
+        UIDevice.current.setValue(originalOrientation!, forKey: "orientation")
         self.delegate!.endWorkout(self)
     }
 
