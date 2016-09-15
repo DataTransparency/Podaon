@@ -208,7 +208,7 @@
 				C63921231D2ED1DB0025CFEB /* Resources */,
 				F2889459355408C2B3B1B081 /* [CP] Embed Pods Frameworks */,
 				EB6891C123BFD93A2B0AD4CE /* [CP] Copy Pods Resources */,
-				9352F1EC1D74616D00F87716 /* ShellScript */,
+				9352F1EC1D74616D00F87716 /* Upload FirebaseServiceAccount.json symbols */,
 				8C0864A0499BE8793599679D /* Tailor */,
 			);
 			buildRules = (
@@ -406,13 +406,14 @@
 			shellPath = /bin/sh;
 			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
 		};
-		9352F1EC1D74616D00F87716 /* ShellScript */ = {
+		9352F1EC1D74616D00F87716 /* Upload FirebaseServiceAccount.json symbols */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Upload FirebaseServiceAccount.json symbols";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A81F5B4BA6ED7277D5E49559 /* Pods-ClassfitteriOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ClassfitteriOS/Classfitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -695,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 07F67EB2FC7D1B75EE3D2CEB /* Pods-ClassfitteriOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ClassfitteriOS/Classfitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
