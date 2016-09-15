@@ -9,14 +9,29 @@
 import Foundation
 import UIKit
 import Firebase
+import AVKit
+import AVFoundation
 
 protocol WorkingUIViewControllerDelegate: AnyObject {
     func endWorkout(_ controller: WorkingUIViewController)
 }
 
 class WorkingUIViewController: UIViewController {
-
+    
+    var avPlayer: AVPlayer?
+    var avPlayerViewController: AVPlayerViewController
+    
+    
     override func viewDidAppear(_ animated: Bool) {
+        let movieUrl:NSURL? = NSURL (string: "http://YOUR URL")
+        if let url = movieUrl {
+            self.avPlayer = AVPlayer(URL: url)
+            self.avPlayerViewController.player = self.avPlayer
+        }
+        self.present(self.avPlayerViewController, animated: <#T##Bool#>) { () -> Void in
+            self.avPlayerViewController.player?.play()
+        }
+        
     }
 
     var originalOrientation: Int?

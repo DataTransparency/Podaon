@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jb0-y4-U4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="-1140"/>
+            <point key="canvasLocation" x="-156" y="-1297"/>
         </scene>
         <!--New UserUI View Controller-->
         <scene sceneID="XJt-Zd-Kco">
@@ -209,6 +209,13 @@
                             <constraint firstItem="xB0-0L-cYR" firstAttribute="top" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="10" id="l4I-Lf-fYu"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="xxU-rk-pmF">
+                        <barButtonItem key="rightBarButtonItem" title="Start" id="eUR-gf-S5t">
+                            <connections>
+                                <action selector="startWorkoutClicked:" destination="Scl-vc-vsc" id="meW-5m-MLu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomHeight" destination="l4I-Lf-fYu" id="hdL-qW-Ayg"/>
                         <outlet property="messageList" destination="DR6-UH-COa" id="gcK-Gk-dFW"/>
@@ -217,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfM-wY-AeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800.79999999999995" y="-1140.1799100449775"/>
+            <point key="canvasLocation" x="588" y="-1298"/>
         </scene>
         <!--WorkingUI View Controller-->
         <scene sceneID="zG8-sW-0z5">
@@ -305,7 +312,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Yf-Ur-r9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-716" y="-1140"/>
+            <point key="canvasLocation" x="-998" y="-1254"/>
         </scene>
     </scenes>
 </document>
