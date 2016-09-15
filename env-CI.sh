@@ -4,7 +4,6 @@ export TEAMID=TQYB6VJLUN
 export PROVIDER=JamesWOOD1426797195
 export GITHUB_REPO=classfitter
 export GITHUB_OWNER=classfitter
-export GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
 
 export LOCATION=CI
 export NODE_ENV=production

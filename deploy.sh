@@ -1,7 +1,5 @@
 #!/bin/sh -xe
 
-sh install.sh
-
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 : "${GIT_COMMIT:?There must be a GIT_COMMIT environment variable set}"
 : "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
