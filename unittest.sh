@@ -1,4 +1,5 @@
 #!/bin/sh -xe
+sh install.sh
 
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 : "${GIT_COMMIT:?There must be a GIT_COMMIT environment variable set}"
@@ -38,8 +39,8 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 #fi
 #killall "Simulator" 2> /dev/null; xcrun simctl erase all
 
-if [[ $NODE_ENV == "production" ]]; then
-/usr/bin/xcodebuild test -scheme UnitTests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPhone5' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
+if [[ $ENVIRONMENT == "CI" ]]; then
+/usr/bin/xcodebuild test -scheme UnitTests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPadMiniRetina' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 else
 /usr/bin/xcodebuild test -scheme UnitTests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPhone6' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 fi

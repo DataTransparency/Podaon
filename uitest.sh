@@ -1,4 +1,5 @@
 #!/bin/sh -xe
+sh install.sh
 
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 : "${GIT_COMMIT:?There must be a GIT_COMMIT environment variable set}"
@@ -12,7 +13,6 @@ export PATH=$GEM_HOME/bin:$PATH
 
 alias cftool='node_modules/classfitter-tools/lib/index.js'
 
-GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
 TEST_DIR="${WORKSPACE}/ClassfitteriOS/uitest/"
 COVERAGE_DIR="${TEST_DIR}/coverage"
 TEST_STATUS_FILE="${TEST_DIR}/status.txt"
@@ -41,7 +41,7 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 #echo $SIMULATOR_ID
 #open -b com.apple.iphonesimulator --args -CurrentDeviceUDID $SIMULATOR_ID
 
-if [[ $NODE_ENV == "production" ]]; then
+if [[ $LOCATION == "CI" ]]; then
 /usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPadMiniRetina' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 else
 /usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPhone6' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
