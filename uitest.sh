@@ -34,8 +34,12 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 # DESTINATION="-destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'"
 #fi
 killall "Simulator" 2> /dev/null; xcrun simctl erase all
+IOS_VER="10.0"
+SIMULATOR_ID=$(xcrun instruments -s | grep -o "iPhone 6 (${IOS_VER}) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
+echo $SIMULATOR_ID
+open -b com.apple.iphonesimulator --args -CurrentDeviceUDID $SIMULATOR_ID
 
-/usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
+/usr/bin/xcodebuild build test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 
 mv test-reports $TEST_REPORTS_FOLDER
 
