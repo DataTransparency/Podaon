@@ -153,11 +153,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E7v-QN-Fp0" id="rW0-bI-xn5">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d4D-cX-SaN">
-                                                    <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                    <frame key="frameInset" minX="15" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -189,11 +189,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="5yN-Jj-v2Y"/>
-                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="leading" secondItem="Jy3-Da-UP3" secondAttribute="trailing" constant="8" id="CQX-Jy-UUa"/>
-                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="top" secondItem="Dnu-3n-OJg" secondAttribute="top" constant="5" id="Cp2-mD-vfq"/>
+                                    <constraint firstAttribute="height" constant="40" id="5yN-Jj-v2Y"/>
+                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="leading" secondItem="Jy3-Da-UP3" secondAttribute="trailing" constant="8" symbolic="YES" id="CQX-Jy-UUa"/>
+                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="top" secondItem="9IX-rq-Kuw" secondAttribute="top" id="F9Y-re-XxI"/>
                                     <constraint firstItem="Jy3-Da-UP3" firstAttribute="leading" secondItem="Dnu-3n-OJg" secondAttribute="leading" id="L4D-UD-GBc"/>
-                                    <constraint firstItem="Jy3-Da-UP3" firstAttribute="top" secondItem="Dnu-3n-OJg" secondAttribute="top" constant="5" id="um1-pL-hYn"/>
+                                    <constraint firstItem="9IX-rq-Kuw" firstAttribute="centerY" secondItem="Dnu-3n-OJg" secondAttribute="centerY" id="X1b-Vt-gRB"/>
                                     <constraint firstAttribute="trailing" secondItem="9IX-rq-Kuw" secondAttribute="trailing" id="wqo-pJ-hxi"/>
                                 </constraints>
                             </view>
