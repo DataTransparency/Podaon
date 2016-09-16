@@ -1,11 +1,13 @@
-#!/bin/sh -xe
-
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
-export GEM_HOME=$HOME/.gem
+#export GEM_HOME=$HOME/.gem
+#export PATH=$GEM_HOME/bin:$PATH
 
+. $HOME/.nvm/nvm.sh
+source "$HOME/.rvm/scripts/rvm"
 
-export PATH=$GEM_HOME/bin:$PATH
-. $(brew --prefix nvm)/nvm.sh
+#rvm install 2.3.0
+#rvm use 2.3.0
+
 brew install gcovr
 brew install tailor
 nvm install

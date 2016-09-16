@@ -6,9 +6,8 @@
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 
-. $(brew --prefix nvm)/nvm.sh
-export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
+. $HOME/.nvm/nvm.sh
+source "$HOME/.rvm/scripts/rvm"
 
 alias cftool='node_modules/classfitter-tools/lib/index.js'
 
@@ -57,12 +56,13 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 #echo $SIMULATOR_ID
 #open -b com.apple.iphonesimulator --args -CurrentDeviceUDID $SIMULATOR_ID
 echo "LOCATION WAS ${LOCATION}"
+/usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 
-if [[ $LOCATION == "CI" ]]; then
-/usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPadMiniRetina' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
-else
-/usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPhone6' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
-fi
+#if [[ $LOCATION == "CI" ]]; then
+#else
+#/usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS,name=iPhone6' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
+#fi
+
 mv test-reports $TEST_REPORTS_FOLDER
 rm -rf ${TEST_STATUS_FILE}
 cat <<EOM > ${TEST_STATUS_FILE}
