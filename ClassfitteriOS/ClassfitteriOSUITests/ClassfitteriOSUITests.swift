@@ -7,34 +7,65 @@
 //
 
 import XCTest
+import PromiseKit
+let systemAlertHandlerDescription = "systemAlertHandlerDescription"
 
 class ClassfitteriOSUITests: XCTestCase {
-
+    var systemAlertMonitorToken: NSObjectProtocol? = nil
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        let app = XCUIApplication()
+        app.launch()
+        
+        systemAlertMonitorToken = addUIInterruptionMonitor(withDescription: systemAlertHandlerDescription) { (alert) -> Bool in
+            sleep(5)
+            if alert.buttons.matching(identifier: "OK").count > 0 {
+                alert.buttons["OK"].tap()
+                sleep(5)
+                return true
+            } else {
+                return false
+            }
+        }
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        if let systemAlertMonitorToken = self.systemAlertMonitorToken {
+            removeUIInterruptionMonitor(systemAlertMonitorToken)
+        }
+        
         super.tearDown()
     }
 
     func testBasicNavigation() {
+        sleep(5)
         let app = XCUIApplication()
+        sleep(5)
+        app.buttons["Sign out"].tap()
         app.buttons["Enter"].tap()
+        
+        sleep(5)
+        
+        let txtfirstnameTextField = app.textFields["txtFirstName"]
+        txtfirstnameTextField.tap()
+        txtfirstnameTextField.typeText("James")
+        
+        let txtsurnameTextField = app.textFields["txtSurname"]
+        txtsurnameTextField.tap()
+        txtsurnameTextField.typeText("Wood")
+        app.buttons["Next"].tap()
+       
+        sleep(5)
+        
+        let txtNewMessage = app.textFields["txtNewMessage"]
+        txtNewMessage.tap()
+        txtNewMessage.typeText("Hello World")
         app.buttons["Send"].tap()
-        let doneButton = app.buttons["Done"]
-        doneButton.tap()
-        doneButton.tap()
-        app.navigationBars["Locker room"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        
+        sleep(5)
+        app.navigationBars["Locker room"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0).tap()
     }
-
 }

@@ -41,6 +41,8 @@ itmsp
 version.txt
 ClassfitteriOS/build
 ClassfitteriOS/deploy
+ClassfitteriOS/unittest
+ClassfitteriOS/uitest
 ClassfitteriOS/test
 ClassfitteriOS/platformtest
 ClassfitteriOS/Pods
