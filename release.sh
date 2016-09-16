@@ -28,7 +28,8 @@ cat <<EOM > ${DEPLOY_STATUS_FILE}
 failure
 EOM
 
-if [[ ${ENVIRONMENT} = 'CI' ]]; then
+
+if [[ ${LOCATION} = 'CI' ]]; then
 	echo "Using payload from GitHub"
 	: "${payload:?There must be a payload environment variable set}"
 else
@@ -129,7 +130,11 @@ mkdir ${UPLOAD_CHECK_DIR}
 /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m lookupMetadata -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -vendor_id ${VENDORID} -destination ${UPLOAD_CHECK_DIR}
 /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m verify -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -v detailed
 
+<<<<<<< HEAD
+data='{"tag_name":"v'${VERSION_NUMBER}'+'${BUILD_NUMBER}'","name":"v'${VERSION_NUMBER}'+'${BUILD_NUMBER}'"}'
+=======
 data="{""tag_name"":""v${VERSION_NUMBER}+${BUILD_NUMBER}"",""name"":""v${VERSION_NUMBER}+${BUILD_NUMBER}""}"
+>>>>>>> master
 
 if [[ ${ENVIRONMENT} == 'production' ]]; then
 	#UPLOAD
