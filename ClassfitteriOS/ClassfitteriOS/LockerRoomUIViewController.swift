@@ -20,7 +20,7 @@ class LockerRoomMessage{
     var text: String?
     var creator: String?
 }
-
+let lockerRoomDatabasePath = "locker-room"
 
 class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDelegate, ResultsUIViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -71,7 +71,7 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         
-        ref.child("lockerroom").observe(FIRDataEventType.childAdded, with: { (snapshot: FIRDataSnapshot) in
+        ref.child(lockerRoomDatabasePath).observe(FIRDataEventType.childAdded, with: { (snapshot: FIRDataSnapshot) in
             if let messageDict = snapshot.value! as? NSDictionary {
                 let message = LockerRoomMessage()
                 message.text = messageDict.value(forKey: "text") as! String?
@@ -110,7 +110,7 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
         
         if let messageText = newMessage.text, let username = state?.userName.value {
             print("Sending: \(messageText) from \(username)")
-            let newData = ref.child("lockerroom").childByAutoId()
+            let newData = ref.child(lockerRoomDatabasePath).childByAutoId()
             newData.setValue(["text": messageText, "creator": username])
             newMessage.text = ""
             dismissKeyboard()

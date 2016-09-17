@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(types: types, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
-        
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/locker-room")
         NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification),
                                                name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
     
