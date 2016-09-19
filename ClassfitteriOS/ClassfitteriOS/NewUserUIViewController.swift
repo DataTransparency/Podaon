@@ -34,7 +34,7 @@ class NewUserUIViewController: UIViewController {
     @IBOutlet weak var lblValidation: UILabel!
 
     @IBAction func clickedNext(_ sender: AnyObject) {
-        if let firstName=txtFirstName.text, let surname = txtSurname.text {
+        if let firstName=txtFirstName.text, let surname = txtSurname.text, firstName != "", surname != "" {
             lblValidation.text = ""
             delegate?.signInAnon(firstName: firstName, surname: surname).catch{ error in
                 print(error.localizedDescription)
