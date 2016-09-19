@@ -80,7 +80,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RxSwift:
-    :commit: 06129b50cf17bc24bd0bef9e60982eac35f7d1c1
+    :commit: 4952adb27c684b47792923b00015516849061eab
     :git: https://github.com/ReactiveX/RxSwift.git
 
 SPEC CHECKSUMS:

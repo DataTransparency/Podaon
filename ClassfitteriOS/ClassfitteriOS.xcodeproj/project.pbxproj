@@ -683,6 +683,7 @@
 				);
 				GOOGLE_APP_ID = "GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61";
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
@@ -711,6 +712,7 @@
 				);
 				GOOGLE_APP_ID = "GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61";
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
 				PRODUCT_NAME = Classfitter;
