@@ -65,6 +65,10 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
         view.setNeedsLayout()
     }
 
+    @IBAction func startWorkoutClicked(_ sender: AnyObject) {
+        beginWork()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
