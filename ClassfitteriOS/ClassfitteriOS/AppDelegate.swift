@@ -31,7 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // For iOS 10 data message (sent via FCM)
         FIRMessaging.messaging().remoteMessageDelegate = self
         
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/lockerroom")
+        if let refreshedToken = FIRInstanceID.instanceID().token() {
+            print("InstanceID token: \(refreshedToken)")
+        }
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification),
                                                name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
         return true
@@ -47,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("Recived remote message:")
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("didRegisterForRemoteNotificationsWithDeviceToken")
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.prod)
-
     }
     
     func tokenRefreshNotification(notification: NSNotification) {
@@ -62,12 +65,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func connectToFcm() {
-        //FIRInstanceID.instanceID().setAPNSToken(<#T##Data#>, type: FIRInstanceIDAPNSTokenType.prod)
         FIRMessaging.messaging().connect(completion: { error in
             if (error != nil) {
                 print("Unable to connect with FCM. \(error)")
             } else {
-                
+                FIRMessaging.messaging().subscribe(toTopic: "/topics/locker-room")
                 print("Connected to FCM.")
             }
         })
