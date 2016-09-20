@@ -30,6 +30,7 @@ class WorkingUIViewController: UIViewController {
             
             self.addChildViewController(avPlayerViewController)
             self.myView.addSubview(avPlayerViewController.view)
+            self.myView.sendSubview(toBack: avPlayerViewController.view)
             avPlayerViewController.view.frame = self.myView.frame
             self.avPlayer?.play()
         }
