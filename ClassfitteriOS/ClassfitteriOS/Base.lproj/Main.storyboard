@@ -154,7 +154,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="d4D-cX-SaN" style="IBUITableViewCellStyleDefault" id="E7v-QN-Fp0">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E7v-QN-Fp0" id="rW0-bI-xn5">
                                             <frame key="frameInset" width="375" height="43.5"/>
@@ -213,7 +213,7 @@
                             <constraint firstItem="xB0-0L-cYR" firstAttribute="top" secondItem="Dnu-3n-OJg" secondAttribute="bottom" constant="10" id="l4I-Lf-fYu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="xxU-rk-pmF">
+                    <navigationItem key="navigationItem" title="Locker room" id="xxU-rk-pmF">
                         <barButtonItem key="rightBarButtonItem" title="Start" id="eUR-gf-S5t">
                             <connections>
                                 <action selector="startWorkoutClicked:" destination="Scl-vc-vsc" id="meW-5m-MLu"/>
@@ -228,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfM-wY-AeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="-1298"/>
+            <point key="canvasLocation" x="1677.5999999999999" y="-1159.9700149925038"/>
         </scene>
         <!--WorkingUI View Controller-->
         <scene sceneID="zG8-sW-0z5">
@@ -320,6 +320,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Yf-Ur-r9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-998" y="-1254"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WiD-cj-ObF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UZa-2c-Fhl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OPD-z0-DCI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Scl-vc-vsc" kind="relationship" relationship="rootViewController" id="fjj-iw-yU1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UG3-YK-jLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736.79999999999995" y="-1159.0704647676164"/>
         </scene>
     </scenes>
 </document>
