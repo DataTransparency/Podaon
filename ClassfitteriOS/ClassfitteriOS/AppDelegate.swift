@@ -46,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage){
         print("Recived remote message:")
     }
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.prod)
+
+    }
     
     func tokenRefreshNotification(notification: NSNotification) {
         print("Token refreshed")
