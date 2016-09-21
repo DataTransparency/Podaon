@@ -33,12 +33,16 @@ class NewUserUIViewController: UIViewController {
     @IBOutlet weak var txtSurname: UITextField!
     @IBOutlet weak var lblValidation: UILabel!
 
+    @IBOutlet weak var btnNext: UIButton!
+    
     @IBAction func clickedNext(_ sender: AnyObject) {
         if let firstName=txtFirstName.text, let surname = txtSurname.text, firstName != "", surname != "" {
             lblValidation.text = ""
-            delegate?.signInAnon(firstName: firstName, surname: surname).catch{ error in
+            btnNext.isEnabled = false
+            delegate?.signInAnon(firstName: firstName, surname: surname).catch{ [weak self] error in
                 print(error.localizedDescription)
-                self.lblValidation.text = "Unable to setup user"
+                self?.lblValidation.text = "Unable to setup user"
+                self?.btnNext.isEnabled = true
             }.then { [weak self] in
                 self?.delegate?.closeNewUser(self!)
             }
