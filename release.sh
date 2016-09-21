@@ -1,10 +1,12 @@
 #!/bin/sh -xe
 
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
-: "${GIT_COMMIT:?There must be a GIT_COMMIT environment variable set}"
 : "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 : "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
+: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
+: "${LOCATION:?There must be a LOCATION environment variable set}"
+: "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
 
 . $HOME/.nvm/nvm.sh
 source "$HOME/.rvm/scripts/rvm"
@@ -29,7 +31,7 @@ failure
 EOM
 
 
-if [[ ${LOCATION} = 'CI' ]]; then
+if [[ ${LOCATION} == 'CI' ]] && [[ ${ENVIRONMENT} == 'production' ]]; then
 	echo "Using payload from GitHub"
 	: "${payload:?There must be a payload environment variable set}"
 else
@@ -37,10 +39,18 @@ else
 	payload=`cat ${WORKSPACE}/deploymentPayload.json`
 fi
 
+if [[ ${ENVIRONMENT} == 'production' ]]; then
+	echo "Replacing Firebase files with Production versions"
+	FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Live.json
+	FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Live.plist	
+	GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
+else
+	echo "Replacing Firebase files with Depelopment versions"
+	FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Development.json
+	FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Development.plist
+	GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
+fi
 
-echo "Replacing Firebase files with Live versions"
-FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Live.json
-FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Live.plist	
 FIREBASE_SERVICE_FILE=${WORKSPACE}/ClassfitteriOS/FirebaseServiceAccount.json
 FIREBASE_ANALYTICS_FILE=${WORKSPACE}/ClassfitteriOS/GoogleService-Info.plist
 #FIREBASE CRASH
@@ -50,7 +60,7 @@ cp $FIREBASE_SYMBOL_SERVICE_JSON $FIREBASE_SERVICE_FILE
 rm -rf FIREBASE_ANALYTICS_FILE
 cp $FIREBASE_ANALYTICS_PLIST $FIREBASE_ANALYTICS_FILE
 
-GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
+
 
 #GETTING VERSION INFORMATION FROM payload
 echo ${payload} > ${PAYLOAD_FILE}
@@ -58,8 +68,12 @@ VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
 echo "v${VERSION_NUMBER}+${BUILD_NUMBER}" > ${FULL_VERSION_FILE}
 
+if [[ ${LOCATION} == 'CI' ]] && [[ ${ENVIRONMENT} == 'production' ]]; then
 #VERSION
-cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
+	cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
+else
+	cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'dev-release' 'pending' 'running' ${BUILD_URL}
+fi
 
 cd ClassfitteriOS
 agvtool new-marketing-version ${VERSION_NUMBER}
@@ -68,7 +82,7 @@ cd ..
 
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
-/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS  -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive GOOGLE_APP_ID=${GOOGLE_APP_ID}
+/usr/bin/xcodebuild -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive GOOGLE_APP_ID=${GOOGLE_APP_ID}
 
 #EXPORT
 mkdir ${EXPORT_DIR}
@@ -130,15 +144,16 @@ mkdir ${UPLOAD_CHECK_DIR}
 /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m lookupMetadata -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -vendor_id ${VENDORID} -destination ${UPLOAD_CHECK_DIR}
 /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m verify -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -v detailed
 
-data='{"tag_name":"v'${VERSION_NUMBER}'+'${BUILD_NUMBER}'","name":"v'${VERSION_NUMBER}'+'${BUILD_NUMBER}'"}'
 
-if [[ ${ENVIRONMENT} == 'production' ]]; then
+
+if [[ ${LOCATION} == 'CI' ]]; then
 	#UPLOAD
 	/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m upload -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} --upload
 	#CREATE GITHUB RELEASE AND TAG
-	curl -d $data -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/$GITHUB_OWNER/$GITHUB_REPO/releases
-else
-	echo "would have deployed and released: "$data
+	if [[ ${ENVIRONMENT} == 'production' ]]; then
+		data='{"tag_name":"v'${VERSION_NUMBER}'+'${BUILD_NUMBER}'","name":"v'${VERSION_NUMBER}'+'${BUILD_NUMBER}'"}'
+		curl -d $data -u $GITHUB_TOKEN:x-oauth-basic https://api.github.com/repos/$GITHUB_OWNER/$GITHUB_REPO/releases
+	fi
 fi
 
 rm -rf ${DEPLOY_STATUS_FILE}
