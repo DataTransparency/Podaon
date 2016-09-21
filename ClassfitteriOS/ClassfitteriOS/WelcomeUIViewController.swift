@@ -79,15 +79,19 @@ class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate
     }
 
     @IBOutlet weak var lblWelcomeMessage: UILabel!
+    
+    func openNewUser(){
+        let uic: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "NewUserUIViewController"))!
+        let vcNewUser: NewUserUIViewController? = uic as? NewUserUIViewController
+        vcNewUser?.delegate = self
+        self.navigationController?.pushViewController(vcNewUser!, animated: true)
+    }
     func closeNewUser(_ controller: NewUserUIViewController) {
-        controller.dismiss(animated: true, completion: { [weak self] in
-            self?.goToLockerRoom()
-        })
+        self.navigationController?.popViewController(animated: true)
+        self.goToLockerRoom()
     }
 
     func goToLockerRoom() {
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/lockerroom")
-
         let uic: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "LockerRoomUIViewController"))!
         if let vcLockerRoom =  uic as? LockerRoomUIViewController{
              vcLockerRoom.state = self.state
@@ -101,10 +105,7 @@ class WelcomeUIViewController: UIViewController, NewUserUIViewControllerDelegate
             goToLockerRoom()
         } else {
  // ask for Name
-            let uic: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "NewUserUIViewController"))!
-            let vcNewUser: NewUserUIViewController? = uic as? NewUserUIViewController
-            vcNewUser?.delegate = self
-            self.present(vcNewUser!, animated: true, completion: nil)
+           openNewUser()
         }
     }
 

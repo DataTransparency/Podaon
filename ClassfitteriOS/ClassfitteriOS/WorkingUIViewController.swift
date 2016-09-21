@@ -27,17 +27,14 @@ class WorkingUIViewController: UIViewController {
             self.avPlayer = AVPlayer(url: url)
             avPlayerViewController.player = self.avPlayer
             avPlayerViewController.showsPlaybackControls = false
-            
             self.addChildViewController(avPlayerViewController)
             self.myView.addSubview(avPlayerViewController.view)
             self.myView.sendSubview(toBack: avPlayerViewController.view)
             avPlayerViewController.view.frame = self.myView.frame
             self.avPlayer?.play()
         }
-        
-        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.completeWorkout), userInfo: nil, repeats: false)
-        
     }
+
 
     @IBOutlet var myView: UIView!
     
@@ -47,6 +44,10 @@ class WorkingUIViewController: UIViewController {
         originalOrientation = UIDevice.current.orientation.rawValue
         let newOrientation = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(newOrientation, forKey: "orientation")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
 
    internal weak var delegate: WorkingUIViewControllerDelegate?

@@ -15,11 +15,66 @@ import FirebaseDatabase
 import RxSwift
 
 
+class MessageTableCell: UITableViewCell, Disposable {
+    @IBOutlet weak var imgAvatar: UIImageView!
+    @IBOutlet weak var lblCreator: UILabel!
+    @IBOutlet weak var lblCreated: UILabel!
+    @IBOutlet weak var lblBody: UILabel!
+    
+    var message = Variable<LockerRoomMessage?>(nil)
+    
+    var binding: Disposable?
+    
+    public func myInit(){
+        
+        let todayFormatter = DateFormatter()
+        todayFormatter.dateStyle = .none
+        todayFormatter.timeStyle = .medium
+        
+        let otherDayFormatter = DateFormatter()
+        otherDayFormatter.dateStyle = .medium
+        otherDayFormatter.timeStyle = .medium
+    
+        if (binding == nil) {
+            self.binding = message.asObservable().subscribe(onNext: { [weak self] myMessage in
+                self?.lblCreator.text = myMessage?.creator
+                self?.lblBody.text = myMessage?.text
+                if let created = myMessage?.created {
+                    if NSCalendar.current.isDateInToday(created) {
+                        self?.lblCreated.text = todayFormatter.string(from: created)
+                    }
+                    else{
+                        self?.lblCreated.text = otherDayFormatter.string(from: created)
+                    }
+                }
+                else
+                {
+                    self?.lblCreated.text = ""
+                }
+            })
+        }
+    }
+    
+    func dispose() {
+        self.binding?.dispose()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+}
+
+class MessageTableCellModel{
+    
+}
 
 class LockerRoomMessage{
     var text: String?
     var creator: String?
+    var created: Date?
 }
+
+
 let lockerRoomDatabasePath = "locker-room"
 
 class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDelegate, ResultsUIViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -36,8 +91,14 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
                 let message = LockerRoomMessage()
                 message.text = messageDict.value(forKey: "text") as! String?
                 message.creator = messageDict.value(forKey: "creator") as! String?
+                if let timestamp = messageDict.value(forKey: "created") as! TimeInterval? {
+                    message.created = Date(timeIntervalSince1970: timestamp/1000)
+                }
+                
                 self.comments.append(message)
                 self.messageList.insertRows(at: [IndexPath(row: self.comments.count - 1, section: 0)], with: UITableViewRowAnimation.automatic)
+                
+                 self.messageList.scrollToRow(at: IndexPath(row: self.comments.count - 1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
             }
         }) { (Error) in
             print("Locker Room Observe Error")
@@ -92,16 +153,17 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
         NotificationCenter.default.removeObserver(self)
     }
     
+    let cellIdentifier = "MessageTableCell"
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = messageList.dequeueReusableCell(withIdentifier: "cell", for: indexPath)  as UITableViewCell
-        let tableMessage = self.comments[indexPath.row]
-        if let creator = tableMessage.creator , let text = tableMessage.text {
-            cell.textLabel?.text = "\(creator): \(text)"
-        }
+        let cell = messageList.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)  as! MessageTableCell
         
+        cell.myInit()
+        let tableMessage = self.comments[indexPath.row]
+        cell.message.value = tableMessage
         return cell
     }
 
@@ -114,7 +176,8 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
         if let messageText = newMessage.text, let username = state?.userName.value {
             print("Sending: \(messageText) from \(username)")
             let newData = ref.child(lockerRoomDatabasePath).childByAutoId()
-            newData.setValue(["text": messageText, "creator": username])
+            
+            newData.setValue(["text": messageText, "creator": username, "created": Firebase.FIRServerValue.timestamp()])
             newMessage.text = ""
             dismissKeyboard()
         }
