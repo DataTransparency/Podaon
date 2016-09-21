@@ -39,17 +39,10 @@ else
 	payload=`cat ${WORKSPACE}/deploymentPayload.json`
 fi
 
-if [[ ${ENVIRONMENT} == 'production' ]]; then
-	echo "Replacing Firebase files with Production versions"
-	FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Live.json
-	FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Live.plist	
-	GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
-else
-	echo "Replacing Firebase files with Depelopment versions"
-	FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Development.json
-	FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Development.plist
-	GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
-fi
+echo "Replacing Firebase files with Production versions"
+FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Live.json
+FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Live.plist	
+GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
 
 FIREBASE_SERVICE_FILE=${WORKSPACE}/ClassfitteriOS/FirebaseServiceAccount.json
 FIREBASE_ANALYTICS_FILE=${WORKSPACE}/ClassfitteriOS/GoogleService-Info.plist
@@ -79,6 +72,8 @@ cd ClassfitteriOS
 agvtool new-marketing-version ${VERSION_NUMBER}
 agvtool new-version -all ${BUILD_NUMBER}
 cd ..
+
+/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier com.classfitter.classfitterios" classfitterios/classfitterios/Info.plist
 
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
@@ -143,8 +138,6 @@ cp ${IPA_FILE} ${ITSMP_FILE}
 mkdir ${UPLOAD_CHECK_DIR}
 /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m lookupMetadata -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -vendor_id ${VENDORID} -destination ${UPLOAD_CHECK_DIR}
 /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/itms/bin/iTMSTransporter -m verify -f ${ITSMP_FILE} -u ${ITUNES_USERNAME} -p ${ITUNES_PASSWORD} -v detailed
-
-
 
 if [[ ${LOCATION} == 'CI' ]]; then
 	#UPLOAD
