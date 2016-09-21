@@ -11,37 +11,59 @@ import Firebase
 import FirebaseCrash
 import FirebaseMessaging
 import Swinject
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate {
 
     var window: UIWindow?
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        FIRApp.configure()
         
-        let types: UIUserNotificationType = [.sound , .alert , .badge]
-        let settings = UIUserNotificationSettings(types: types, categories: nil)
-        application.registerUserNotificationSettings(settings)
+        let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_,_ in })
+            
+        // For iOS 10 display notification (sent via APNS)
+        UNUserNotificationCenter.current().delegate = self
+        // For iOS 10 data message (sent via FCM)
+        FIRMessaging.messaging().remoteMessageDelegate = self
         application.registerForRemoteNotifications()
         
+        FIRApp.configure()
         NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification),
                                                name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
-    
-        
         return true
-
     }
 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+         print("Userinfo %@", response.notification.request.content.userInfo)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Userinfo %@", notification.request.content.userInfo)
+        completionHandler(UNNotificationPresentationOptions.alert);
+    }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         print("Message ID:")
         print(userInfo["gcm.message_id"])
         print("%@", userInfo)
     }
 
+    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage){
+        print("Recived remote message:")
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("didRegisterForRemoteNotificationsWithDeviceToken")
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.prod)
+    }
     
     func tokenRefreshNotification(notification: NSNotification) {
+        print("Token refreshed")
         if let refreshedToken = FIRInstanceID.instanceID().token() {
             print("InstanceID token: \(refreshedToken)")
         }
@@ -55,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if (error != nil) {
                 print("Unable to connect with FCM. \(error)")
             } else {
-                
+                FIRMessaging.messaging().subscribe(toTopic: "/topics/locker-room")
                 print("Connected to FCM.")
             }
         })
