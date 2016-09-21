@@ -30,6 +30,19 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
         super.viewDidLoad()
         self.messageList.delegate = self
         self.messageList.dataSource = self
+        
+        ref.child(lockerRoomDatabasePath).observe(FIRDataEventType.childAdded, with: { (snapshot: FIRDataSnapshot) in
+            if let messageDict = snapshot.value! as? NSDictionary {
+                let message = LockerRoomMessage()
+                message.text = messageDict.value(forKey: "text") as! String?
+                message.creator = messageDict.value(forKey: "creator") as! String?
+                self.comments.append(message)
+                self.messageList.insertRows(at: [IndexPath(row: self.comments.count - 1, section: 0)], with: UITableViewRowAnimation.automatic)
+            }
+        }) { (Error) in
+            print("Locker Room Observe Error")
+        }
+
     }
     @IBOutlet weak var bottomHeight: NSLayoutConstraint!
     
@@ -73,20 +86,6 @@ class LockerRoomUIViewController: UIViewController, WorkingUIViewControllerDeleg
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-
-        
-        ref.child(lockerRoomDatabasePath).observe(FIRDataEventType.childAdded, with: { (snapshot: FIRDataSnapshot) in
-            if let messageDict = snapshot.value! as? NSDictionary {
-                let message = LockerRoomMessage()
-                message.text = messageDict.value(forKey: "text") as! String?
-                message.creator = messageDict.value(forKey: "creator") as! String?
-                self.comments.append(message)
-                self.messageList.insertRows(at: [IndexPath(row: self.comments.count - 1, section: 0)], with: UITableViewRowAnimation.automatic)
-            }
-        }) { (Error) in
-                print("Locker Room Observe Error")
-        }
-
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
