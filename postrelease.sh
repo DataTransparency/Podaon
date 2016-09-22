@@ -9,4 +9,8 @@ PAYLOAD_FILE="${DEPLOY_DIRECTORY}/payload.json"
 DEPLOY_STATUS_FILE="${DEPLOY_DIRECTORY}/status.txt"
 DEPLOY_STATUS=`cat ${DEPLOY_STATUS_FILE}`
 
-cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} ${DEPLOY_STATUS} ${DEPLOY_STATUS} ${BUILD_URL}
+if [[ ${LOCATION} == 'CI' ]] && [[ ${ENVIRONMENT} == 'production' ]]; then
+    cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} ${DEPLOY_STATUS} ${DEPLOY_STATUS} ${BUILD_URL}
+else
+    cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} 'dev-release' ${DEPLOY_STATUS} ${DEPLOY_STATUS} ${BUILD_URL}
+fi
