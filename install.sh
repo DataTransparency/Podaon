@@ -1,6 +1,4 @@
 #!/bin/sh -xe
-: "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
-: "${LOCATION:?There must be a LOCATION environment variable set}"
 
 brew install gcovr
 brew install tailor
