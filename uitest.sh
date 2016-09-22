@@ -1,5 +1,9 @@
 #!/bin/sh -xe
 
+export ENVIRONMENT = 'test'
+
+source install.sh
+
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 : "${GIT_COMMIT:?There must be a GIT_COMMIT environment variable set}"
 : "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
@@ -24,8 +28,6 @@ cat <<EOM > ${TEST_STATUS_FILE}
 failure
 EOM
 
-
-if [[ ${ENVIRONMENT} == 'development' ]]; then
     FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Development.json
     FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Development.plist
     FIREBASE_SERVICE_FILE=${WORKSPACE}/ClassfitteriOS/FirebaseServiceAccount.json
@@ -70,4 +72,3 @@ cat <<EOM > ${TEST_STATUS_FILE}
 success
 EOM
 
-fi
