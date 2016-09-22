@@ -54,3 +54,5 @@ ClassfitteriOS/.DS_Store
 .DS_Store
 */.DS_Store
 
+bin
+env
