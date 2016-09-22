@@ -17,9 +17,10 @@ alias cftool="${WORKSPACE}/node_modules/classfitter-tools/lib/index.js"
 
 mkdir "${WORKSPACE}/env/"
 mkdir "${WORKSPACE}/bin/"
-mkdir $ENVIRONMENT_DIRECTORY
 rm -rf $BIN_DIRECTORY
 mkdir $BIN_DIRECTORY
+mkdir "${WORKSPACE}/bin/${ENVIRONMENT}"
+mkdir $ENVIRONMENT_DIRECTORY
 
 
 #GETTING VERSION INFORMATION FROM payload
