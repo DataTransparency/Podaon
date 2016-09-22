@@ -66,7 +66,7 @@ fi
 export VERSION_FILE="${BIN_DIRECTORY}/version.txt"
 export FULL_VERSION_FILE="${BIN_DIRECTORY}/fullversion.txt"
 
-if [[ ${LOCATION} == 'CI' ]] && ([[ ${ENVIRONMENT} == 'beta' ]] || [[ ${ENVIRONMENT} == 'production' ]]); then
+if [[ ${LOCATION} == 'CI' ]] && [[ ${COMMAND} == 'deploy' ]] && [[ ${ENVIRONMENT} == 'production' ]]; then
 	echo "Using payload from GitHub"
 	: "${payload:?There must be a payload environment variable set}"
 else

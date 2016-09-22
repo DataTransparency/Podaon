@@ -2,10 +2,6 @@
 : "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
 : "${LOCATION:?There must be a LOCATION environment variable set}"
 
-JOB=install
-echo "The JOB is ${JOB}"
-
-
 brew install gcovr
 brew install tailor
 nvm install
