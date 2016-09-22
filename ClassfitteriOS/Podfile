@@ -1,7 +1,7 @@
 # Uncomment this line to define a global platform for your project
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'master', :inhibit_warnings => true
 pod "PromiseKit", "~> 4.0", :inhibit_warnings => true

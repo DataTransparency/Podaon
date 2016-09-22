@@ -56,7 +56,7 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 #echo $SIMULATOR_ID
 #open -b com.apple.iphonesimulator --args -CurrentDeviceUDID $SIMULATOR_ID
 echo "LOCATION WAS ${LOCATION}"
-/usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
+/usr/bin/xcodebuild test -scheme UITests -derivedDataPath ${TEST_DIR} -workspace ${WORKSPACE}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Debug -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 
 #if [[ $LOCATION == "CI" ]]; then
 #else
