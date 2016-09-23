@@ -1,7 +1,5 @@
 #!/bin/sh -xe
 
-
-
 : "${FULL_VERSION_FILE:?There must be a FULL_VERSION_FILE environment variable set}"
 : "${VERSION_FILE:?There must be a VERSION_FILE environment variable set}"
 : "${PAYLOAD_FILE:?There must be a PAYLOAD_FILE environment variable set}"
@@ -10,17 +8,19 @@
 : "${FIREBASE_SYMBOL_SERVICE_JSON:?There must be a FIREBASE_SYMBOL_SERVICE_JSON environment variable set}"
 : "${FIREBASE_ANALYTICS_FILE:?There must be a FIREBASE_ANALYTICS_FILE environment variable set}"
 : "${FIREBASE_ANALYTICS_PLIST:?There must be a FIREBASE_ANALYTICS_PLIST environment variable set}"
+: "${ENVIRONMENT_DIRECTORY:?There must be a ENVIRONMENT_DIRECTORY environment variable set}"
+: "${BIN_DIRECTORY:?There must be a BIN_DIRECTORY environment variable set}"
+: "${PROVISIONING_PROFILE_FILENAME:?There must be a PROVISIONING_PROFILE_FILENAME environment variable set}"
+
+
 
 . $HOME/.nvm/nvm.sh
 source "$HOME/.rvm/scripts/rvm"
 alias cftool="${WORKSPACE}/node_modules/classfitter-tools/lib/index.js"
 
-mkdir "${WORKSPACE}/env/"
-mkdir "${WORKSPACE}/bin/"
+mkdir -p $ENVIRONMENT_DIRECTORY
 rm -rf $BIN_DIRECTORY
-mkdir $BIN_DIRECTORY
-mkdir "${WORKSPACE}/bin/${ENVIRONMENT}"
-mkdir $ENVIRONMENT_DIRECTORY
+mkdir -p $BIN_DIRECTORY
 
 
 #GETTING VERSION INFORMATION FROM payload
@@ -41,4 +41,4 @@ echo "rm -rf ${FIREBASE_ANALYTICS_FILE}"
 rm -rf $FIREBASE_ANALYTICS_FILE
 cp $FIREBASE_ANALYTICS_PLIST $FIREBASE_ANALYTICS_FILE
 
-/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_IDENTIFIER}" ${ENVIRONMENT_DIRECTORY}/classfitterios/classfitterios/Info.plist
+/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_IDENTIFIER}" ${IOS_APP_DIRECTORY}/Info.plist

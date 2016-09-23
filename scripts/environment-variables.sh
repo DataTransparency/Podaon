@@ -2,36 +2,14 @@
 : "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
 : "${LOCATION:?There must be a LOCATION environment variable set}"
 
-
-
-JOB=environment
-echo "The JOB is ${JOB}"
-
-if [[ ${ENVIRONMENT} == 'production' ]]; then
-    export APPLEID=1132280754
-    export VENDOR_ID=com.classfitter.classfitterios
-    export GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
-fi
-if [[ ${ENVIRONMENT} == 'beta' ]]; then
-    export APPLEID=1157550012
-    export VENDOR_ID=com.classfitter.classfitterios.beta
-    export GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
-fi
-if [[ ${ENVIRONMENT} == 'development' ]]; then
-    export APPLEID=1157576885
-    export VENDOR_ID=com.classfitter.classfitterios-development
-    export GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
-fi
-if [[ ${ENVIRONMENT} == 'test' ]]; then
-    export APPLEID=1157598323
-    export VENDOR_ID=com.classfitter.classfitterios-test
-    export GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
-fi
-
 export TEAMID=TQYB6VJLUN
 export PROVIDER=JamesWOOD1426797195
 export GITHUB_REPO=classfitter
 export GITHUB_OWNER=classfitter
+
+export BUILD_SCHEME="ClassfitteriOS"
+export UI_TEST_SCHEME="UITests"
+export UNIT_TEST_SCHEME="UnitTests"
 
 if [[ $LOCATION == "CI" ]]; then
     export NODE_ENV=production
@@ -48,11 +26,16 @@ fi
 echo "The WORKSPACE is ${WORKSPACE}"
 
 export ENVIRONMENT_DIRECTORY="${WORKSPACE}/env/${ENVIRONMENT}"
-export BIN_DIRECTORY="${WORKSPACE}/bin/${ENVIRONMENT}/${COMMAND}"
+export XCODE_WORKSPACE_DIRECTORY_NAME="ClassfitteriOS"
+export XCODE_WORKSPACE_DIRECTORY="${WORKSPACE}/${XCODE_WORKSPACE_DIRECTORY_NAME}"
+export IOS_APP_DIRECTORY_NAME="ClassfitteriOS"
+export IOS_APP_DIRECTORY="${XCODE_WORKSPACE_DIRECTORY}/${IOS_APP_DIRECTORY_NAME}"
+export XCODE_WORKSPACE_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcworkspace"
+export XCODE_PROJECT_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcodeproj"
+export BIN_DIRECTORY="${WORKSPACE}/bin/${ENVIRONMENT}"
 
-
-export FIREBASE_SERVICE_FILE=${ENVIRONMENT_DIRECTORY}/ClassfitteriOS/FirebaseServiceAccount.json
-export FIREBASE_ANALYTICS_FILE=${ENVIRONMENT_DIRECTORY}/ClassfitteriOS/GoogleService-Info.plist
+export FIREBASE_SERVICE_FILE=${XCODE_WORKSPACE_DIRECTORY}/FirebaseServiceAccount.json
+export FIREBASE_ANALYTICS_FILE=${XCODE_WORKSPACE_DIRECTORY}/GoogleService-Info.plist
 
 if [[ ${ENVIRONMENT} == 'production' ]] || [[ ${ENVIRONMENT} == 'beta' ]]; then
     export FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Live.json
@@ -61,7 +44,6 @@ else
     export FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Development.json
     export FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Development.plist
 fi
-
 
 export VERSION_FILE="${BIN_DIRECTORY}/version.txt"
 export FULL_VERSION_FILE="${BIN_DIRECTORY}/fullversion.txt"
@@ -81,14 +63,41 @@ export STATUS_FILE="${BIN_DIRECTORY}/status.txt"
 
 export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
 
-BUNDLE_IDENTIFIER="com.classfitter.classfitterios"
-if [[ ${ENVIRONMENT} != 'production' ]]; then
-	BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER}-${ENVIRONMENT}"
+BUNDLE_IDENTIFIER_BASE="com.classfitter.classfitterios"
+export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
+export VENDOR_ID=com.classfitter.classfitterios-development
+
+if [[ ${COMMAND} == 'deploy' ]] || [[ ${COMMAND} == 'export' ]] || [[ ${COMMAND} == 'archive' ]]; then
+    export COMPILE_TYPE=release
+else
+    export COMPILE_TYPE=debug
 fi
-export BUNDLE_IDENTIFIER
-echo "The BUNDLE_IDENTIFIER is ${BUNDLE_IDENTIFIER}"
+
+export PROVISIONING_PROFILE_FILENAME="${ENVIRONMENT}-${COMPILE_TYPE}"
+
+echo "The BUNDLE_IDENTIFIER AND VENDOR_ID are ${BUNDLE_IDENTIFIER}"
+echo "The PROVISIONING_PROFILE_FILENAME is ${PROVISIONING_PROFILE_FILENAME}"
+
+
+if [[ ${ENVIRONMENT} == 'production' ]]; then
+    export APPLEID=1132280754
+    export GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
+fi
+if [[ ${ENVIRONMENT} == 'beta' ]]; then
+    export APPLEID=1158001572
+    export GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
+fi
+if [[ ${ENVIRONMENT} == 'development' ]]; then
+    export APPLEID=1157576885
+    export GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
+fi
+if [[ ${ENVIRONMENT} == 'test' ]]; then
+    export APPLEID=1157598323
+    export GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
+fi
 
 export ARCHIVE_DIR="${BIN_DIRECTORY}/archive"
+export ARCHIVE_FILE_NAME="ClassfitteriOS"
 export EXPORT_DIR="${BIN_DIRECTORY}/export"
 export EXPORT_CHECK_DIR="${BIN_DIRECTORY}/export_check"
 export UPLOAD_DIR="${BIN_DIRECTORY}/upload"

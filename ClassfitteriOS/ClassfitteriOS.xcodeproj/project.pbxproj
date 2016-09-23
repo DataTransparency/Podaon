@@ -275,7 +275,7 @@
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -685,10 +685,10 @@
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.classfitter.classfitterios-development";
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3318b18c-62cf-4569-a1fa-92198c04b96c";
+				PROVISIONING_PROFILE_SPECIFIER = "com.classfitter.classfitterios-development-dev";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -702,7 +702,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ClassfitteriOS/Classfitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -714,10 +714,10 @@
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.classfitter.classfitterios-development";
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "baff84c7-fc3e-4225-9ace-57b44d876696";
+				PROVISIONING_PROFILE_SPECIFIER = "com.classfitter.classfitterios-development-dist";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};

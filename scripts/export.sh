@@ -1,5 +1,7 @@
 #!/bin/sh -xe
 
+sh scripts/archive.sh
+
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 : "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
 : "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
@@ -9,17 +11,8 @@
 : "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
 : "${ENVIRONMENT_DIRECTORY:?There must be a ENVIRONMENT_DIRECTORY environment variable set}"
 : "${VENDOR_ID:?There must be a VENDOR_ID environment variable set}"
-
-
-
-cd ClassfitteriOS
-agvtool new-marketing-version ${VERSION_NUMBER}
-agvtool new-version -all ${BUILD_NUMBER}
-cd ..
-
-#ARCHIVE
-mkdir ${ARCHIVE_DIR}
-/usr/bin/xcodebuild -workspace ${ENVIRONMENT_DIRECTORY}/ClassfitteriOS/ClassfitteriOS.xcworkspace -configuration Release -scheme ClassfitteriOS -archivePath ${ARCHIVE_DIR}/ClassfitteriOS archive GOOGLE_APP_ID=${GOOGLE_APP_ID}
+: "${ARCHIVE_FILE_NAME:?There must be a ARCHIVE_FILE_NAME environment variable set}"
+: "${ARCHIVE_DIR:?There must be a ARCHIVE_DIR environment variable set}"
 
 #EXPORT
 mkdir ${EXPORT_DIR}
@@ -38,7 +31,7 @@ cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
 </plist>
 EOM
 
-xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/ClassfitteriOS.xcarchive -exportPath ${EXPORT_DIR}
+xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/${ARCHIVE_FILE_NAME}.xcarchive -exportPath ${EXPORT_DIR}
 
 #CHECK EXPORT
 IPA_FILE=${EXPORT_DIR}/ClassfitteriOS.ipa

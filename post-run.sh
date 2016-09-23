@@ -1,4 +1,4 @@
-
+#!/bin/sh -xe
 
 COMMAND=$1
 ENVIRONMENT=$2
