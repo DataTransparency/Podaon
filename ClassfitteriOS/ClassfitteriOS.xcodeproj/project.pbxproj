@@ -209,7 +209,6 @@
 				F2889459355408C2B3B1B081 /* [CP] Embed Pods Frameworks */,
 				EB6891C123BFD93A2B0AD4CE /* [CP] Copy Pods Resources */,
 				9352F1EC1D74616D00F87716 /* Upload FirebaseServiceAccount.json symbols */,
-				8C0864A0499BE8793599679D /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -394,20 +393,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		8C0864A0499BE8793599679D /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
 		};
 		9352F1EC1D74616D00F87716 /* Upload FirebaseServiceAccount.json symbols */ = {
 			isa = PBXShellScriptBuildPhase;

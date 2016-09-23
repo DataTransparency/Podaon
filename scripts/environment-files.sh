@@ -10,7 +10,7 @@
 : "${FIREBASE_ANALYTICS_PLIST:?There must be a FIREBASE_ANALYTICS_PLIST environment variable set}"
 : "${ENVIRONMENT_DIRECTORY:?There must be a ENVIRONMENT_DIRECTORY environment variable set}"
 : "${BIN_DIRECTORY:?There must be a BIN_DIRECTORY environment variable set}"
-: "${PROVISIONING_PROFILE_FILENAME:?There must be a PROVISIONING_PROFILE_FILENAME environment variable set}"
+: "${PROVISIONING_PROFILE_NAME:?There must be a PROVISIONING_PROFILE_NAME environment variable set}"
 
 
 
@@ -41,4 +41,5 @@ echo "rm -rf ${FIREBASE_ANALYTICS_FILE}"
 rm -rf $FIREBASE_ANALYTICS_FILE
 cp $FIREBASE_ANALYTICS_PLIST $FIREBASE_ANALYTICS_FILE
 
-#/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_IDENTIFIER}" ${IOS_APP_DIRECTORY}/Info.plist
+/usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName ${DISPLAY_NAME}" ${IOS_APP_DIRECTORY}/Info.plist
+/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_IDENTIFIER}" ${IOS_APP_DIRECTORY}/Info.plist

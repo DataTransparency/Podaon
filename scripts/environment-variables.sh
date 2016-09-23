@@ -34,17 +34,18 @@ export IOS_APP_DIRECTORY="${XCODE_WORKSPACE_DIRECTORY}/${IOS_APP_DIRECTORY_NAME}
 export XCODE_WORKSPACE_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcworkspace"
 export XCODE_PROJECT_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcodeproj"
 
+if [[ ${ENVIRONMENT} == 'production' ]]; then
+    DISPLAY_NAME = "Classfitter"
+else
+    DISPLAY_NAME=${ENVIRONMENT}
+fi
+export DISPLAY_NAME
 
+export 
 export FIREBASE_SERVICE_FILE=${XCODE_WORKSPACE_DIRECTORY}/FirebaseServiceAccount.json
 export FIREBASE_ANALYTICS_FILE=${XCODE_WORKSPACE_DIRECTORY}/GoogleService-Info.plist
-
-if [[ ${ENVIRONMENT} == 'production' ]] || [[ ${ENVIRONMENT} == 'beta' ]]; then
-    export FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Live.json
-    export FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Live.plist	
-else
-    export FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-Development.json
-    export FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-Development.plist
-fi
+export FIREBASE_SYMBOL_SERVICE_JSON=${HOME}/FirebaseCrash-${ENVIRONMENT}.json
+export FIREBASE_ANALYTICS_PLIST=${HOME}/GoogleService-Info-${ENVIRONMENT}.plist	
 
 export VERSION_FILE="${BIN_DIRECTORY}/version.txt"
 export FULL_VERSION_FILE="${BIN_DIRECTORY}/fullversion.txt"
@@ -74,11 +75,10 @@ else
     export COMPILE_TYPE=debug
 fi
 
-export PROVISIONING_PROFILE_FILENAME="${ENVIRONMENT}-${COMPILE_TYPE}"
+export PROVISIONING_PROFILE_NAME="${ENVIRONMENT}-${COMPILE_TYPE}"
 
 echo "The BUNDLE_IDENTIFIER AND VENDOR_ID are ${BUNDLE_IDENTIFIER}"
-echo "The PROVISIONING_PROFILE_FILENAME is ${PROVISIONING_PROFILE_FILENAME}"
-
+echo "The PROVISIONING_PROFILE_NAME is ${PROVISIONING_PROFILE_NAME}"
 
 if [[ ${ENVIRONMENT} == 'production' ]]; then
     export APPLEID=1132280754
@@ -86,15 +86,15 @@ if [[ ${ENVIRONMENT} == 'production' ]]; then
 fi
 if [[ ${ENVIRONMENT} == 'beta' ]]; then
     export APPLEID=1158001572
-    export GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
+    export GOOGLE_APP_ID=1:287953837448:ios:b9e09ecb03cfb4ea
 fi
 if [[ ${ENVIRONMENT} == 'development' ]]; then
     export APPLEID=1157576885
-    export GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
+    export GOOGLE_APP_ID=1:1096116560042:ios:d781d781c5c28516
 fi
 if [[ ${ENVIRONMENT} == 'test' ]]; then
     export APPLEID=1157598323
-    export GOOGLE_APP_ID=1:1096116560042:ios:bc5a416402e93b61
+    export GOOGLE_APP_ID=1:455177861745:ios:a2ebd77cf2c9b416
 fi
 
 export ARCHIVE_DIR="${BIN_DIRECTORY}/archive"
