@@ -25,14 +25,15 @@ fi
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 echo "The WORKSPACE is ${WORKSPACE}"
 
+export BIN_DIRECTORY="${WORKSPACE}/bin/${ENVIRONMENT}"
 export ENVIRONMENT_DIRECTORY="${WORKSPACE}/env/${ENVIRONMENT}"
 export XCODE_WORKSPACE_DIRECTORY_NAME="ClassfitteriOS"
-export XCODE_WORKSPACE_DIRECTORY="${WORKSPACE}/${XCODE_WORKSPACE_DIRECTORY_NAME}"
+export XCODE_WORKSPACE_DIRECTORY="${ENVIRONMENT_DIRECTORY}/${XCODE_WORKSPACE_DIRECTORY_NAME}"
 export IOS_APP_DIRECTORY_NAME="ClassfitteriOS"
 export IOS_APP_DIRECTORY="${XCODE_WORKSPACE_DIRECTORY}/${IOS_APP_DIRECTORY_NAME}"
 export XCODE_WORKSPACE_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcworkspace"
 export XCODE_PROJECT_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcodeproj"
-export BIN_DIRECTORY="${WORKSPACE}/bin/${ENVIRONMENT}"
+
 
 export FIREBASE_SERVICE_FILE=${XCODE_WORKSPACE_DIRECTORY}/FirebaseServiceAccount.json
 export FIREBASE_ANALYTICS_FILE=${XCODE_WORKSPACE_DIRECTORY}/GoogleService-Info.plist
@@ -65,9 +66,9 @@ export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
 
 BUNDLE_IDENTIFIER_BASE="com.classfitter.classfitterios"
 export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
-export VENDOR_ID=com.classfitter.classfitterios-development
+export VENDOR_ID=${BUNDLE_IDENTIFIER}
 
-if [[ ${COMMAND} == 'deploy' ]] || [[ ${COMMAND} == 'export' ]] || [[ ${COMMAND} == 'archive' ]]; then
+if [[ ${COMMAND} == 'deploy' ]] || [[ ${COMMAND} == 'export' ]] || [[ ${COMMAND} == 'archive' ]] || [[ ${COMMAND} == 'build' ]]; then
     export COMPILE_TYPE=release
 else
     export COMPILE_TYPE=debug

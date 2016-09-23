@@ -41,4 +41,4 @@ echo "rm -rf ${FIREBASE_ANALYTICS_FILE}"
 rm -rf $FIREBASE_ANALYTICS_FILE
 cp $FIREBASE_ANALYTICS_PLIST $FIREBASE_ANALYTICS_FILE
 
-/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_IDENTIFIER}" ${IOS_APP_DIRECTORY}/Info.plist
+#/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_IDENTIFIER}" ${IOS_APP_DIRECTORY}/Info.plist
