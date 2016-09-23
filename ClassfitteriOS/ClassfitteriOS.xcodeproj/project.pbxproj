@@ -287,11 +287,14 @@
 					};
 					C639213A1D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
 					C63921451D2ED1DC0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
@@ -729,7 +732,9 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"BUNDLE_LOADER[arch=*]" = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -746,7 +751,9 @@
 			baseConfigurationReference = 33E3C41A7D20D437E5ECD7C1 /* Pods-ClassfitteriOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -762,6 +769,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F8D6C43C364A2F89EE9E4B1 /* Pods-ClassfitteriOSUITests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/PromiseKit\"",
@@ -801,6 +809,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69AE1A80AA805A89C1A7CA72 /* Pods-ClassfitteriOSUITests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
