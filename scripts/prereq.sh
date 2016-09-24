@@ -8,7 +8,7 @@ chmod -R g+w /usr/local
 
 scp buildservice@192.168.5.25:.ssh/id_rsa ~/.ssh/id_rsa
 scp buildservice@192.168.5.25:.ssh/id_rsa.pub ~/.ssh/id_rsa.pub
-ssh-add ~/.ssh/id_rsa
-scp buildservice@192.168.5.25:.ssh/authorized_keys ~/.ssh/authorized_keys
+sudo ssh-add ~/.ssh/id_rsa
+sudo scp buildservice@192.168.5.25:.ssh/authorized_keys ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 sudo /etc/init.d/ssh restart
