@@ -20,3 +20,19 @@ rm -rf bin/
 
 rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*.*
 cp ./ProvisioningProfiles/*.* ~/Library/MobileDevice/Provisioning\ Profiles/
+
+rm -Rf Firebase/
+mkdir Firebase
+scp buildservice@192.168.5.25:FirebaseServiceAccount-beta.json Firebase/FirebaseServiceAccount-beta.json
+scp buildservice@192.168.5.25:FirebaseServiceAccount-development.json Firebase/FirebaseServiceAccount-development.json
+scp buildservice@192.168.5.25:FirebaseServiceAccount-production.json Firebase/FirebaseServiceAccount-production.json
+scp buildservice@192.168.5.25:FirebaseServiceAccount-test.json Firebase/FirebaseServiceAccount-test.json
+
+scp buildservice@192.168.5.25:GoogleService-Info-beta.plist Firebase/GoogleService-Info-beta.plist
+scp buildservice@192.168.5.25:GoogleService-Info-production.plist Firebase/GoogleService-Info-production.plist
+scp buildservice@192.168.5.25:GoogleService-Info-development.plist Firebase/GoogleService-Info-development.plist
+scp buildservice@192.168.5.25:GoogleService-Info-test.plist Firebase/GoogleService-Info-test.plist
+
+
+scp buildservice@192.168.5.25:FirebaseServiceAccount-development.json classfitterios/FirebaseServiceAccount.json
+scp buildservice@192.168.5.25:GoogleService-Info-development.plist classfitterios/GoogleService-Info.plist
