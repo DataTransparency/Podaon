@@ -3,8 +3,10 @@ touch ~/.bash_profile
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 
-chgrp -R admin /usr/local
-chmod -R g+w /usr/local
+defaults write com.apple.finder AppleShowAllFiles YES
+
+sudo chgrp -R admin /usr/local
+sudo chmod -R g+w /usr/local
 
 scp buildservice@192.168.5.25:.ssh/id_rsa ~/.ssh/id_rsa
 scp buildservice@192.168.5.25:.ssh/id_rsa.pub ~/.ssh/id_rsa.pub
