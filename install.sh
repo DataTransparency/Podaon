@@ -2,6 +2,8 @@
 
 if [[ $LOCATION == "CI" ]]; then
     export PATH=/Users/buildservice/.rvm/gems/ruby-2.3.0/bin:/Users/buildservice/.rvm/gems/ruby-2.3.0@global/bin:/Users/buildservice/.rvm/rubies/ruby-2.3.0/bin:/Users/buildservice/.rvm/bin:/Users/buildservice/.nvm/versions/node/v6.5.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin
+else
+    export WORKSPACE=$PWD
 fi
 
 export NVM_DIR="$HOME/.nvm"
@@ -23,7 +25,7 @@ rm -rf bin/
 rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*.*
 cp ./ProvisioningProfiles/*.* ~/Library/MobileDevice/Provisioning\ Profiles/
 
-FIREBASE_DIR=Firebase
+FIREBASE_DIR="${WORKSPACE}/Firebase"
 PROJECT_DIR=ClassfitteriOS
 rm -Rf ${FIREBASE_DIR}/
 mkdir ${FIREBASE_DIR}
