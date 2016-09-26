@@ -41,11 +41,11 @@ else
 fi
 export DISPLAY_NAME
 
-export 
+export FIREBASE_DIRECTORY_NAME=Firebase
 export FIREBASE_SERVICE_FILE=${XCODE_WORKSPACE_DIRECTORY}/FirebaseServiceAccount.json
 export FIREBASE_ANALYTICS_FILE=${XCODE_WORKSPACE_DIRECTORY}/GoogleService-Info.plist
-export FIREBASE_SYMBOL_SERVICE_JSON=${WORKSPACE}/Firebase/FirebaseServiceAccount-${ENVIRONMENT}.json
-export FIREBASE_ANALYTICS_PLIST=${WORKSPACE}/Firebase/GoogleService-Info-${ENVIRONMENT}.plist	
+export FIREBASE_SYMBOL_SERVICE_JSON=~/${FIREBASE_DIRECTORY_NAME}/FirebaseServiceAccount-${ENVIRONMENT}.json
+export FIREBASE_ANALYTICS_PLIST=~/${FIREBASE_DIRECTORY_NAME}/GoogleService-Info-${ENVIRONMENT}.plist	
 
 export VERSION_FILE="${BIN_DIRECTORY}/version.txt"
 export FULL_VERSION_FILE="${BIN_DIRECTORY}/fullversion.txt"

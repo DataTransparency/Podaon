@@ -12,8 +12,6 @@
 : "${BIN_DIRECTORY:?There must be a BIN_DIRECTORY environment variable set}"
 : "${PROVISIONING_PROFILE_NAME:?There must be a PROVISIONING_PROFILE_NAME environment variable set}"
 
-
-
 . $HOME/.nvm/nvm.sh
 source "$HOME/.rvm/scripts/rvm"
 alias cftool="${WORKSPACE}/node_modules/classfitter-tools/lib/index.js"
