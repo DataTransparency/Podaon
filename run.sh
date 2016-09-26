@@ -7,7 +7,6 @@ ENVIRONMENT=$2
 : "${COMMAND:?There must be a COMMAND environment variable set}"
 : "${LOCATION:?There must be a LOCATION environment variable set}"
 
-
 echo "The ENVIRONMENT is ${ENVIRONMENT}"
 echo "The COMMAND is ${COMMAND}"
 echo "The LOCATION is ${LOCATION}"
@@ -22,7 +21,7 @@ if [[ $ENVIRONMENT == "test" ]] && [[ $COMMAND == "deploy" ]]; then
     exit 1
 fi
 
-
+sh scripts/install.sh
 source scripts/environment-variables.sh
 source scripts/environment-files.sh
 
