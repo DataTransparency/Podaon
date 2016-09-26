@@ -13,6 +13,7 @@ sh scripts/archive.sh
 : "${VENDOR_ID:?There must be a VENDOR_ID environment variable set}"
 : "${ARCHIVE_FILE_NAME:?There must be a ARCHIVE_FILE_NAME environment variable set}"
 : "${ARCHIVE_DIR:?There must be a ARCHIVE_DIR environment variable set}"
+: "${BUNDLE_IDENTIFIER:?There must be a BUNDLE_IDENTIFIER environment variable set}"
 
 #EXPORT
 mkdir ${EXPORT_DIR}
@@ -31,7 +32,7 @@ cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
 </plist>
 EOM
 
-xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/${ARCHIVE_FILE_NAME}.xcarchive -exportPath ${EXPORT_DIR}
+xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/${ARCHIVE_FILE_NAME}.xcarchive -exportPath ${EXPORT_DIR} PRODUCT_BUNDLE_IDENTIFIER=${BUNDLE_IDENTIFIER} PROVISIONING_PROFILE_SPECIFIER=${PROVISIONING_PROFILE_NAME} 
 
 #CHECK EXPORT
 IPA_FILE=${EXPORT_DIR}/ClassfitteriOS.ipa

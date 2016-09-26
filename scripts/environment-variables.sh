@@ -37,7 +37,7 @@ export XCODE_PROJECT_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcodeproj
 if [[ ${ENVIRONMENT} == 'production' ]]; then
     DISPLAY_NAME = "Classfitter"
 else
-    DISPLAY_NAME=${ENVIRONMENT}
+    DISPLAY_NAME="$(tr '[:lower:]' '[:upper:]' <<< ${ENVIRONMENT:0:1})${ENVIRONMENT:1}"
 fi
 export DISPLAY_NAME
 

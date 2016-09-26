@@ -21,8 +21,8 @@ if [[ $ENVIRONMENT == "test" ]] && [[ $COMMAND == "deploy" ]]; then
     exit 1
 fi
 
-sh scripts/install.sh
 source scripts/environment-variables.sh
+sh scripts/install.sh
 source scripts/environment-files.sh
 
 : "${BUILD_URL:?There must be a BUILD_URL environment variable set}"

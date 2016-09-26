@@ -10,7 +10,3 @@ PROJECT_DIR=ClassfitteriOS
 rm -Rf ~/${FIREBASE_DIRECTORY_NAME}/
 mkdir ~/${FIREBASE_DIRECTORY_NAME}
 scp buildservice@192.168.5.25:${FIREBASE_DIRECTORY_NAME}/*.* ${FIREBASE_DIRECTORY_NAME}/
-
-
-cp ~/${FIREBASE_DIRECTORY_NAME}/FirebaseServiceAccount-development.json ${WORKSPACE}/${XCODE_WORKSPACE_DIRECTORY_NAME}/FirebaseServiceAccount.json
-cp ~/${FIREBASE_DIRECTORY_NAME}/GoogleService-Info-development.plist ${WORKSPACE}/${XCODE_WORKSPACE_DIRECTORY_NAME}/GoogleService-Info.plist

@@ -10,6 +10,9 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+cp ~/${FIREBASE_DIRECTORY_NAME}/FirebaseServiceAccount-development.json ${WORKSPACE}/${XCODE_WORKSPACE_DIRECTORY_NAME}/FirebaseServiceAccount.json
+cp ~/${FIREBASE_DIRECTORY_NAME}/GoogleService-Info-development.plist ${WORKSPACE}/${XCODE_WORKSPACE_DIRECTORY_NAME}/GoogleService-Info.plist
+
 nvm install
 npm install
 
