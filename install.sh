@@ -9,8 +9,6 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-brew install gcovr
-brew install tailor
 nvm install
 npm install
 
