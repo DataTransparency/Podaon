@@ -24,4 +24,4 @@ sudo vim /etc/ssh/sshd_config
 
 sudo /etc/init.d/ssh restart
 
-
+sh scripts/firebase.sh
