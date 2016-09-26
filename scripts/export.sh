@@ -32,7 +32,7 @@ cat <<EOM > ${EXPORT_DIR}/exportOptions.plist
 </plist>
 EOM
 
-xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/${ARCHIVE_FILE_NAME}.xcarchive -exportPath ${EXPORT_DIR} PRODUCT_BUNDLE_IDENTIFIER=${BUNDLE_IDENTIFIER} PROVISIONING_PROFILE_SPECIFIER=${PROVISIONING_PROFILE_NAME} 
+xcrun xcodebuild -exportArchive -exportOptionsPlist ${EXPORT_DIR}/exportOptions.plist -archivePath ${ARCHIVE_DIR}/${ARCHIVE_FILE_NAME}.xcarchive -exportPath ${EXPORT_DIR}
 
 #CHECK EXPORT
 IPA_FILE=${EXPORT_DIR}/ClassfitteriOS.ipa

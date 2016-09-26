@@ -11,6 +11,8 @@
 : "${ENVIRONMENT_DIRECTORY:?There must be a ENVIRONMENT_DIRECTORY environment variable set}"
 : "${BIN_DIRECTORY:?There must be a BIN_DIRECTORY environment variable set}"
 : "${PROVISIONING_PROFILE_NAME:?There must be a PROVISIONING_PROFILE_NAME environment variable set}"
+: "${XCODE_PROJECT_FILE_PBXPROJ:?There must be a XCODE_PROJECT_FILE_PBXPROJ environment variable set}"
+: "${BUNDLE_IDENTIFIER_BASE:?There must be a BUNDLE_IDENTIFIER_BASE environment variable set}"
 
 . $HOME/.nvm/nvm.sh
 source "$HOME/.rvm/scripts/rvm"
@@ -41,3 +43,7 @@ cp $FIREBASE_ANALYTICS_PLIST $FIREBASE_ANALYTICS_FILE
 
 /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName ${DISPLAY_NAME}" ${IOS_APP_DIRECTORY}/Info.plist
 /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_IDENTIFIER}" ${IOS_APP_DIRECTORY}/Info.plist
+
+perl -i -pe "s/development-release/${ENVIRONMENT}-release/g" ${XCODE_PROJECT_FILE_PBXPROJ}
+perl -i -pe "s/development-debug/${ENVIRONMENT}-debug/g" ${XCODE_PROJECT_FILE_PBXPROJ}
+perl -i -pe "s/${BUNDLE_IDENTIFIER_BASE}-development/${BUNDLE_IDENTIFIER}/g" ${XCODE_PROJECT_FILE_PBXPROJ}

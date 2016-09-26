@@ -274,7 +274,7 @@
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -664,7 +664,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -676,8 +676,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.classfitter.classfitterios-development";
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "a92cda78-baa0-467e-9fbf-1f644c979166";
+				PROVISIONING_PROFILE_SPECIFIER = "development-debug";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -691,9 +691,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ClassfitteriOS/Classfitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -705,8 +705,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.classfitter.classfitterios-development";
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "fa89b0d4-20f8-4653-9f3a-9ad135d2ac1c";
+				PROVISIONING_PROFILE_SPECIFIER = "development-release";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};

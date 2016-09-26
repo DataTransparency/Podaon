@@ -33,6 +33,7 @@ export IOS_APP_DIRECTORY_NAME="ClassfitteriOS"
 export IOS_APP_DIRECTORY="${XCODE_WORKSPACE_DIRECTORY}/${IOS_APP_DIRECTORY_NAME}"
 export XCODE_WORKSPACE_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcworkspace"
 export XCODE_PROJECT_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcodeproj"
+export XCODE_PROJECT_FILE_PBXPROJ="${XCODE_PROJECT_FILE}/project.pbxproj"
 
 if [[ ${ENVIRONMENT} == 'production' ]]; then
     DISPLAY_NAME = "Classfitter"
@@ -65,7 +66,7 @@ export STATUS_FILE="${BIN_DIRECTORY}/status.txt"
 
 export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
 
-BUNDLE_IDENTIFIER_BASE="com.classfitter.classfitterios"
+export BUNDLE_IDENTIFIER_BASE="com.classfitter.classfitterios"
 export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
 export VENDOR_ID=${BUNDLE_IDENTIFIER}
 

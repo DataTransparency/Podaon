@@ -15,7 +15,7 @@ TEST_REPORTS_FOLDER="${BIN_DIRECTORY}/reports"
 
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 
-/usr/bin/xcodebuild test -scheme ${UI_TEST_SCHEME} -derivedDataPath ${BIN_DIRECTORY} -workspace ${XCODE_WORKSPACE_FILE} -configuration Debug -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0' GOOGLE_APP_ID=${GOOGLE_APP_ID} PROVISIONING_PROFILE_SPECIFIER=${PROVISIONING_PROFILE_NAME} -enableCodeCoverage YES | ocunit2junit
+/usr/bin/xcodebuild test -scheme ${UI_TEST_SCHEME} -derivedDataPath ${BIN_DIRECTORY} -workspace ${XCODE_WORKSPACE_FILE} -configuration Debug -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0' GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 
 mv test-reports $TEST_REPORTS_FOLDER/
 rm -rf ${JOB_STATUS_FILE}
