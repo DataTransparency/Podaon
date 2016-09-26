@@ -209,7 +209,6 @@
 				F2889459355408C2B3B1B081 /* [CP] Embed Pods Frameworks */,
 				EB6891C123BFD93A2B0AD4CE /* [CP] Copy Pods Resources */,
 				9352F1EC1D74616D00F87716 /* Upload FirebaseServiceAccount.json symbols */,
-				8C0864A0499BE8793599679D /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -287,12 +286,16 @@
 					};
 					C639213A1D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
 					C63921451D2ED1DC0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
 				};
@@ -391,20 +394,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		8C0864A0499BE8793599679D /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
 		};
 		9352F1EC1D74616D00F87716 /* Upload FirebaseServiceAccount.json symbols */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -685,10 +674,10 @@
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.classfitter.classfitterios-development";
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "be2d5807-9500-4541-a610-9bec53db635c";
-				PROVISIONING_PROFILE_SPECIFIER = "Classfitter Development Profile";
+				PROVISIONING_PROFILE = "a92cda78-baa0-467e-9fbf-1f644c979166";
+				PROVISIONING_PROFILE_SPECIFIER = "development-debug";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -714,10 +703,10 @@
 				INFOPLIST_FILE = ClassfitteriOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.classfitter.classfitterios;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.classfitter.classfitterios-development";
 				PRODUCT_NAME = Classfitter;
-				PROVISIONING_PROFILE = "d6a35bf6-fe76-420c-912e-1cee4d2cffe2";
-				PROVISIONING_PROFILE_SPECIFIER = ClassfitterDistribution;
+				PROVISIONING_PROFILE = "fa89b0d4-20f8-4653-9f3a-9ad135d2ac1c";
+				PROVISIONING_PROFILE_SPECIFIER = "development-release";
 				SWIFT_OBJC_BRIDGING_HEADER = ClassfitteriOS_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -729,7 +718,9 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"BUNDLE_LOADER[arch=*]" = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -746,7 +737,9 @@
 			baseConfigurationReference = 33E3C41A7D20D437E5ECD7C1 /* Pods-ClassfitteriOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -762,6 +755,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F8D6C43C364A2F89EE9E4B1 /* Pods-ClassfitteriOSUITests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/PromiseKit\"",
@@ -791,6 +786,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;
@@ -801,6 +798,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69AE1A80AA805A89C1A7CA72 /* Pods-ClassfitteriOSUITests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = TQYB6VJLUN;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -823,6 +822,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;
