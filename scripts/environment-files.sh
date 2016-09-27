@@ -21,7 +21,7 @@ alias cftool="${WORKSPACE}/node_modules/classfitter-tools/lib/index.js"
 mkdir -p $ENVIRONMENT_DIRECTORY
 rm -rf $BIN_DIRECTORY
 mkdir -p $BIN_DIRECTORY
-rsync -av --progress * $ENVIRONMENT_DIRECTORY/ --exclude 'bin' --exclude 'env' --delete
+rsync -av --progress * $ENVIRONMENT_DIRECTORY/ --exclude 'bin' --exclude 'env' --exclude 'scripts' --exclude 'ProvisioningProfiles' --delete
 
 #GETTING VERSION INFORMATION FROM payload
 touch $PAYLOAD_FILE
