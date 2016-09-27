@@ -1,11 +1,10 @@
 #!/bin/sh -xe
 
-sh scripts/archive.sh
+sh scripts/archive.sh || { echo "command failed"; exit 1; }
 
 : "${EXPORT_DIR:?There must be a EXPORT_DIR environment variable set}"
 : "${ARCHIVE_DIR:?There must be a ARCHIVE_DIR environment variable set}"
 : "${ARCHIVE_FILE_NAME:?There must be a ARCHIVE_FILE_NAME environment variable set}"
-: "${IPA_FILE:?There must be a IPA_FILE environment variable set}"
 : "${EXPORT_CHECK_DIR:?There must be a EXPORT_CHECK_DIR environment variable set}"
 : "${UPLOAD_DIR:?There must be a UPLOAD_DIR environment variable set}"
 : "${ITSMP_FILE:?There must be a ITSMP_FILE environment variable set}"

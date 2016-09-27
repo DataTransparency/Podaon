@@ -8,7 +8,7 @@
 : "${ARCHIVE_FILE_NAME:?There must be a ARCHIVE_FILE_NAME environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 
-cd ClassfitteriOS
+cd ${XCODE_WORKSPACE_DIRECTORY}
 agvtool new-marketing-version ${VERSION_NUMBER}
 agvtool new-version -all ${BUILD_NUMBER}
 cd ..

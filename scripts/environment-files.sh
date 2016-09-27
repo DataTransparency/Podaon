@@ -26,7 +26,7 @@ mkdir -p $BIN_DIRECTORY
 #GETTING VERSION INFORMATION FROM payload
 touch $PAYLOAD_FILE
 echo ${payload} > ${PAYLOAD_FILE}
-VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
+export VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
 echo "v${VERSION_NUMBER}+${BUILD_NUMBER}" > ${FULL_VERSION_FILE}
 

@@ -1,6 +1,6 @@
 #!/bin/sh -xe
 
-sh scripts/export.sh
+sh scripts/export.sh || { echo "command failed"; exit 1; }
 
 : "${LOCATION:?There must be a LOCATION environment variable set}"
 : "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
