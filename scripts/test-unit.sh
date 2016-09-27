@@ -14,9 +14,9 @@ echo "THE PRODUCT_BUNDLE_IDENTIFIER is ${BUNDLE_IDENTIFIER}"
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 
 if [[ ${LOCATION} == 'CI' ]]; then
-    DESTINATION="platform=iOS Simulator,name=iPhone SE,OS=10.0"
+    DESTINATION="platform=iOS Simulator,name=iPhone 6s,OS=10.0"
 else
-    DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=10.0"
+    DESTINATION="platform=iOS Simulator,name=iPhone 5,OS=10.0"
 fi
 
 /usr/bin/xcodebuild test -scheme ${UNIT_TEST_SCHEME} -derivedDataPath ${BIN_DIRECTORY} -workspace ${XCODE_WORKSPACE_FILE} -configuration Debug -destination "${DESTINATION}" GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
