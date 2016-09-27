@@ -68,12 +68,7 @@ export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
 
 export BUNDLE_IDENTIFIER_BASE="com.classfitter.classfitterios"
 
-if [[ ${ENVIRONMENT} == 'production' ]]; then
-    export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}"
-else
-    export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
-fi
-
+export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
 export VENDOR_ID=${BUNDLE_IDENTIFIER}
 
 if [[ ${COMMAND} == 'deploy' ]] || [[ ${COMMAND} == 'export' ]] || [[ ${COMMAND} == 'archive' ]] || [[ ${COMMAND} == 'build' ]]; then
@@ -88,7 +83,7 @@ echo "The BUNDLE_IDENTIFIER AND VENDOR_ID are ${BUNDLE_IDENTIFIER}"
 echo "The PROVISIONING_PROFILE_NAME is ${PROVISIONING_PROFILE_NAME}"
 
 if [[ ${ENVIRONMENT} == 'production' ]]; then
-    export APPLEID=1132280754
+    export APPLEID=1159462827
     export GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
 fi
 if [[ ${ENVIRONMENT} == 'beta' ]]; then
