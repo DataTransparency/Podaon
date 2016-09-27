@@ -2,18 +2,16 @@
 
 sh scripts/archive.sh
 
-: "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
-: "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
-: "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
-: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
-: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
-: "${LOCATION:?There must be a LOCATION environment variable set}"
-: "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
-: "${ENVIRONMENT_DIRECTORY:?There must be a ENVIRONMENT_DIRECTORY environment variable set}"
-: "${VENDOR_ID:?There must be a VENDOR_ID environment variable set}"
-: "${ARCHIVE_FILE_NAME:?There must be a ARCHIVE_FILE_NAME environment variable set}"
+: "${EXPORT_DIR:?There must be a EXPORT_DIR environment variable set}"
 : "${ARCHIVE_DIR:?There must be a ARCHIVE_DIR environment variable set}"
-: "${BUNDLE_IDENTIFIER:?There must be a BUNDLE_IDENTIFIER environment variable set}"
+: "${ARCHIVE_FILE_NAME:?There must be a ARCHIVE_FILE_NAME environment variable set}"
+: "${IPA_FILE:?There must be a IPA_FILE environment variable set}"
+: "${EXPORT_CHECK_DIR:?There must be a EXPORT_CHECK_DIR environment variable set}"
+: "${UPLOAD_DIR:?There must be a UPLOAD_DIR environment variable set}"
+: "${ITSMP_FILE:?There must be a ITSMP_FILE environment variable set}"
+: "${ITUNES_USERNAME:?There must be a ITUNES_USERNAME environment variable set}"
+: "${ITUNES_PASSWORD:?There must be a ITUNES_PASSWORD environment variable set}"
+: "${VENDOR_ID:?There must be a VENDOR_ID environment variable set}"
 
 #EXPORT
 mkdir ${EXPORT_DIR}

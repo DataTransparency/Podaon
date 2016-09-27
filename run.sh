@@ -1,7 +1,7 @@
 #!/bin/sh -xe
 
-COMMAND=$1
-ENVIRONMENT=$2
+export COMMAND=$1
+export ENVIRONMENT=$2
 
 : "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
 : "${COMMAND:?There must be a COMMAND environment variable set}"
