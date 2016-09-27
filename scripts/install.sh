@@ -29,5 +29,4 @@ rm -rf env/
 rm -rf bin/
 
 rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*.*
-echo "cp ${WORKSPACE}/ProvisioningProfiles/*.* ${HOME}/Library/MobileDevice/Provisioning\ Profiles/"
-eval "cp ${WORKSPACE}/ProvisioningProfiles/*.* ${HOME}/Library/MobileDevice/Provisioning\ Profiles/"
+rsync -av --progress ./ProvisioningProfiles/* ~/Library/MobileDevice/Provisioning\ Profiles/
