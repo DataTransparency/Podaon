@@ -67,7 +67,13 @@ export STATUS_FILE="${BIN_DIRECTORY}/status.txt"
 export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
 
 export BUNDLE_IDENTIFIER_BASE="com.classfitter.classfitterios"
-export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
+
+if [[ ${ENVIRONMENT} == 'production' ]]; then
+    export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}"
+else
+    export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
+fi
+
 export VENDOR_ID=${BUNDLE_IDENTIFIER}
 
 if [[ ${COMMAND} == 'deploy' ]] || [[ ${COMMAND} == 'export' ]] || [[ ${COMMAND} == 'archive' ]] || [[ ${COMMAND} == 'build' ]]; then
