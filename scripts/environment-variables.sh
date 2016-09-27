@@ -107,6 +107,7 @@ export UPLOAD_DIR="${BIN_DIRECTORY}/upload"
 export ITSMP_FILE=${UPLOAD_DIR}/mybundle.itmsp
 export UPLOAD_CHECK_DIR="${BIN_DIRECTORY}/upload_check"
 export COVERAGE_DIR="${BIN_DIRECTORY}/coverage"
+export TEST_REPORTS_FOLDER="${BIN_DIRECTORY}/reports"
 
 if [[ ${LOCATION} == 'CI' ]]; then
     if [[ ${COMMAND} == 'test-ui' ]]; then

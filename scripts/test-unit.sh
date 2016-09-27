@@ -4,8 +4,9 @@
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 : "${TEST_RESULTS_FILE:?There must be a TEST_RESULTS_FILE environment variable set}"
+: "${TEST_REPORTS_FOLDER:?There must be a TEST_REPORTS_FOLDER environment variable set}"
 
-TEST_REPORTS_FOLDER="${BIN_DIRECTORY}/reports"
+
 mkdir ${COVERAGE_DIR}
 echo "THE PRODUCT_BUNDLE_IDENTIFIER is ${BUNDLE_IDENTIFIER}"
 
