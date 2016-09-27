@@ -18,6 +18,7 @@
 source "$HOME/.rvm/scripts/rvm"
 alias cftool="${WORKSPACE}/node_modules/classfitter-tools/lib/index.js"
 
+rm -rf $ENVIRONMENT_DIRECTORY
 mkdir -p $ENVIRONMENT_DIRECTORY
 rm -rf $BIN_DIRECTORY
 mkdir -p $BIN_DIRECTORY
