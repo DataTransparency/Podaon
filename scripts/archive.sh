@@ -8,11 +8,6 @@
 : "${ARCHIVE_FILE_NAME:?There must be a ARCHIVE_FILE_NAME environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 
-cd ${XCODE_WORKSPACE_DIRECTORY}
-agvtool new-marketing-version ${VERSION_NUMBER}
-agvtool new-version -all ${BUILD_NUMBER}
-cd ..
-
 #ARCHIVE
 mkdir ${ARCHIVE_DIR}
 /usr/bin/xcodebuild -workspace ${XCODE_WORKSPACE_FILE} -configuration Release -scheme ${BUILD_SCHEME} -archivePath ${ARCHIVE_DIR}/${ARCHIVE_FILE_NAME} archive GOOGLE_APP_ID=${GOOGLE_APP_ID}

@@ -107,3 +107,19 @@ export ITSMP_FILE=${UPLOAD_DIR}/mybundle.itmsp
 export UPLOAD_CHECK_DIR="${BIN_DIRECTORY}/upload_check"
 export COVERAGE_DIR="${BIN_DIRECTORY}/coverage"
 
+if [[ ${LOCATION} == 'CI' ]]; then
+    if [[ ${COMMAND} == 'test-ui' ]]; then
+        DESTINATION="platform=iOS Simulator,name=iPhone SE,OS=10.0"
+    else
+        DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=10.0"
+    fi
+else
+    if [[ ${COMMAND} == 'test-ui' ]]; then
+        DESTINATION="platform=iOS Simulator,name=iPhone 6s,OS=10.0"
+    else
+        DESTINATION="platform=iOS Simulator,name=iPhone 5,OS=10.0"
+    fi
+fi
+
+export DESTINATION
+

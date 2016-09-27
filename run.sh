@@ -25,7 +25,7 @@ if [[ $ENVIRONMENT == "test" ]] && [[ $COMMAND == "deploy" ]]; then
 fi
 
 source scripts/environment-variables.sh || { echo "command failed"; exit 1; }
-sh scripts/install.sh || { echo "command failed"; exit 1; }
+sh scripts/init.sh || { echo "command failed"; exit 1; }
 source scripts/environment-files.sh || { echo "command failed"; exit 1; }
 
 if [[ $COMMAND == 'deploy' ]] && [[ $ENVIRONMENT == 'CI' ]]; then
