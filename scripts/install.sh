@@ -22,8 +22,8 @@ npm install
 
 gem install bundler
 bundle install
-pod repo update
-pod install --project-directory=ClassfitteriOS/
+#pod repo update
+#pod install --project-directory=ClassfitteriOS/
 
 rm -rf env/
 rm -rf bin/
