@@ -286,7 +286,6 @@
 					};
 					C639213A1D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
@@ -720,7 +719,7 @@
 				"BUNDLE_LOADER[arch=*]" = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = TQYB6VJLUN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -739,7 +738,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = TQYB6VJLUN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
