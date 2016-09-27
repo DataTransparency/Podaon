@@ -1,5 +1,9 @@
 #!/bin/sh -xe
 
+: "${LOCATION:?There must be a LOCATION environment variable set}"
+: "${FIREBASE_DIRECTORY_NAME:?There must be a FIREBASE_DIRECTORY_NAME environment variable set}"
+: "${XCODE_WORKSPACE_DIRECTORY_NAME:?There must be a XCODE_WORKSPACE_DIRECTORY_NAME environment variable set}"
+
 echo "Installing..."
 if [[ $LOCATION == "CI" ]]; then
     export PATH=/Users/buildservice/.rvm/gems/ruby-2.3.0/bin:/Users/buildservice/.rvm/gems/ruby-2.3.0@global/bin:/Users/buildservice/.rvm/rubies/ruby-2.3.0/bin:/Users/buildservice/.rvm/bin:/Users/buildservice/.nvm/versions/node/v6.5.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin
@@ -25,4 +29,5 @@ rm -rf env/
 rm -rf bin/
 
 rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*.*
+echo "cp ${WORKSPACE}/ProvisioningProfiles/*.* ~/Library/MobileDevice/Provisioning\ Profiles/"
 cp ${WORKSPACE}/ProvisioningProfiles/*.* ~/Library/MobileDevice/Provisioning\ Profiles/
