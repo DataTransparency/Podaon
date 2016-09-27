@@ -26,7 +26,18 @@ rsync -av --progress * $ENVIRONMENT_DIRECTORY/ --exclude 'bin' --exclude 'env' -
 #GETTING VERSION INFORMATION FROM payload
 touch $PAYLOAD_FILE
 echo ${payload} > ${PAYLOAD_FILE}
-export VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
+
+if [[ ${COMMAND} == 'deploy' && ${LOCATION} == 'CI' && ${ENVIRONMENT} == 'production' ]]; then
+    VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
+else
+    if [[ $COMMAND == 'deploy' ]]; then
+        VERSION_NUMBER=0.0.1
+    else
+        VERSION_NUMBER=0.0.0
+    fi
+fi
+
+export VERSION_NUMBER
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
 echo "v${VERSION_NUMBER}+${BUILD_NUMBER}" > ${FULL_VERSION_FILE}
 
@@ -45,3 +56,8 @@ cp $FIREBASE_ANALYTICS_PLIST $FIREBASE_ANALYTICS_FILE
 perl -i -pe "s/development-release/${ENVIRONMENT}-release/g" ${XCODE_PROJECT_FILE_PBXPROJ}
 perl -i -pe "s/development-debug/${ENVIRONMENT}-debug/g" ${XCODE_PROJECT_FILE_PBXPROJ}
 perl -i -pe "s/${BUNDLE_IDENTIFIER_BASE}-development/${BUNDLE_IDENTIFIER}/g" ${XCODE_PROJECT_FILE_PBXPROJ}
+
+cd $XCODE_WORKSPACE_DIRECTORY
+agvtool new-marketing-version ${VERSION_NUMBER}
+agvtool new-version -all ${BUILD_NUMBER}
+cd $WORKSPACE

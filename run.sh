@@ -19,7 +19,7 @@ if ([[ $ENVIRONMENT == "beta" ]] || [[ $ENVIRONMENT == "production" ]]) && ([[ $
     exit 1
 fi
 
-if [[ $ENVIRONMENT == "test" ]] && [[ $COMMAND == "deploy" ]]; then
+if ([[ $ENVIRONMENT == "test" ]] || [[ $ENVIRONMENT == "development" ]]) && [[ $COMMAND == "deploy" ]]; then
     echo "Invalid ENVIRNONMENT and COMMAND combination ${ENVIRONMENT} ${COMMAND}"
     exit 1
 fi

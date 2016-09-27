@@ -36,7 +36,7 @@ export XCODE_PROJECT_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcodeproj
 export XCODE_PROJECT_FILE_PBXPROJ="${XCODE_PROJECT_FILE}/project.pbxproj"
 
 if [[ ${ENVIRONMENT} == 'production' ]]; then
-    DISPLAY_NAME = "Classfitter"
+    DISPLAY_NAME="Classfitter"
 else
     DISPLAY_NAME="$(tr '[:lower:]' '[:upper:]' <<< ${ENVIRONMENT:0:1})${ENVIRONMENT:1}"
 fi
@@ -72,8 +72,10 @@ export VENDOR_ID=${BUNDLE_IDENTIFIER}
 
 if [[ ${COMMAND} == 'deploy' ]] || [[ ${COMMAND} == 'export' ]] || [[ ${COMMAND} == 'archive' ]] || [[ ${COMMAND} == 'build' ]]; then
     export COMPILE_TYPE=release
+    export COMPILE_TYPE_CAPITAL=Release
 else
     export COMPILE_TYPE=debug
+    export COMPILE_TYPE_CAPITAL=DEBUG
 fi
 
 export PROVISIONING_PROFILE_NAME="${ENVIRONMENT}-${COMPILE_TYPE}"

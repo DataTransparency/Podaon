@@ -5,7 +5,7 @@
         "sha": "af272ec6996786787b5b2200093f10245add88ed",
         "ref": "issue-3-update-coding-style",
         "task": "deploy",
-        "payload": "{\"version\":\"v0.0.4\"}",
+        "payload": "{\"version\":\"v0.0.1\"}",
         "environment": "test",
         "description": "Deployment to test requested",
         "creator": {
