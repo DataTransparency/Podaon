@@ -1,20 +1,14 @@
 #!/bin/sh -xe
 
-: "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
-: "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
-: "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
-: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
-: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
-: "${LOCATION:?There must be a LOCATION environment variable set}"
-: "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
-: "${ENVIRONMENT_DIRECTORY:?There must be a ENVIRONMENT_DIRECTORY environment variable set}"
-: "${VENDOR_ID:?There must be a VENDOR_ID environment variable set}"
-: "${ARCHIVE_FILE_NAME:?There must be a ARCHIVE_FILE_NAME environment variable set}"
+: "${VERSION_NUMBER:?There must be a VERSION_NUMBER environment variable set}"
+: "${BUILD_NUMBER:?There must be a BUILD_NUMBER environment variable set}"
 : "${ARCHIVE_DIR:?There must be a ARCHIVE_DIR environment variable set}"
+: "${XCODE_WORKSPACE_FILE:?There must be a XCODE_WORKSPACE_FILE environment variable set}"
+: "${BUILD_SCHEME:?There must be a BUILD_SCHEME environment variable set}"
+: "${ARCHIVE_FILE_NAME:?There must be a ARCHIVE_FILE_NAME environment variable set}"
+: "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 
-
-
-cd ClassfitteriOS
+cd ${XCODE_WORKSPACE_DIRECTORY}
 agvtool new-marketing-version ${VERSION_NUMBER}
 agvtool new-version -all ${BUILD_NUMBER}
 cd ..

@@ -21,16 +21,14 @@ alias cftool="${WORKSPACE}/node_modules/classfitter-tools/lib/index.js"
 mkdir -p $ENVIRONMENT_DIRECTORY
 rm -rf $BIN_DIRECTORY
 mkdir -p $BIN_DIRECTORY
-
+rsync -av --progress * $ENVIRONMENT_DIRECTORY/ --exclude 'bin' --exclude 'env' --exclude 'scripts' --exclude 'ProvisioningProfiles' --delete
 
 #GETTING VERSION INFORMATION FROM payload
 touch $PAYLOAD_FILE
 echo ${payload} > ${PAYLOAD_FILE}
-VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
+export VERSION_NUMBER=$(cftool getVersionFromPayload ${PAYLOAD_FILE})
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
 echo "v${VERSION_NUMBER}+${BUILD_NUMBER}" > ${FULL_VERSION_FILE}
-
-rsync -av --progress * $ENVIRONMENT_DIRECTORY/ --exclude 'bin' --exclude 'env'
 
 #FIREBASE CRASH
 rm -rf FIREBASE_SERVICE_FILE

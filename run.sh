@@ -1,7 +1,10 @@
 #!/bin/sh -xe
 
-COMMAND=$1
-ENVIRONMENT=$2
+security list-keychains
+#security unlock-keychain -u
+
+export COMMAND=$1
+export ENVIRONMENT=$2
 
 : "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
 : "${COMMAND:?There must be a COMMAND environment variable set}"
@@ -21,18 +24,15 @@ if [[ $ENVIRONMENT == "test" ]] && [[ $COMMAND == "deploy" ]]; then
     exit 1
 fi
 
-source scripts/environment-variables.sh
-sh scripts/install.sh
-source scripts/environment-files.sh
-
-: "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
-: "${PAYLOAD_FILE:?There must be a PAYLOAD_FILE environment variable set}"
-
+source scripts/environment-variables.sh || { echo "command failed"; exit 1; }
+sh scripts/install.sh || { echo "command failed"; exit 1; }
+source scripts/environment-files.sh || { echo "command failed"; exit 1; }
 
 if [[ $COMMAND == 'deploy' ]] && [[ $ENVIRONMENT == 'CI' ]]; then
+    : "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
+    : "${PAYLOAD_FILE:?There must be a PAYLOAD_FILE environment variable set}"
     cftool setGitHubDeploymentStatusWithPayload ${PAYLOAD_FILE} 'pending' 'running' ${BUILD_URL}
 fi
-
 
 cftool setGitHubStatus ${GITHUB_OWNER} ${GITHUB_REPO} ${GIT_COMMIT} ${GITHUB_STATUS_NAME} 'pending' 'running' ${BUILD_URL}
 
@@ -40,7 +40,7 @@ cat <<EOM > ${STATUS_FILE}
 failure
 EOM
 
-sh scripts/${COMMAND}.sh
+sh scripts/${COMMAND}.sh || { echo "command failed"; exit 1; }
 
 cat <<EOM > ${STATUS_FILE}
 success

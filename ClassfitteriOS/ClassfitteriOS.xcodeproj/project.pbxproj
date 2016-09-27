@@ -286,16 +286,15 @@
 					};
 					C639213A1D2ED1DB0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
 					C63921451D2ED1DC0025CFEB = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = TQYB6VJLUN;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = C63921241D2ED1DB0025CFEB;
 					};
 				};
@@ -720,7 +719,7 @@
 				"BUNDLE_LOADER[arch=*]" = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = TQYB6VJLUN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -739,7 +738,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = TQYB6VJLUN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -786,8 +785,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "03d07eb6-09ae-4931-829a-4029615c32a0";
+				PROVISIONING_PROFILE_SPECIFIER = UITests;
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;
@@ -822,8 +821,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Classfitter.ClassfitteriOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "03d07eb6-09ae-4931-829a-4029615c32a0";
+				PROVISIONING_PROFILE_SPECIFIER = UITests;
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ClassfitteriOS;
 				USES_XCTRUNNER = YES;

@@ -1,19 +1,17 @@
 #!/bin/sh -xe
 
-sh scripts/export.sh
+sh scripts/export.sh || { echo "command failed"; exit 1; }
 
-: "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
-: "${BUILD_URL:?There must be a BUILD_URL environment variable set}"
-: "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
-: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
-: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
 : "${LOCATION:?There must be a LOCATION environment variable set}"
 : "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
-: "${ENVIRONMENT_DIRECTORY:?There must be a ENVIRONMENT_DIRECTORY environment variable set}"
 : "${ITSMP_FILE:?There must be a ITSMP_FILE environment variable set}"
 : "${ITUNES_USERNAME:?There must be a ITUNES_USERNAME environment variable set}"
 : "${ITUNES_PASSWORD:?There must be a ITUNES_PASSWORD environment variable set}"
-
+: "${VERSION_NUMBER:?There must be a VERSION_NUMBER environment variable set}"
+: "${BUILD_NUMBER:?There must be a BUILD_NUMBER environment variable set}"
+: "${GITHUB_TOKEN:?There must be a GITHUB_TOKEN environment variable set}"
+: "${GITHUB_OWNER:?There must be a GITHUB_OWNER environment variable set}"
+: "${GITHUB_REPO:?There must be a GITHUB_REPO environment variable set}"
 
 if [[ ${LOCATION} == 'CI' ]] || [[ ${ENVIRONMENT} == 'development' ]]; then
 	#UPLOAD
