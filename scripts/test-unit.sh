@@ -11,7 +11,7 @@ echo "THE PRODUCT_BUNDLE_IDENTIFIER is ${BUNDLE_IDENTIFIER}"
 
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 
-/usr/bin/xcodebuild clean test -scheme ${UNIT_TEST_SCHEME} -derivedDataPath ${BIN_DIRECTORY} -workspace ${XCODE_WORKSPACE_FILE} -configuration ${COMPILE_TYPE} -destination "${DESTINATION}" GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
+/usr/bin/xcodebuild clean test -scheme ${UNIT_TEST_SCHEME} -derivedDataPath ${BIN_DIRECTORY} -workspace ${XCODE_WORKSPACE_FILE} -configuration Debug -destination "${DESTINATION}" GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
 
 mv test-reports $TEST_REPORTS_FOLDER/
 gcovr --object-directory=${BIN_DIRECTORY}/Logs/Test/ --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"

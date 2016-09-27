@@ -72,10 +72,8 @@ export VENDOR_ID=${BUNDLE_IDENTIFIER}
 
 if [[ ${COMMAND} == 'deploy' ]] || [[ ${COMMAND} == 'export' ]] || [[ ${COMMAND} == 'archive' ]] || [[ ${COMMAND} == 'build' ]]; then
     export COMPILE_TYPE=release
-    export COMPILE_TYPE_CAPITAL=Release
 else
     export COMPILE_TYPE=debug
-    export COMPILE_TYPE_CAPITAL=DEBUG
 fi
 
 export PROVISIONING_PROFILE_NAME="${ENVIRONMENT}-${COMPILE_TYPE}"
