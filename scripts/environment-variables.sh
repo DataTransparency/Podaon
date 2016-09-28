@@ -6,6 +6,8 @@ export TEAMID=TQYB6VJLUN
 export PROVIDER=JamesWOOD1426797195
 export GITHUB_REPO=classfitter
 export GITHUB_OWNER=classfitter
+export PRODUCT_NAME=Podaon
+export PRODUCT_NAME_LOWER=podaon
 
 export BUILD_SCHEME="ClassfitteriOS"
 export UI_TEST_SCHEME="UITests"
@@ -36,7 +38,7 @@ export XCODE_PROJECT_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcodeproj
 export XCODE_PROJECT_FILE_PBXPROJ="${XCODE_PROJECT_FILE}/project.pbxproj"
 
 if [[ ${ENVIRONMENT} == 'production' ]]; then
-    DISPLAY_NAME="Classfitter"
+    DISPLAY_NAME="${PRODUCT_NAME}"
 else
     DISPLAY_NAME="$(tr '[:lower:]' '[:upper:]' <<< ${ENVIRONMENT:0:1})${ENVIRONMENT:1}"
 fi
@@ -63,7 +65,7 @@ export PAYLOAD_FILE="${BIN_DIRECTORY}/payload.json"
 export GITHUB_STATUS_NAME="${COMMAND}/${ENVIRONMENT}"
 
 export STATUS_FILE="${BIN_DIRECTORY}/status.txt"
-export BUNDLE_IDENTIFIER_BASE="com.classfitter.classfitterios"
+export BUNDLE_IDENTIFIER_BASE="com.podaon.ios"
 
 export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
 export VENDOR_ID=${BUNDLE_IDENTIFIER}
@@ -80,20 +82,20 @@ echo "The BUNDLE_IDENTIFIER AND VENDOR_ID are ${BUNDLE_IDENTIFIER}"
 echo "The PROVISIONING_PROFILE_NAME is ${PROVISIONING_PROFILE_NAME}"
 
 if [[ ${ENVIRONMENT} == 'production' ]]; then
-    export APPLEID=1159462827
-    export GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
+    export APPLEID=1159838083
+    export GOOGLE_APP_ID=1:785675090007:ios:3cd6ed1bd536e6dd
 fi
 if [[ ${ENVIRONMENT} == 'beta' ]]; then
-    export APPLEID=1158001572
-    export GOOGLE_APP_ID=1:287953837448:ios:b9e09ecb03cfb4ea
+    export APPLEID=1159838089
+    export GOOGLE_APP_ID=1:785675090007:ios:ee7283f955dd5540
 fi
 if [[ ${ENVIRONMENT} == 'development' ]]; then
-    export APPLEID=1157576885
-    export GOOGLE_APP_ID=1:1096116560042:ios:d781d781c5c28516
+    export APPLEID=1159838102
+    export GOOGLE_APP_ID=1:142144125321:ios:d2cea722aa24f417
 fi
 if [[ ${ENVIRONMENT} == 'test' ]]; then
-    export APPLEID=1157598323
-    export GOOGLE_APP_ID=1:455177861745:ios:a2ebd77cf2c9b416
+    export APPLEID=1159838093
+    export GOOGLE_APP_ID=1:1071308776983:ios:01c2ebec2e00b55b
 fi
 
 export ARCHIVE_DIR="${BIN_DIRECTORY}/archive"

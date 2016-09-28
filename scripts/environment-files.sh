@@ -56,8 +56,8 @@ cp $FIREBASE_ANALYTICS_PLIST $FIREBASE_ANALYTICS_FILE
 /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName ${DISPLAY_NAME}" ${IOS_APP_DIRECTORY}/Info.plist
 /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BUNDLE_IDENTIFIER}" ${IOS_APP_DIRECTORY}/Info.plist
 
-perl -i -pe "s/development-release/${ENVIRONMENT}-release/g" ${XCODE_PROJECT_FILE_PBXPROJ}
-perl -i -pe "s/development-debug/${ENVIRONMENT}-debug/g" ${XCODE_PROJECT_FILE_PBXPROJ}
+perl -i -pe "s/${PRODUCT_NAME_LOWER}-development-release/${PRODUCT_NAME_LOWER}-${ENVIRONMENT}-release/g" ${XCODE_PROJECT_FILE_PBXPROJ}
+perl -i -pe "s/${PRODUCT_NAME_LOWER}-development-debug/${PRODUCT_NAME_LOWER}-${ENVIRONMENT}-debug/g" ${XCODE_PROJECT_FILE_PBXPROJ}
 perl -i -pe "s/${BUNDLE_IDENTIFIER_BASE}-development/${BUNDLE_IDENTIFIER}/g" ${XCODE_PROJECT_FILE_PBXPROJ}
 
 cd $XCODE_WORKSPACE_DIRECTORY
