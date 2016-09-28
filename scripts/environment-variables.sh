@@ -36,7 +36,7 @@ export XCODE_PROJECT_FILE="${XCODE_WORKSPACE_DIRECTORY}/ClassfitteriOS.xcodeproj
 export XCODE_PROJECT_FILE_PBXPROJ="${XCODE_PROJECT_FILE}/project.pbxproj"
 
 if [[ ${ENVIRONMENT} == 'production' ]]; then
-    DISPLAY_NAME = "Classfitter"
+    DISPLAY_NAME="Classfitter"
 else
     DISPLAY_NAME="$(tr '[:lower:]' '[:upper:]' <<< ${ENVIRONMENT:0:1})${ENVIRONMENT:1}"
 fi
@@ -63,10 +63,8 @@ export PAYLOAD_FILE="${BIN_DIRECTORY}/payload.json"
 export GITHUB_STATUS_NAME="${COMMAND}/${ENVIRONMENT}"
 
 export STATUS_FILE="${BIN_DIRECTORY}/status.txt"
-
-export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
-
 export BUNDLE_IDENTIFIER_BASE="com.classfitter.classfitterios"
+
 export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
 export VENDOR_ID=${BUNDLE_IDENTIFIER}
 
@@ -82,7 +80,7 @@ echo "The BUNDLE_IDENTIFIER AND VENDOR_ID are ${BUNDLE_IDENTIFIER}"
 echo "The PROVISIONING_PROFILE_NAME is ${PROVISIONING_PROFILE_NAME}"
 
 if [[ ${ENVIRONMENT} == 'production' ]]; then
-    export APPLEID=1132280754
+    export APPLEID=1159462827
     export GOOGLE_APP_ID=1:287953837448:ios:bc5a416402e93b61
 fi
 if [[ ${ENVIRONMENT} == 'beta' ]]; then
@@ -106,4 +104,25 @@ export UPLOAD_DIR="${BIN_DIRECTORY}/upload"
 export ITSMP_FILE=${UPLOAD_DIR}/mybundle.itmsp
 export UPLOAD_CHECK_DIR="${BIN_DIRECTORY}/upload_check"
 export COVERAGE_DIR="${BIN_DIRECTORY}/coverage"
+
+export UNIT_TEST_RESULTS_FOLDER="${BIN_DIRECTORY}/test-unit-results"
+export UI_TEST_RESULTS_FOLDER="${BIN_DIRECTORY}/test-ui-results"
+export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
+export OCUNIT2JUNIT_FOLDER="${WORKSPACE}/test-reports"
+
+if [[ ${LOCATION} == 'CI' ]]; then
+    if [[ ${COMMAND} == 'test-ui' ]]; then
+        DESTINATION="platform=iOS Simulator,name=iPhone SE,OS=10.0"
+    else
+        DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=10.0"
+    fi
+else
+    if [[ ${COMMAND} == 'test-ui' ]]; then
+        DESTINATION="platform=iOS Simulator,name=iPhone 6s,OS=10.0"
+    else
+        DESTINATION="platform=iOS Simulator,name=iPhone 5,OS=10.0"
+    fi
+fi
+
+export DESTINATION
 

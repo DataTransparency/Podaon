@@ -13,19 +13,28 @@ export ENVIRONMENT=$2
 echo "The ENVIRONMENT is ${ENVIRONMENT}"
 echo "The COMMAND is ${COMMAND}"
 echo "The LOCATION is ${LOCATION}"
+if ([[ $ENVIRONMENT != "beta" ]] && [[ $ENVIRONMENT != "production" ]] && [[ $ENVIRONMENT != "development" ]] && [[ $ENVIRONMENT != "test" ]]); then
+    echo "Invalid ENVIRNONMENT value ${ENVIRONMENT}"
+    exit 1
+fi
+
+if ([[ $COMMAND != "export" ]] && [[ $COMMAND != "deploy" ]] && [[ $COMMAND != "archive" ]] && [[ $COMMAND != "test-ui" ]] && [[ $COMMAND != "test-unit" ]] && [[ $COMMAND != "debug" ]]); then
+    echo "Invalid ENVIRNONMENT value ${ENVIRONMENT}"
+    exit 1
+fi
 
 if ([[ $ENVIRONMENT == "beta" ]] || [[ $ENVIRONMENT == "production" ]]) && ([[ $COMMAND == "test-ui" ]] || [[ $COMMAND == "test-unit" ]]); then
     echo "Invalid ENVIRNONMENT and COMMAND combination ${ENVIRONMENT} ${COMMAND}"
     exit 1
 fi
 
-if [[ $ENVIRONMENT == "test" ]] && [[ $COMMAND == "deploy" ]]; then
+if ([[ $ENVIRONMENT == "test" ]] || [[ $ENVIRONMENT == "development" ]]) && [[ $COMMAND == "deploy" ]]; then
     echo "Invalid ENVIRNONMENT and COMMAND combination ${ENVIRONMENT} ${COMMAND}"
     exit 1
 fi
 
 source scripts/environment-variables.sh || { echo "command failed"; exit 1; }
-sh scripts/install.sh || { echo "command failed"; exit 1; }
+sh scripts/init.sh || { echo "command failed"; exit 1; }
 source scripts/environment-files.sh || { echo "command failed"; exit 1; }
 
 if [[ $COMMAND == 'deploy' ]] && [[ $ENVIRONMENT == 'CI' ]]; then

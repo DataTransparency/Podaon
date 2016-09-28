@@ -4,24 +4,18 @@
 : "${WORKSPACE:?There must be a WORKSPACE environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 : "${TEST_RESULTS_FILE:?There must be a TEST_RESULTS_FILE environment variable set}"
+: "${UNIT_TEST_RESULTS_FOLDER:?There must be a UNIT_TEST_RESULTS_FOLDER environment variable set}"
+: "${OCUNIT2JUNIT_FOLDER:?There must be a OCUNIT2JUNIT_FOLDER environment variable set}"
 
-
-
-TEST_REPORTS_FOLDER="${BIN_DIRECTORY}/reports"
+mkdir ${UNIT_TEST_RESULTS_FOLDER}
 mkdir ${COVERAGE_DIR}
-echo "THE PRODUCT_BUNDLE_IDENTIFIER is ${BUNDLE_IDENTIFIER}"
 
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
+/usr/bin/xcodebuild test -scheme ${UNIT_TEST_SCHEME} -derivedDataPath ${UNIT_TEST_RESULTS_FOLDER} -workspace ${XCODE_WORKSPACE_FILE} -configuration Debug -destination "${DESTINATION}" GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | bundle exec ocunit2junit
 
-if [[ ${LOCATION} == 'CI' ]]; then
-    DESTINATION="platform=iOS Simulator,name=iPhone 6s,OS=10.0"
-else
-    DESTINATION="platform=iOS Simulator,name=iPhone 5,OS=10.0"
-fi
+defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 1
 
-/usr/bin/xcodebuild test -scheme ${UNIT_TEST_SCHEME} -derivedDataPath ${BIN_DIRECTORY} -workspace ${XCODE_WORKSPACE_FILE} -configuration Debug -destination "${DESTINATION}" GOOGLE_APP_ID=${GOOGLE_APP_ID} -enableCodeCoverage YES | ocunit2junit
-
-mv test-reports $TEST_REPORTS_FOLDER/
-gcovr --object-directory=${BIN_DIRECTORY}/Logs/Test/ --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"
-
-mv $TEST_REPORTS_FOLDER/TEST-ClassfitteriOSTests.xml $TEST_RESULTS_FILE
+echo ${UNIT_TEST_RESULTS_FOLDER}/Logs/Test/
+echo "${COVERAGE_DIR}/coverage.xml"
+gcovr --object-directory=${UNIT_TEST_RESULTS_FOLDER}/Logs/Test/ --root=. --xml-pretty --gcov-exclude='.*#(?:ConnectSDKTests|Frameworks)#.*' --print-summary --output="${COVERAGE_DIR}/coverage.xml"
+mv ${OCUNIT2JUNIT_FOLDER}/TEST-ClassfitteriOSTests.xml $TEST_RESULTS_FILE

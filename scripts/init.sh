@@ -25,8 +25,5 @@ bundle install
 pod repo update
 pod install --project-directory=ClassfitteriOS/
 
-rm -rf env/
-rm -rf bin/
-
 rm -Rf ~/Library/MobileDevice/Provisioning\ Profiles/*.*
 rsync -av --progress ./ProvisioningProfiles/* ~/Library/MobileDevice/Provisioning\ Profiles/
