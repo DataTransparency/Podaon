@@ -106,9 +106,8 @@ export UPLOAD_CHECK_DIR="${BIN_DIRECTORY}/upload_check"
 export COVERAGE_DIR="${BIN_DIRECTORY}/coverage"
 
 export UNIT_TEST_RESULTS_FOLDER="${BIN_DIRECTORY}/test-unit-results"
-export UNIT_TEST_RESULTS_FILE="${BIN_DIRECTORY}/test-unit-report.xml"
 export UI_TEST_RESULTS_FOLDER="${BIN_DIRECTORY}/test-ui-results"
-export UI_TEST_RESULTS_FILE="${BIN_DIRECTORY}/test-ui-report.xml"
+export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
 export OCUNIT2JUNIT_FOLDER="${WORKSPACE}/test-reports"
 
 if [[ ${LOCATION} == 'CI' ]]; then

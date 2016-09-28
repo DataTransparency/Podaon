@@ -6,7 +6,7 @@
 : "${DESTINATION:?There must be a DESTINATION environment variable set}"
 : "${GOOGLE_APP_ID:?There must be a GOOGLE_APP_ID environment variable set}"
 : "${UI_TEST_RESULTS_FOLDER:?There must be a UI_TEST_RESULTS_FOLDER environment variable set}"
-: "${UI_TEST_RESULTS_FILE:?There must be a UI_TEST_RESULTS_FILE environment variable set}"
+: "${TEST_RESULTS_FILE:?There must be a TEST_RESULTS_FILE environment variable set}"
 : "${OCUNIT2JUNIT_FOLDER:?There must be a OCUNIT2JUNIT_FOLDER environment variable set}"
 
 mkdir ${UI_TEST_RESULTS_FOLDER}
@@ -16,4 +16,4 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0
 
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 1
 
-mv ${OCUNIT2JUNIT_FOLDER}/TEST-ClassfitteriOSUITests.xml $UI_TEST_RESULTS_FILE
+mv ${OCUNIT2JUNIT_FOLDER}/TEST-ClassfitteriOSUITests.xml $TEST_RESULTS_FILE
