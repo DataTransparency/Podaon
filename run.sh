@@ -13,6 +13,15 @@ export ENVIRONMENT=$2
 echo "The ENVIRONMENT is ${ENVIRONMENT}"
 echo "The COMMAND is ${COMMAND}"
 echo "The LOCATION is ${LOCATION}"
+if ([[ $ENVIRONMENT != "beta" ]] && [[ $ENVIRONMENT != "production" ]] && [[ $ENVIRONMENT != "development" ]] && [[ $ENVIRONMENT != "test" ]]); then
+    echo "Invalid ENVIRNONMENT value ${ENVIRONMENT}"
+    exit 1
+fi
+
+if ([[ $COMMAND != "export" ]] && [[ $COMMAND != "deploy" ]] && [[ $COMMAND != "archive" ]] && [[ $COMMAND != "test-ui" ]] && [[ $COMMAND != "test-unit" ]] && [[ $COMMAND != "debug" ]]); then
+    echo "Invalid ENVIRNONMENT value ${ENVIRONMENT}"
+    exit 1
+fi
 
 if ([[ $ENVIRONMENT == "beta" ]] || [[ $ENVIRONMENT == "production" ]]) && ([[ $COMMAND == "test-ui" ]] || [[ $COMMAND == "test-unit" ]]); then
     echo "Invalid ENVIRNONMENT and COMMAND combination ${ENVIRONMENT} ${COMMAND}"

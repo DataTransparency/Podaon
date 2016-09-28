@@ -22,6 +22,7 @@ rm -rf $ENVIRONMENT_DIRECTORY
 mkdir -p $ENVIRONMENT_DIRECTORY
 rm -rf $BIN_DIRECTORY
 mkdir -p $BIN_DIRECTORY
+rm -rv $OCUNIT2JUNIT_FOLDER
 rsync -av --progress * $ENVIRONMENT_DIRECTORY/ --exclude 'bin' --exclude 'env' --exclude 'scripts' --exclude 'ProvisioningProfiles' --delete
 
 #GETTING VERSION INFORMATION FROM payload
@@ -39,6 +40,7 @@ else
 fi
 
 export VERSION_NUMBER
+
 echo "${VERSION_NUMBER}" > ${VERSION_FILE}
 echo "v${VERSION_NUMBER}+${BUILD_NUMBER}" > ${FULL_VERSION_FILE}
 

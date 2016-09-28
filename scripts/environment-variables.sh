@@ -63,9 +63,6 @@ export PAYLOAD_FILE="${BIN_DIRECTORY}/payload.json"
 export GITHUB_STATUS_NAME="${COMMAND}/${ENVIRONMENT}"
 
 export STATUS_FILE="${BIN_DIRECTORY}/status.txt"
-
-export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
-
 export BUNDLE_IDENTIFIER_BASE="com.classfitter.classfitterios"
 
 export BUNDLE_IDENTIFIER="${BUNDLE_IDENTIFIER_BASE}-${ENVIRONMENT}"
@@ -107,7 +104,12 @@ export UPLOAD_DIR="${BIN_DIRECTORY}/upload"
 export ITSMP_FILE=${UPLOAD_DIR}/mybundle.itmsp
 export UPLOAD_CHECK_DIR="${BIN_DIRECTORY}/upload_check"
 export COVERAGE_DIR="${BIN_DIRECTORY}/coverage"
-export TEST_REPORTS_FOLDER="${BIN_DIRECTORY}/reports"
+
+export UNIT_TEST_RESULTS_FOLDER="${BIN_DIRECTORY}/test-unit-results"
+export UNIT_TEST_RESULTS_FILE="${BIN_DIRECTORY}/test-unit-report.xml"
+export UI_TEST_RESULTS_FOLDER="${BIN_DIRECTORY}/test-ui-results"
+export UI_TEST_RESULTS_FILE="${BIN_DIRECTORY}/test-ui-report.xml"
+export OCUNIT2JUNIT_FOLDER="${WORKSPACE}/test-reports"
 
 if [[ ${LOCATION} == 'CI' ]]; then
     if [[ ${COMMAND} == 'test-ui' ]]; then

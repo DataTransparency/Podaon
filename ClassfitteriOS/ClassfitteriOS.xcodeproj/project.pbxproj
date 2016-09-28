@@ -717,7 +717,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"BUNDLE_LOADER[arch=*]" = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
@@ -736,7 +736,7 @@
 			baseConfigurationReference = 33E3C41A7D20D437E5ECD7C1 /* Pods-ClassfitteriOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ClassfitteriOSTests/Info.plist;
