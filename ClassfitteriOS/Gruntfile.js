@@ -20,6 +20,7 @@ var destinationFolder = __dirname + '/stage/';
 
 var tasks = [];
 var images = [
+['icon.svg', 20, 20, 'icons/Icon20.png'],
 ['icon.svg', 29, 29, 'icons/Icon29.png'],
 ['icon.svg', 40, 40, 'icons/Icon40.png'],
 ['icon.svg', 58, 58, 'icons/Icon58.png'],
