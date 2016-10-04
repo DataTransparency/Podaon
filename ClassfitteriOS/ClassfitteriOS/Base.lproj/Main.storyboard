@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T3g-X5-mEH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T3g-X5-mEH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -142,7 +142,6 @@
         <!--Locker room-->
         <scene sceneID="Wx9-0m-6WL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kfM-wY-AeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LockerRoomUIViewController" title="Locker room" id="Scl-vc-vsc" customClass="LockerRoomUIViewController" customModule="Classfitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cTh-9c-eoi"/>
@@ -156,7 +155,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTableCell" rowHeight="69" id="att-Yl-xva" customClass="MessageTableCell" customModule="Classfitter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="69"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="att-Yl-xva" id="AcW-J0-uAf">
                                             <frame key="frameInset" width="375" height="69"/>
@@ -262,6 +261,7 @@
                         <outlet property="newMessage" destination="Jy3-Da-UP3" id="rva-7f-9s4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kfM-wY-AeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1677.5999999999999" y="-1159.9700149925038"/>
         </scene>
@@ -324,6 +324,20 @@
                                     <constraint firstAttribute="height" constant="48" id="zf4-no-sQp"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdw-3B-xca" customClass="AVCamPreviewView" customModule="Classfitter" customModuleProvider="target">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="NKE-96-m7z"/>
+                                    <constraint firstAttribute="width" constant="103" id="eMz-nc-9bs"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yAp-UX-NFm">
+                                <frame key="frameInset" minX="102" minY="313" width="97" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="TWG-W9-Kyb"/>
+                                    <constraint firstAttribute="height" constant="62" id="h8F-BJ-W72"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -331,21 +345,27 @@
                             <constraint firstItem="TNn-pt-BtN" firstAttribute="top" secondItem="o35-Eg-Hsv" secondAttribute="bottom" id="GPl-IH-pGt"/>
                             <constraint firstItem="kga-8W-aOH" firstAttribute="width" secondItem="2gf-dZ-yya" secondAttribute="width" id="J3G-LV-3ew"/>
                             <constraint firstItem="kga-8W-aOH" firstAttribute="top" secondItem="Ei2-uz-dPN" secondAttribute="bottom" constant="-20" id="KQQ-yX-ATW"/>
+                            <constraint firstItem="TNn-pt-BtN" firstAttribute="top" secondItem="yAp-UX-NFm" secondAttribute="bottom" id="N4p-B8-JJP"/>
+                            <constraint firstItem="TNn-pt-BtN" firstAttribute="top" secondItem="Mdw-3B-xca" secondAttribute="bottom" id="SnD-GB-Saz"/>
                             <constraint firstItem="TNn-pt-BtN" firstAttribute="top" secondItem="kp1-Vd-d0z" secondAttribute="bottom" id="aw3-zn-XgC"/>
                             <constraint firstItem="o35-Eg-Hsv" firstAttribute="centerX" secondItem="2gf-dZ-yya" secondAttribute="centerX" id="by6-1H-e1U"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kp1-Vd-d0z" secondAttribute="trailing" constant="-20" id="eSX-FO-oWo"/>
                             <constraint firstItem="kp1-Vd-d0z" firstAttribute="top" secondItem="kga-8W-aOH" secondAttribute="bottom" id="miH-Sw-RuO"/>
+                            <constraint firstItem="Mdw-3B-xca" firstAttribute="leading" secondItem="2gf-dZ-yya" secondAttribute="leadingMargin" constant="-20" id="p4e-cD-k8O"/>
+                            <constraint firstItem="yAp-UX-NFm" firstAttribute="leading" secondItem="Mdw-3B-xca" secondAttribute="trailing" id="wvB-uH-8Pq"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="667" height="375"/>
                     <connections>
+                        <outlet property="cameraView" destination="Mdw-3B-xca" id="2cv-eG-BFG"/>
+                        <outlet property="capturedView" destination="yAp-UX-NFm" id="1Dk-Ha-hQa"/>
                         <outlet property="myView" destination="2gf-dZ-yya" id="hcl-di-TkV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgm-zj-dup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-156" y="-332.38380809595208"/>
+            <point key="canvasLocation" x="2630" y="-1280"/>
         </scene>
         <!--ResultsUI View Controller-->
         <scene sceneID="Xzh-m5-k0f">
@@ -380,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBv-JA-vwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="905" y="-344"/>
+            <point key="canvasLocation" x="1092" y="-332"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mgy-Hy-0LB">
