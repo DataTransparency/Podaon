@@ -142,7 +142,7 @@
         <!--Locker room-->
         <scene sceneID="Wx9-0m-6WL">
             <objects>
-                <viewController storyboardIdentifier="LockerRoomUIViewController" title="Locker room" id="Scl-vc-vsc" customClass="LockerRoomUIViewController" customModule="Classfitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LockerRoomUIViewController" title="Locker room" automaticallyAdjustsScrollViewInsets="NO" id="Scl-vc-vsc" customClass="LockerRoomUIViewController" customModule="Classfitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cTh-9c-eoi"/>
                         <viewControllerLayoutGuide type="bottom" id="xB0-0L-cYR"/>
@@ -151,7 +151,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8dP-we-tOm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8dP-we-tOm">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTableCell" rowHeight="69" id="att-Yl-xva" customClass="MessageTableCell" customModule="Classfitter" customModuleProvider="target">
@@ -311,7 +311,7 @@
                                         <rect key="frame" x="0.0" y="28" width="69" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t1w-11-pt5" id="X0w-Ax-AE5">
-                                            <frame key="frameInset" width="69" height="43"/>
+                                            <frame key="frameInset" width="69" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
