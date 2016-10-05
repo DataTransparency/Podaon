@@ -62,7 +62,7 @@ else
 fi
 
 export PAYLOAD_FILE="${BIN_DIRECTORY}/payload.json"
-export GITHUB_STATUS_NAME="${COMMAND}/${ENVIRONMENT}"
+export GITHUB_STATUS_NAME="${COMMAND}_${ENVIRONMENT}"
 
 export STATUS_FILE="${BIN_DIRECTORY}/status.txt"
 export BUNDLE_IDENTIFIER_BASE="com.podaon.ios"

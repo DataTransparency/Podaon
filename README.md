@@ -14,10 +14,9 @@ Project
 
 Build
 
-[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/build.description.svg?label=build)]()
-[![GitHub status](http://jamesjwood-shields.herokuapp.com/github/status/classfitter/classfitter/unit-tests.description.svg?label=unit%20tests)]()
-[![GitHub status](http://jamesjwood-shields.herokuapp.com/github/status/classfitter/classfitter/ui-tests.description.svg?label=ui%20tests)]()
-[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/coverage.description.svg?label=coverage)]()
+[![GitHub status](http://jamesjwood-shields.heroku.com/github/status/classfitter/classfitter/export_development.description.svg?label=build)]()
+[![GitHub status](http://jamesjwood-shields.herokuapp.com/github/status/classfitter/classfitter/test-unit_test.description.svg?label=unit%20tests)]()
+[![GitHub status](http://jamesjwood-shields.herokuapp.com/github/status/classfitter/classfitter/test-ui_test.description.svg?label=ui%20tests)]()
 
 Classfitter Project
 
