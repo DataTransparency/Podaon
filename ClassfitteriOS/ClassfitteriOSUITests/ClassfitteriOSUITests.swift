@@ -55,7 +55,10 @@ class ClassfitteriOSUITests: XCTestCase {
         txtNewMessage.tap()
         txtNewMessage.typeText("Hello World")
         app.buttons["Send"].tap()
+        app.navigationBars["Locker room"].buttons["Start"].tap()
+        let doneButton = app.buttons["Done"]
+        doneButton.tap()
+        doneButton.tap()
         app.navigationBars["Locker room"].children(matching: .button).matching(identifier: "Back").element(boundBy: 0).tap()
-        
     }
 }
