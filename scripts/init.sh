@@ -22,6 +22,7 @@ npm install
 
 gem install bundler
 bundle install
+bundler update cocoapods
 pod repo update
 pod install --project-directory=ClassfitteriOS/
 

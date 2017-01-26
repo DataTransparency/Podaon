@@ -6,8 +6,8 @@ security list-keychains
 export COMMAND=$1
 export ENVIRONMENT=$2
 
-: "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
 : "${COMMAND:?There must be a COMMAND environment variable set}"
+: "${ENVIRONMENT:?There must be a ENVIRONMENT environment variable set}"
 : "${LOCATION:?There must be a LOCATION environment variable set}"
 
 echo "The ENVIRONMENT is ${ENVIRONMENT}"
@@ -19,7 +19,7 @@ if ([[ $ENVIRONMENT != "beta" ]] && [[ $ENVIRONMENT != "production" ]] && [[ $EN
 fi
 
 if ([[ $COMMAND != "export" ]] && [[ $COMMAND != "deploy" ]] && [[ $COMMAND != "archive" ]] && [[ $COMMAND != "test-ui" ]] && [[ $COMMAND != "test-unit" ]] && [[ $COMMAND != "debug" ]]); then
-    echo "Invalid ENVIRNONMENT value ${ENVIRONMENT}"
+    echo "Invalid COMMAND value ${COMMAND}"
     exit 1
 fi
 

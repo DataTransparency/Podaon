@@ -41,7 +41,9 @@ class ClassfitteriOSUITests: XCTestCase {
     }
 
     func testBasicNavigation() {
+        XCUIDevice.shared().orientation = .portrait
         let app = XCUIApplication()
+        app.tabBars.buttons["Workout"].tap()
         app.buttons["Sign out"].tap()
         app.buttons["Enter"].tap()
         let txtfirstnameTextField = app.textFields["txtFirstName"]

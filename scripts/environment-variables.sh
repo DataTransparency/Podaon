@@ -112,17 +112,19 @@ export UI_TEST_RESULTS_FOLDER="${BIN_DIRECTORY}/test-ui-results"
 export TEST_RESULTS_FILE="${BIN_DIRECTORY}/results.xml"
 export OCUNIT2JUNIT_FOLDER="${WORKSPACE}/test-reports"
 
+export IOS_VERSION="10.2"
+
 if [[ ${LOCATION} == 'CI' ]]; then
     if [[ ${COMMAND} == 'test-ui' ]]; then
-        DESTINATION="platform=iOS Simulator,name=iPhone SE,OS=10.0"
+        DESTINATION="platform=iOS Simulator,name=iPhone SE,OS=${IOS_VERSION}"
     else
-        DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=10.0"
+        DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=${IOS_VERSION}"
     fi
 else
     if [[ ${COMMAND} == 'test-ui' ]]; then
-        DESTINATION="platform=iOS Simulator,name=iPhone 6s,OS=10.0"
+        DESTINATION="platform=iOS Simulator,name=iPhone 6s,OS=${IOS_VERSION}"
     else
-        DESTINATION="platform=iOS Simulator,name=iPhone 5,OS=10.0"
+        DESTINATION="platform=iOS Simulator,name=iPhone 5,OS=${IOS_VERSION}"
     fi
 fi
 
